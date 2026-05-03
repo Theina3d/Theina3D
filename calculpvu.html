@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theina3D Pro | Calculateur & Devis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        .grid-main { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; }
+        .section-title { color: var(--violet); border-bottom: 2px solid var(--gris-fond); padding-bottom: 8px; margin-top: 25px; margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; font-family: var(--font-titre); }
+        .highlight-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.95rem; transition: var(--transition); font-family: var(--font-corps); margin-bottom: 10px; box-sizing: border-box; }
+        .highlight-input:focus { border-color: var(--orange); outline: none; box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.2); }
+        .hidden { display: none !important; }
+        
+        /* Zone de résultat style image_d4de33_2.png */
+        .result-zone { background: #222; color: white; padding: 30px; border-radius: 20px; position: sticky; top: 100px; height: fit-content; border: 1px solid rgba(255,255,255,0.05); }
+        .price-input-container { display: flex; justify-content: center; align-items: baseline; gap: 10px; margin-bottom: 5px; }
+        #input_total_ht { background: transparent; border: none; color: #ff914d; font-size: 3.5rem; text-align: center; font-family: var(--font-titre); width: 200px; outline: none; border-bottom: 2px dashed rgba(255,145,77,0.3); }
+
+        .cost-breakdown { font-size: 0.9rem; color: #eee; margin-bottom: 15px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(255,255,255,0.02); }
+        .cost-line { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .revient-line { display:flex; justify-content: space-between; padding: 10px 0; color: #ff914d; font-weight: bold; border-top: 1px solid #333; margin-top: 15px;}
+        
+        .net-box { background: #3d342d; padding: 18px; border-radius: 12px; margin-top: 15px; display: flex; justify-content: space-between; font-weight: bold; font-size: 1.1rem; }
+        .btn-devis { background: #ff914d; color: white; border: none; width: 100%; padding: 18px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 20px; text-transform: uppercase; }
+        .btn-save { background: var(--violet); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; margin-bottom: 10px; }
+        
+        @media (max-width: 768px) { .grid-main { grid-template-columns: 1fr; } .result-zone { position: static; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container nav-content">
+        <a href="index.html" class="logo-zone">
+            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
+            <span class="logo-nom">Theina<span>3D</span></span>
+        </a>
+    </div>
+</nav>
+
+<div class="container" style="padding: 120px 20px 60px 20px; max-width: 1200px;">
+    <div class="grid-main">
+        <div class="card">
+            <h2 style="margin-bottom: 20px;">Éditeur de Devis</h2>
+
+            <!-- CLIENTS -->
+            <div class="section-title">👤 Client</div>
+            <select id="client_list" class="highlight-input" onchange="loadClient()"></select>
+            <div class="grid-3">
+                <input type="text" id="client_name" class="highlight-input" placeholder="Nom">
+                <input type="text" id="client_contact" class="highlight-input" placeholder="Email/Tel">
+            </div>
+            <textarea id="client_address" class="highlight-input" placeholder="Adresse" style="height: 60px;"></textarea>
+            <button class="btn-save" onclick="saveClient()">💾 Sauvegarder Client</button>
+
+            <!-- PROJET -->
+            <div class="section-title">📦 Objet</div>
+            <input type="text" id="designation_custom" class="highlight-input" placeholder="Nom du projet">
+
+            <!-- PRESTATION -->
+            <div class="section-title">🎯 Type de Prestation</div>
+            <select id="mode_projet" class="highlight-input" onchange="toggleFormMode()">
+                <option value="impression">🖨️ IMPRESSION 3D</option>
+                <option value="conception">🛠️ CONCEPTION / DESIGN</option>
+            </select>
+             <!-- Masqué si conception -->
+            <div id="row_mat_color" class="grid-3">
+                <select id="mat_custom" class="highlight-input"></select>
+                <select id="color_custom" class="highlight-input"></select>
+            </div>
+            <div id="form_conception" class="hidden">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Complexité</label>
+                        <select id="concep_complex" class="highlight-input" onchange="update('params')">
+                            <option value="10">Simple (10€)</option>
+                            <option value="30">Moyen (30€)</option>
+                            <option value="60">Complexe (60€)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Échanges (Révisions)</label>
+                        <input type="number" id="nb_echanges" class="highlight-input" value="3" oninput="update('params')">
+                    </div>
+                </div>
+            </div>
+
+            <div id="form_impression">
+                <div class="grid-3">
+                    <div class="form-group"><label>Temps d'impression(h)</label><input type="number" id="h_imp" class="highlight-input" value="1" step="0.1" oninput="update('params')"></div>
+                    <div class="form-group"><label>Poids (g)</label><input type="number" id="p_imp" class="highlight-input" value="50" oninput="update('params')"></div>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <div class="form-group"><label>Quantité</label><input type="number" id="qty" class="highlight-input" value="1" oninput="update('params')"></div>
+            </div>
+
+            <!-- EXPEDITION -->
+            <div class="section-title">🚚 Expédition</div>
+            <div class="grid-3">
+                <select id="shipping_type" class="highlight-input">
+                    <option value="0">Main propre (0€)</option>
+                    <option value="4.90">Mondial Relay S (4.90€)</option>
+                    <option value="6.50">Mondial Relay M (6.50€)</option>
+                    <option value="10.90">Mondial Relay L (10.90€)</option>
+                </select>
+                <input type="number" id="shipping_cost" class="highlight-input" value="0" step="0.1" oninput="update('params')">
+            </div>
+        </div>
+
+        <!-- RESULTATS (image_d4de33_2.png) -->
+        <div class="result-zone">
+            <h3 style="text-align: center; font-family: var(--font-titre); font-weight: normal; margin-bottom: 10px;">Net à Payer HT</h3>
+            <div class="price-input-container">
+                <input type="number" id="input_total_ht" step="0.01" oninput="update('price')">
+                <span style="font-size: 3.5rem; color: #fff;">€</span>
+            </div>
+            <div id="display_unit" style="text-align: center; color: #888; margin-bottom: 25px;"></div>
+
+            <div class="cost-breakdown">
+                <!-- Détails techniques grisés -->
+                <div id="tech_details"></div>
+                
+                <div class="cost-line" style="margin-top: 8px; border-top: 1px solid #333; padding-top: 8px;">
+                    <span>⚡ Production HT</span> <span id="res_base">0.00€</span>
+                </div>
+                <div class="cost-line" style="color: #6fbaff;">
+                    <span>📦 Expédition</span> <span id="res_shipping">0.00€</span>
+                </div>
+                <div class="cost-line" style="color: #aaa;">
+                    <span>📉 Cotisations (21.2%)</span> <span id="res_charges">0.00€</span>
+                </div>
+            </div>
+
+            <div class="revient-line"><span>COÛT DE REVIENT</span> <span id="res_revient">0.00€</span></div>
+            <div class="net-box" id="net_container"><span>BÉNÉFICE NET</span> <span id="res_net">0.00€</span></div>
+
+            <button class="btn-devis" onclick="genererPDF()">Télécharger le Devis</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="calculpvu.js"></script>
+</body>
+</html>

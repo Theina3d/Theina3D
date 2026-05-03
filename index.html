@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Theina3D</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="container nav-content">
+        <a href="#" class="logo-zone">
+            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
+            <span class="logo-nom">Theina<span>3D</span></span>
+        </a>
+        <ul>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#apropos">Expertise</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact" class="btn btn-primary" style="padding: 8px 20px; color:white;">Devis</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container grid-2">
+        <div>
+            <span class="badge" style="background: #F1E9E2; color: var(--orange);">Creality K1C Tech</span>
+            <h1>Vos besoins sur mesure, notre <em>expertise 3D</em>.</h1>
+            <p class="hero-desc">Du simple fichier STL à la résolution de problèmes complexes (croquis, photos, vidéos). Je conçois et j'imprime vos solutions durables.</p>
+            <div style="display: flex; gap:15px;">
+                <a href="#contact" class="btn btn-primary">Soumettre un projet</a>
+                <a href="#solutions" class="btn btn-secondary">Voir un exemple</a>
+            </div>
+        </div>
+        <div class="text-center">
+            <img src="LogoTheina3D.png" style="width: 80%; max-width: 400px;" alt="Logo Hero">
+        </div>
+    </div>
+</section>
+
+<section id="solutions" class="section-padding" style="background: #f0f0f0;">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 50px;">
+            <h2>Cas concret : Sécurité Aquarium</h2>
+            <p>Comment nous avons résolu le problème d'une bouteille de CO2 instable.</p>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Le Problème</h3>
+                <p>Une bouteille de CO2 posée au sol, avec un risque permanent de chute et un aspect esthétique négligé.</p>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <h3>La Solution</h3>
+                <p>Modélisation d'un support mural spécifique en <strong>PETG</strong> pour résister à l'humidité et au poids. Fixation sécurisée et design discret.</p>
+            </div>
+            <div class="text-center">
+                <div style="background: #ddd; height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                    <p>[ Vidéo / Photo du Support CO2 ]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="apropos" class="section-padding">
+    <div class="container grid-2">
+        <div class="text-center">
+            <img src="equipe.jpg" alt="L'équipe Theina3D" style="border-radius: 20px; width: 100%; box-shadow: var(--ombre);">
+        </div>
+        <div>
+            <span class="badge" style="background: #f3e5f5; color: var(--violet);">Notre Histoire</span>
+            <h2 style="margin: 15px 0;">L'expertise GMP au service du sur-mesure</h2>
+            <p>Theina3D est né de la rencontre entre une expertise technique en <strong>Génie Mécanique</strong> et une passion pour la résolution de problèmes. Après avoir travaillé en fabrication additive pour des startups, j'ai voulu mettre cette technologie industrielle à la portée de tous.</p>
+            <br>
+            <p>Accompagnée de mon copain, nous avons transformé notre atelier en un lieu de création où le "standard" n'existe pas. Que ce soit pour un besoin spécifique en aquariophilie ou une pièce mécanique introuvable, nous utilisons notre savoir-faire en conception pour vous offrir des solutions que vous ne trouverez nulle part ailleurs.</p>
+            <br>
+            <p><strong>Notre mission :</strong> Effacer vos frustrations quotidiennes grâce à l'ingéniosité de l'impression 3D.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-padding">
+    <div class="container">
+        <div class="grid-2">
+            <div>
+                <h2>Parlons de votre projet</h2>
+                <p>Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.</p>
+                <br>
+                <p>📦 <strong>Livraison :</strong> Mondial Relay disponible partout en France.</p>
+                <br>
+                <br>
+                <br><br>
+                <p>Nous retrouver : </p>
+                <a href="https://www.youtube.com/@Theina3d">youtube</a><br>
+                <a href="https://www.youtube.com/@Theina3d">tiktok</a>  
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Votre Nom </label>
+                    <input type="text" placeholder="Ex: Jean Dupont" required>
+                    <label>Votre Mail </label>
+                    <input type="email" placeholder="Ex: jean@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Type de demande</label>
+                    <select>
+                        <option>J'ai déjà un fichier (.STL, .OBJ)</option>
+                        <option>J'ai un problème à résoudre (Besoin de conception)</option>
+                        <option>Autre demande</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description (Décrivez votre problème, croquis, etc.)</label>
+                    <textarea rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center" style="padding: 40px 0; background: var(--sombre); color: white;">
+    <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
+    <a href="mentionlegal.html">Mentions Légales</a>
+</footer>
+
+</body>
+</html>

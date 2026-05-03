@@ -1,0 +1,28 @@
+redaction de blogs matériaux avec : 
+    illustration : photo du stock de bobine devant l'imprimante 3D 
+    Photo comparatives de la meme pièce en divers matériaux 
+    tableau comparatifs des matériaux 
+
+rédaction de blogs tutoriel avec desssins techniques, explications ... 
+
+page galerie avec divers exemple
+collecter photo et vidéo 
+trouver d'autre exemple à présenter 
+
+
+
+ajouter lien vers tiktok 
+rendre les liens RS plus esthétiques 
+
+
+ajouter des images d'illustration pour les sections 
+images de l'imprimantes, images de divers projet 
+
+
+lié formulaire avec systems de collecte : netlify permet de collecter jusqu'a 100 form par mois
+
+trouver comment faire la couleur uniforme sur toutes les pages comme pour les page de blocs, beige moins agressifs que blancs flash
+
+
+
+
