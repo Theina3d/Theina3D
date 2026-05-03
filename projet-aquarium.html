@@ -61,13 +61,25 @@
     <div class="container">
         <div class="grid-2">
             <!-- Visuel du projet -->
-            <div class="card" style="padding: 10px; overflow: hidden;">
-                <img src="votre-image-aquarium.jpg" alt="Support CO2 Theina3D" style="display: block; width: 100%; border-radius: 10px;">
-                <div style="padding: 20px;">
-                    <span class="status-badge">Phase : Prototype validé</span>
-                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Vue du système de fixation par serrage sur montant métallique.</p>
+           <!-- Visuel du projet : Avant / Après -->
+        <div class="card" style="padding: 10px; overflow: hidden;">
+            <!-- Sous-grille pour les deux images -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                <div style="position: relative;">
+                    <img src="Avant.jpg" alt="Avant - Bouteille instable" style="display: block; width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+                    <span style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.7rem;">AVANT</span>
+                </div>
+                <div style="position: relative;">
+                    <img src="Apres.jpg" alt="Après - Support Theina3D" style="display: block; width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
+                    <span style="position: absolute; top: 10px; left: 10px; background: var(--orange); color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.7rem;">APRÈS</span>
                 </div>
             </div>
+
+            <div style="padding: 20px;">
+                <span class="status-badge">Phase : Prototype validé</span>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Comparatif entre la situation initiale à risque et la solution de maintien par bride conçue sur mesure.</p>
+            </div>
+        </div>
 
             <!-- Analyse Technique -->
             <div>
