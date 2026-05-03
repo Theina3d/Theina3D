@@ -90,37 +90,46 @@
                 <br>
                 <p>📦 <strong>Livraison :</strong> Mondial Relay disponible partout en France.</p>
                 <br>
-                <br>
-                <br><br>
                 <p>Nous retrouver : </p>
-                <a href="https://www.youtube.com/@Theina3d">youtube</a><br>
-                <a href="https://www.youtube.com/@Theina3d">tiktok</a>  
+                <a href="https://www.youtube.com/@Theina3d" target="_blank">YouTube</a><br>
+                <a href="https://www.tiktok.com/@Theina3d" target="_blank">TikTok</a>  
             </div>
-            <!-- Avant -->
-        <form action="#" method="POST" class="contact-form">
-            <div class="form-group">
-                <label>Votre Nom </label>
-                <input type="text" placeholder="Ex: Jean Dupont" required>
-                <label>Votre Mail </label>
-                <input type="email" placeholder="Ex: jean@email.com" required>
-            </div>
-            <div class="form-group">
-                <label>Type de demande</label>
-                <select>
-                    <option>J'ai déjà un fichier (.STL, .OBJ)</option>
-                    <option>J'ai un problème à résoudre (Besoin de conception)</option>
-                    <option>Autre demande</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Description (Décrivez votre problème, croquis, etc.)</label>
-                <textarea rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
-            </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande</button>
-            </div>
-        !-- Après (ce qu'il faut mettre) -->
-        <form name="contact-devis" method="POST" data-netlify="true">
-        
+
+            <!-- Formulaire Completé -->
+            <form name="contact-devis" method="POST" data-netlify="true" enctype="multipart/form-data" action="/success" class="contact-form">
+                <!-- Ligne obligatoire pour Netlify -->
+                <input type="hidden" name="form-name" value="contact-devis" />
+
+                <div class="form-group">
+                    <label for="nom">Votre Nom</label>
+                    <input type="text" id="nom" name="nom" placeholder="Ex: Jean Dupont" required>
+                    
+                    <label for="email">Votre Mail</label>
+                    <input type="email" id="email" name="email" placeholder="Ex: jean@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Type de demande</label>
+                    <select id="type" name="type-demande">
+                        <option>J'ai déjà un fichier (.STL, .OBJ)</option>
+                        <option>J'ai un problème à résoudre (Besoin de conception)</option>
+                        <option>Autre demande</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Ajouter un fichier ou croquis (STL, Photo, max 10Mo)</label>
+                    <input type="file" id="file" name="fichier-joint">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Description de votre besoin</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Expliquez-moi votre projet en quelques mots..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Envoyer ma demande</button>
+            </form>
+        </div>
     </div>
 </section>
 
