@@ -96,29 +96,31 @@
                 <a href="https://www.youtube.com/@Theina3d">youtube</a><br>
                 <a href="https://www.youtube.com/@Theina3d">tiktok</a>  
             </div>
-            
-            <form class="contact-form">
-                <div class="form-group">
-                    <label>Votre Nom </label>
-                    <input type="text" placeholder="Ex: Jean Dupont" required>
-                    <label>Votre Mail </label>
-                    <input type="email" placeholder="Ex: jean@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Type de demande</label>
-                    <select>
-                        <option>J'ai déjà un fichier (.STL, .OBJ)</option>
-                        <option>J'ai un problème à résoudre (Besoin de conception)</option>
-                        <option>Autre demande</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Description (Décrivez votre problème, croquis, etc.)</label>
-                    <textarea rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
-                </div>
+            <!-- Avant -->
+        <form action="#" method="POST" class="contact-form">
+            <div class="form-group">
+                <label>Votre Nom </label>
+                <input type="text" placeholder="Ex: Jean Dupont" required>
+                <label>Votre Mail </label>
+                <input type="email" placeholder="Ex: jean@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>Type de demande</label>
+                <select>
+                    <option>J'ai déjà un fichier (.STL, .OBJ)</option>
+                    <option>J'ai un problème à résoudre (Besoin de conception)</option>
+                    <option>Autre demande</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Description (Décrivez votre problème, croquis, etc.)</label>
+                <textarea rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
+            </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande</button>
-            </form>
-        </div>
+            </div>
+        !-- Après (ce qu'il faut mettre) -->
+        <form name="contact-devis" method="POST" data-netlify="true">
+        
     </div>
 </section>
 
