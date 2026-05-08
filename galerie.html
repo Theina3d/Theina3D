@@ -2,15 +2,184 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Test Galerie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Réalisations - Theina3D</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        /* Styles spécifiques pour la galerie */
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px 0;
+            font-family: 'Bree Serif', serif;
+            color: var(--sombre);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-cta {
+            margin-top: auto; /* Aligne le bouton en bas peu importe le texte */
+        }
+
+        /* Carte Spéciale Devis */
+        .card-custom {
+            border: 2px dashed var(--violet);
+            background: var(--violet-clair);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Si vous voyez ce message, le fichier est bien à jour</h1>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div style="border: 1px solid black; padding: 20px;">Projet 1 : Aquarium</div>
-        <div style="border: 1px solid black; padding: 20px;">Projet 2 : Crochet Douche</div>
-        <div style="border: 1px solid black; padding: 20px;">Projet 3 : Rack Verres</div>
+
+<nav>
+    <div class="container nav-content">
+        <a href="index.html" class="logo-zone">
+            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
+            <span class="logo-nom">Theina<span>3D</span></span>
+        </a>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="galerie.html" class="active" style="color: var(--violet); font-weight: bold;">Nos Solutions</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary" style="padding: 8px 20px; color:white;">Devis</a></li>
+        </ul>
     </div>
+</nav>
+
+<header class="section-padding" style="background: var(--gris-fond); margin-top: 80px; text-align: center;">
+    <div class="container">
+        <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Portfolio</span>
+        <h1 style="font-size: 3rem; margin: 20px 0;">Galerie de <em>Réalisations</em></h1>
+        <p class="hero-desc" style="margin: 0 auto; max-width: 750px; opacity: 0.8;">Découvrez nos solutions sur-mesure : de la sécurisation technique à l'optimisation de votre quotidien.</p>
+    </div>
+</header>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="grid-gallery">
+            
+            <article class="card">
+                <img src="Apres.jpg" alt="Support Bouteille CO2">
+                <div class="card-content">
+                    <span class="badge" style="background:var(--violet-clair); color:var(--violet);">Aquariophilie</span>
+                    <h3>Support Bouteille CO2</h3>
+                    <p>Système de bride paramétrique pour sécuriser les installations haute pression.</p>
+                    <ul>
+                        <li>🛡️ <strong>Maintien :</strong> Verrouillage anti-basculement.</li>
+                        <li>🗜️ <strong>Installation :</strong> Zéro perçage, 100% amovible.</li>
+                        <li>✅ <strong>Matériau :</strong> PLA Rigide (Option PETG dispo).</li>
+                    </ul>
+                    <div class="card-cta">
+                        <a href="projet-aquarium.html" class="btn btn-secondary" style="width: 100%; display: block; text-align: center;">Détails techniques</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="crochet-douche.jpg" alt="Crochet paroi de douche">
+                <div class="card-content">
+                    <span class="badge" style="background: #e1f5fe; color: #039be5;">Maison</span>
+                    <h3>Crochet Paroi de Douche</h3>
+                    <p>Support de serviette dessiné sur-mesure pour s'ajuster parfaitement au verre.</p>
+                    <ul>
+                        <li>💧 <strong>PETG :</strong> Résistant à l'eau et à la chaleur.</li>
+                        <li>📏 <strong>Sur-mesure :</strong> Adapté à l'épaisseur du verre.</li>
+                        <li>✨ <strong>Finition :</strong> Design épuré, sans rayures.</li>
+                    </ul>
+                    <div class="card-cta">
+                        <a href="index.html#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center;">Commander le mien</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="rack-verres.jpg" alt="Support verres à pied">
+                <div class="card-content">
+                    <span class="badge" style="background: #fff3e0; color: #ef6c00;">Cuisine</span>
+                    <h3>Rack à Verres Suspendu</h3>
+                    <p>Optimisation de rangement sous meuble pour vos verres à vin.</p>
+                    <ul>
+                        <li>🍷 <strong>Gain de place :</strong> Utilise l'espace inutilisé.</li>
+                        <li>🛠️ <strong>Modularité :</strong> Rails extensibles à l'infini.</li>
+                        <li>🧼 <strong>Robuste :</strong> Conçu pour un usage intensif.</li>
+                    </ul>
+                    <div class="card-cta">
+                        <a href="index.html#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center;">Demander un devis</a>
+                    </div>
+                </div>
+            </article>
+
+            <div class="card card-custom">
+                <h3 style="color: var(--violet);">Un projet en tête ?</h3>
+                <p>Réparation de pièce cassée ou invention sur-mesure...</p>
+                <a href="index.html#contact" class="btn btn-primary">Lancer mon projet</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="text-center" style="padding: 50px 0; background: var(--sombre); color: white;">
+    <div class="container">
+        <p>&copy; 2026 Theina3D - Fabrication Additive de Précision</p>
+        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.5); font-size: 0.8rem; text-decoration: none;">Mentions Légales</a>
+    </div>
+</footer>
+
 </body>
 </html>
