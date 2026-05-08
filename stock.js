@@ -1,87 +1,85 @@
-const SHEETDB_URL = "https://sheetdb.io/api/v1/4kexbmu4y8qtc"; 
+const SHEETDB_URL = "https://sheetdb.io/api/v1/4kexbmu4y8qtc"; // ⚠️ REMPLACE PAR TON ID
 
 document.addEventListener('DOMContentLoaded', refreshUI);
 
+// 1. ENREGISTRER UNE ENTRÉE (Nouvelle ligne dans Google Sheets)
 async function uiAjouterStock() {
-    const mat = document.getElementById('add_mat').value.trim();
-    const col = document.getElementById('add_col').value.trim();
-    const qtyToAdd = parseFloat(document.getElementById('add_qty').value);
-    const price = document.getElementById('add_price').value;
-    const supplier = document.getElementById('add_supplier').value;
+    const data = {
+        date: new Date().toLocaleDateString('fr-FR'),
+        mat: document.getElementById('add_mat').value.trim(),
+        col: document.getElementById('add_col').value.trim(),
+        qte: parseFloat(document.getElementById('add_qty').value),
+        price: document.getElementById('add_price').value,
+        supplier: document.getElementById('add_supplier').value,
+        type: "ENTREE" // Pour différencier les flux
+    };
 
-    if(!mat || !col || isNaN(qtyToAdd)) return alert("Remplissez les champs");
-
-    // L'ID unique qui permet de savoir si c'est le même produit
-    const id = `${mat}_${col}`.toLowerCase().replace(/\s+/g, '');
+    if(!data.mat || !data.col || isNaN(data.qte)) return alert("Champs invalides");
 
     try {
-        // 1. On vérifie si cette référence existe déjà dans le Google Sheet
-        const response = await fetch(`${SHEETDB_URL}/search?id=${id}&sheet=Stocks`);
-        const existingEntries = await response.json();
-
-        if (existingEntries.length > 0) {
-            // 2. Si elle existe, on additionne la nouvelle quantité à l'ancienne
-            // On utilise la fonction INCREMENT de SheetDB pour éviter les erreurs de calcul local
-            await fetch(`${SHEETDB_URL}/id/${id}?sheet=Stocks`, {
-                method: 'PATCH',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    data: { 
-                        "qte": `INCREMENT(${qtyToAdd})`,
-                        "price": price, // On met à jour le prix avec le dernier achat
-                        "supplier": supplier 
-                    }
-                })
-            });
-            alert(`Stock de ${mat} ${col} mis à jour (+${qtyToAdd}g) !`);
-        } else {
-            // 3. Si elle n'existe pas, on crée la ligne normalement
-            const newData = { id, mat, col, qte: qtyToAdd, price, supplier };
-            await fetch(`${SHEETDB_URL}?sheet=Stocks`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ data: [newData] })
-            });
-            alert("Nouvelle référence ajoutée au stock !");
-        }
-        
+        await fetch(`${SHEETDB_URL}?sheet=Stocks`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ data: [data] })
+        });
+        alert("Achat enregistré !");
         refreshUI();
-    } catch (e) {
-        console.error("Erreur lors de l'ajout :", e);
-        alert("Erreur de communication avec le Cloud.");
-    }
+    } catch (e) { alert("Erreur Cloud"); }
 }
 
+// 2. REFRESH ET REGROUPEMENT (Le fameux "Tableau Croisé Dynamique")
 async function refreshUI() {
     const body = document.getElementById('stock_body');
-    const resStock = await fetch(`${SHEETDB_URL}?sheet=Stocks`);
-    const stocks = await resStock.json();
-    body.innerHTML = "";
-    stocks.forEach(item => {
-        body.innerHTML += `<tr><td>${item.mat} - ${item.col}</td><td>${item.qte}g</td><td>${item.price}€</td><td><button onclick="supprimerRef('${item.id}')">🗑️</button></td></tr>`;
-    });
-
     const attenteZone = document.getElementById('attente_list');
-    const resAtt = await fetch(`${SHEETDB_URL}?sheet=Attentes`);
-    const attentes = await resAtt.json();
-    attenteZone.innerHTML = attentes.length === 0 ? "<p>Rien en attente.</p>" : "";
-    attentes.forEach(m => {
-        attenteZone.innerHTML += `<div style="margin-bottom:10px; border:1px solid #ddd; padding:10px;">
-            <span>${m.numDevis} : ${m.mat} (${m.poids}g)</span>
-            <button onclick="confirmerMouvement('${m.numDevis}', '${m.mat}', '${m.col}', ${m.poids})">Valider ✅</button>
-        </div>`;
-    });
+
+    try {
+        // A. Récupérer TOUTES les lignes de l'onglet Stocks
+        const resStock = await fetch(`${SHEETDB_URL}?sheet=Stocks`);
+        const allEntries = await resStock.json();
+
+        // LOGIQUE DE FUSION : On regroupe par Matière + Couleur
+        const inventaire = allEntries.reduce((acc, entry) => {
+            const key = `${entry.mat}_${entry.col}`.toLowerCase();
+            if (!acc[key]) {
+                acc[key] = { mat: entry.mat, col: entry.col, qte: 0, price: entry.price };
+            }
+            // Si c'est une ENTREE on ajoute, si c'est une SORTIE on soustrait
+            const val = parseFloat(entry.qte);
+            acc[key].qte += (entry.type === "SORTIE") ? -val : val;
+            return acc;
+        }, {});
+
+        // Affichage de l'inventaire calculé
+        body.innerHTML = "";
+        Object.values(inventaire).forEach(item => {
+            if (item.qte <= 0) return; // On n'affiche pas les stocks vides
+            const isLow = item.qte < 200;
+            body.innerHTML += `
+                <tr class="${isLow ? 'status-low' : ''}">
+                    <td>${item.mat} - ${item.col}</td>
+                    <td><strong>${item.qte.toFixed(0)}g</strong></td>
+                    <td>${item.price}€</td>
+                    <td><button class="btn-action btn-suppr" onclick="supprimerFlux('${item.mat}', '${item.col}')">🗑️ Vider</button></td>
+                </tr>`;
+        });
+
+        // B. Charger les mouvements à valider (onglet Attentes)
+        const resAtt = await fetch(`${SHEETDB_URL}?sheet=Attentes`);
+        const attentes = await resAtt.json();
+        attenteZone.innerHTML = attentes.length === 0 ? "<p>Rien en attente.</p>" : "";
+        attentes.forEach(m => {
+            attenteZone.innerHTML += `
+                <div style="background:#f9f9f9; padding:15px; border-radius:8px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; border:1px solid #ddd;">
+                    <span><strong>${m.numDevis}</strong> : ${m.mat} ${m.col} (${m.poids}g)</span>
+                    <button class="btn-action btn-valider" onclick="confirmerMouvement('${m.numDevis}', '${m.mat}', '${m.col}', ${m.poids})">Valider Sortie ✅</button>
+                </div>`;
+        });
+    } catch (e) { console.error(e); }
 }
 
+// 3. VALIDER UNE SORTIE (Crée une ligne négative dans Stocks)
 async function confirmerMouvement(numDevis, mat, col, poids) {
-    const idStock = `${mat}_${col}`.toLowerCase();
-    // Déduction (SheetDB gère l'incrément négatif)
-    await fetch(`${SHEETDB_URL}/id/${idStock}?sheet=Stocks`, {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ data: { "qte": `INCREMENT(-${poids})` } })
-    });
-    // Suppression de l'attente
-    await fetch(`${SHEETDB_URL}/numDevis/${numDevis}?sheet=Attentes`, { method: 'DELETE' });
-    refreshUI();
-}
+    try {
+        // On crée une ligne de type "SORTIE"
+        const sortie = {
+            date: new Date().toLocaleDateString('fr-FR'),
