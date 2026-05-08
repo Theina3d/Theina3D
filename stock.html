@@ -10,71 +10,47 @@
         .grid-stock { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; margin-top: 20px; }
         .stock-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; }
         .stock-table th, .stock-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-        .stock-table th { background: var(--violet); color: white; font-family: var(--font-titre); }
+        .stock-table th { background: var(--violet); color: white; }
         .status-low { color: #d9534f; font-weight: bold; background: #f9ebeb; }
-        .badge-attente { background: #ff914d; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; }
-        .btn-action { padding: 5px 10px; border-radius: 5px; border: none; cursor: pointer; font-size: 0.8rem; }
+        .btn-action { padding: 6px 12px; border-radius: 6px; border: none; cursor: pointer; font-weight: bold; }
         .btn-valider { background: #5cb85c; color: white; }
-        .btn-suppr { background: #d9534f; color: white; margin-left: 5px; }
+        .btn-suppr { background: #d9534f; color: white; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="container nav-content">
-        <a href="index.html" class="logo-zone">
-            <span class="logo-nom">Theina<span>3D</span> Stock</span>
-        </a>
+        <a href="index.html" class="logo-zone"><span class="logo-nom">Theina<span>3D</span> Stock</span></a>
         <a href="calculpvu.html" style="color: white; text-decoration: none;">⬅ Retour Calculateur</a>
     </div>
 </nav>
 
 <div class="container" style="padding: 100px 20px 40px 20px; max-width: 1200px;">
-    
     <div class="grid-stock">
-        <!-- FORMULAIRE D'APPROVISIONNEMENT -->
         <div class="card">
             <h3 class="section-title">📦 Nouvel Arrivage</h3>
-            <div class="form-group">
-                <label>Matière</label>
-                <input type="text" id="add_mat" class="highlight-input" placeholder="ex: PLA">
-            </div>
-            <div class="form-group">
-                <label>Couleur</label>
-                <input type="text" id="add_col" class="highlight-input" placeholder="ex: Noir">
-            </div>
+            <div class="form-group"><label>Matière</label><input type="text" id="add_mat" class="highlight-input" placeholder="ex: PLA"></div>
+            <div class="form-group"><label>Couleur</label><input type="text" id="add_col" class="highlight-input" placeholder="ex: Noir"></div>
             <div class="grid-2">
                 <div class="form-group"><label>Qté (g)</label><input type="number" id="add_qty" class="highlight-input" value="1000"></div>
-                <div class="form-group"><label>Prix au kilo</label><input type="number" id="add_price" class="highlight-input" value="25"></div>
+                <div class="form-group"><label>Prix/kg</label><input type="number" id="add_price" class="highlight-input" value="25"></div>
             </div>
-            <div class="form-group">
-                <label>Fournisseur</label>
-                <input type="text" id="add_supplier" class="highlight-input" placeholder="ex: Amazon">
-            </div>
+            <div class="form-group"><label>Fournisseur</label><input type="text" id="add_supplier" class="highlight-input" placeholder="Amazon, Sunlu..."></div>
             <button class="btn-save" onclick="uiAjouterStock()">Enregistrer l'achat</button>
         </div>
 
-        <!-- TABLEAU DES STOCKS -->
         <div class="card">
             <h3 class="section-title">📋 Inventaire Actuel</h3>
             <table class="stock-table">
                 <thead>
-                    <tr>
-                        <th>Réf</th>
-                        <th>Quantité</th>
-                        <th>Prix/kg</th>
-                        <th>Actions</th>
-                    </tr>
+                    <tr><th>Référence</th><th>Stock</th><th>Prix/kg</th><th>Action</th></tr>
                 </thead>
-                <tbody id="stock_body">
-                    <!-- Rempli par JS -->
-                </tbody>
+                <tbody id="stock_body"></tbody>
             </table>
 
-            <h3 class="section-title" style="margin-top: 30px;">⏳ Mouvements à valider (Devis)</h3>
-            <div id="attente_list">
-                <!-- Rempli par JS -->
-            </div>
+            <h3 class="section-title" style="margin-top: 30px;">⏳ Sorties à valider (Devis)</h3>
+            <div id="attente_list"></div>
         </div>
     </div>
 </div>
