@@ -306,3 +306,32 @@ tbody td:first-child {
     font-weight: bold;
     color: var(--sombre);
 }
+
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    display: flex; /* Aligne l'icône et le texte sur la même ligne */
+    align-items: flex-start; /* Aligne en haut si le texte fait plusieurs lignes */
+    gap: 12px; /* Espace entre l'icône et le texte */
+    margin-bottom: 15px;
+}
+
+/* Pour aligner parfaitement les labels en gras à gauche */
+.feature-list li strong {
+    min-width: 100px; /* Ajuste cette valeur selon la longueur de tes titres (ex: "Rigidité :") */
+    display: inline-block;
+    color: var(--sombre);
+    flex-shrink: 0; /* Empêche le titre de s'écraser */
+}
+
+.feature-list li span.text-content {
+    flex: 1; /* Le reste du texte prend tout l'espace restant */
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
