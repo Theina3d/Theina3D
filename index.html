@@ -69,61 +69,73 @@
     </div>
 </section>
 
-<section id="contact" class="section-padding" style="background: #f9f9f9;">
-    <div class="container grid-2">
-        
-        <div>
-            <h2>Parlons de votre projet</h2>
-            <p>Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.</p>
+<section id="contact" class="section-padding" style="background: var(--gris-fond);">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
             
-            <div style="margin: 30px 0;">
-                <p style="margin-bottom: 15px;">
-                    <strong>📧 Contact direct :</strong><br>
-                    <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold; text-decoration: none; font-size: 1.1rem;">contact@theina3d.fr</a>
+            <div class="contact-info">
+                <h2 style="font-size: 2.8rem; margin-bottom: 20px;">Parlons de votre <em>projet</em></h2>
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                    Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.
                 </p>
-                <p>📦 <strong>Livraison :</strong> Mondial Relay et Delivengo Easy disponibles partout en Europe !</p>
+                
+                <div class="card" style="padding: 30px; margin-bottom: 30px; background: var(--blanc);">
+                    <p style="margin-bottom: 20px;">
+                        <strong style="color: var(--sombre); display: block; margin-bottom: 5px;">📧 Contact direct :</strong>
+                        <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold; font-size: 1.2rem;">contact@theina3d.fr</a>
+                    </p>
+                    <p>
+                        <strong style="color: var(--sombre); display: block; margin-bottom: 5px;">📦 Livraison :</strong>
+                        Mondial Relay et Delivengo Easy disponibles partout en Europe depuis la France !
+                    </p>
+                </div>
+
+                <p style="font-weight: bold; margin-bottom: 15px;">Suivez l'atelier :</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="https://www.youtube.com/@Theina3d" target="_blank" style="color: #666; font-weight: 500;">YouTube</a>
+                    <a href="https://www.tiktok.com/@Theina3d" target="_blank" style="color: #666; font-weight: 500;">TikTok</a>
+                    <a href="https://www.instagram.com/Theina3d" target="_blank" style="color: #666; font-weight: 500;">Instagram</a>
+                </div>
             </div>
 
-            <p>Suivez l'atelier :</p>
-            <div style="display: flex; gap: 15px; margin-top: 10px;">
-                <a href="https://www.youtube.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">YouTube</a>
-                <a href="https://www.tiktok.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">TikTok</a>
-                <a href="https://www.instagram.com/Theina3d" target="_blank" style="text-decoration: none; color: #555;">Instagram</a>
+            <div class="contact-form-container">
+                <form action='/success' class='contact-form' enctype='multipart/form-data' method='POST' name='contact-devis' data-netlify="true" style="box-shadow: var(--ombre); background: var(--blanc);">
+                    <input type="hidden" name="form-name" value="contact-devis" />
+                    
+                    <div class="form-group">
+                        <label>Votre Nom</label>
+                        <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Votre Mail</label>
+                        <input type="email" name="email" placeholder="Ex: jean@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Type de demande</label>
+                        <select name="type-demande">
+                            <option>J'ai déjà un fichier (.STL, .OBJ)</option>
+                            <option>J'ai un problème à résoudre (Conception)</option>
+                            <option>Autre demande</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fichier ou croquis (STL, Image...)</label>
+                        <input type="file" name="fichier-joint" style="padding: 10px 0;">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="message" rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Envoyer ma demande</button>
+                </form>
             </div>
+
         </div>
-
-        <form action='success.html' class='contact-form' enctype='multipart/form-data' method='POST' name='contact-devis' data-netlify="true">
-            <input type="hidden" name="form-name" value="contact-devis" />
-            
-            <div class="form-group">
-                <label>Votre Nom</label>
-                <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
-                <label>Votre Mail</label>
-                <input type="email" name="email" placeholder="Ex: jean@email.com" required>
-            </div>
-            
-            <div class="form-group">
-                <label>Type de demande</label>
-                <select name="type-demande">
-                    <option>J'ai déjà un fichier (.STL, .OBJ)</option>
-                    <option>J'ai un problème à résoudre (Besoin de conception)</option>
-                    <option>Autre demande</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label>Ajouter un fichier (STL, Image...)</label>
-                <input type="file" name="fichier-joint">
-            </div>
-            
-            <div class="form-group">
-                <label>Description</label>
-                <textarea name="message" rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Envoyer ma demande</button>
-        </form>
-
     </div>
 </section>
 
