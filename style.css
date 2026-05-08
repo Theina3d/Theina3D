@@ -1,178 +1,25 @@
-/* ==========================================================================
-   VARIABLES & DESIGN TOKENS
-   ========================================================================== */
-:root {
-    --violet: #9039cd;
-    --violet-clair: #f3e5f5;
-    --orange: #ff914d;
-    --orange-pale: #F1E9E2;
-    --sombre: #2d2d2d;
-    --gris-fond: #f8f9fa;
-    --blanc: #ffffff;
-    --font-titre: 'Bree Serif', serif;
-    --font-corps: 'Questrial', sans-serif;
-    --ombre: 0 10px 30px rgba(0,0,0,0.08);
-    --radius: 15px;
-    --container-width: 1140px;
-    --transition: all 0.3s ease;
-}
-
-/* ==========================================================================
-   RESET & BASES
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-corps);
-    background-color: var(--blanc);
-    color: var(--sombre);
-    line-height: 1.6;
-}
-
-h1, h2, h3 { font-family: var(--font-titre); }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-
-/* ==========================================================================
-   STRUCTURE DE LA GALERIE (3 COLONNES)
-   ========================================================================== */
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.section-padding {
-    padding: 80px 0;
-}
-
-/* Force l'affichage en 3 colonnes sur PC, 2 sur tablette, 1 sur mobile */
-.grid-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Force 3 colonnes égales */
-    gap: 30px;
-}
-
-@media (max-width: 1024px) {
-    .grid-gallery { grid-template-columns: repeat(2, 1fr); } /* Tablette */
-}
-
-@media (max-width: 768px) {
-    .grid-gallery { grid-template-columns: 1fr; } /* Mobile */
-}
-
-/* ==========================================================================
-   CARTES (CARDS)
-   ========================================================================== */
-.card {
-    background: var(--blanc);
-    border-radius: var(--radius);
-    box-shadow: var(--ombre);
-    border: 1px solid rgba(0,0,0,0.03);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: var(--transition);
-}
-
-.card:hover { transform: translateY(-8px); }
-
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 25px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ==========================================================================
-   ALIGNEMENT DES PUCES (L'ASTUCE DES 3 COLONNES INTERNES)
-   ========================================================================== */
-.card ul {
-    margin: 20px 0;
-}
-
-.card li {
-    display: grid;
-    /* 1: Icône (25px) | 2: Titre (105px) | 3: Description (le reste) */
-    grid-template-columns: 25px 105px 1fr; 
-    gap: 8px;
-    align-items: start;
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-}
-
-.card li strong {
-    color: var(--sombre);
-    font-weight: bold;
-}
-
-.card li .text-content {
-    color: #666;
-    line-height: 1.4;
-}
-
-/* ==========================================================================
-   BOUTONS & BADGES
-   ========================================================================== */
-.btn {
-    display: block;
-    padding: 12px;
-    border-radius: 50px;
-    font-weight: bold;
-    text-align: center;
-    transition: var(--transition);
-    margin-top: auto; /* Pousse le bouton en bas de la carte */
-}
-
-.btn-primary { background: var(--violet); color: white; }
-.btn-secondary { border: 2px solid var(--violet); color: var(--violet); }
-.btn-secondary:hover { background: var(--violet-clair); }
-
-.badge {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-/* Carte Devis spéciale */
-.card-custom {
-    border: 2px dashed var(--violet);
-    background: var(--violet-clair);
-    text-align: center;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-/* ==========================================================================
-   NAVIGATION & FOOTER (BASIQUE)
-   ========================================================================== */
-nav {
-    background: white;
-    padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-content { display: flex; justify-content: space-between; align-items: center; }
-.logo-nom { font-family: var(--font-titre); font-size: 1.4rem; }
-.logo-nom span { color: var(--violet); }
-nav ul { display: flex; gap: 30px; }
-
-footer { background: var(--sombre); color: white; padding: 40px 0; text-align: center; margin-top: 50px; }
+<article class="card">
+    <img src="Apres.jpg" alt="Support CO2">
+    <div class="card-content">
+        <span class="badge">Aquariophilie</span>
+        <h3>Support Bouteille CO2</h3>
+        <ul>
+            <li>
+                <span class="icon">🛡️</span>
+                <strong>Maintien :</strong>
+                <span class="text-content">Verrouillage anti-basculement.</span>
+            </li>
+            <li>
+                <span class="icon">🗜️</span>
+                <strong>Installation :</strong>
+                <span class="text-content">Zéro perçage, 100% amovible.</span>
+            </li>
+            <li>
+                <span class="icon">✅</span>
+                <strong>Matériau :</strong>
+                <span class="text-content">PLA Haute Résistance.</span>
+            </li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Détails techniques</a>
+    </div>
+</article>
