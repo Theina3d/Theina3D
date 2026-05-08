@@ -336,44 +336,40 @@ tbody td:first-child {
     line-height: 1.4;
 }
 
+/* --- CONFIGURATION GALERIE 3 COLONNES --- */
 
-/* --- ESPACE DÉDIÉ À LA PAGE GALERIE --- */
-
-/* On cible uniquement la grille dans la page galerie */
+/* On force la grille à s'afficher en 3 colonnes */
 .page-galerie .grid-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 30px;
+    display: grid !important;
+    /* Crée 3 colonnes de largeur égale */
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 25px !important;
+    width: 100% !important;
+    max-width: 1200px; /* Ajuste selon la largeur de ton site */
+    margin: 30px auto !important;
 }
 
-/* On cible uniquement les cartes de la galerie */
+/* On s'assure que les cartes ne prennent pas toute la largeur */
 .page-galerie .card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     overflow: hidden;
-    border: 1px solid #eee; /* Optionnel : bordure légère */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.page-galerie .card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-/* Gestion du responsive sans toucher au reste */
+/* Ajustement pour les écrans moyens (Tablettes - 2 colonnes) */
 @media (max-width: 992px) {
     .page-galerie .grid-gallery {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
+/* Ajustement pour les petits écrans (Mobiles - 1 colonne) */
 @media (max-width: 650px) {
     .page-galerie .grid-gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 }
