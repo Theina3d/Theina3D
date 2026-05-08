@@ -180,5 +180,18 @@
     });
 </script>
 
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.nav-menu');
+
+menu.addEventListener('click', function() {
+    menu.classList.toggle('is-active');
+    menuLinks.classList.toggle('active');
+});
+
+// Fermer le menu quand on clique sur un lien (pour les ancres #contact etc.)
+document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+    menu.classList.remove('is-active');
+    menuLinks.classList.remove('active');
+}));
 </body>
 </html>
