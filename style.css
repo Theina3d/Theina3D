@@ -1,54 +1,53 @@
 /* ==========================================================================
-   VARIABLES & DESIGN TOKENS
+   VARIABLES & DESIGN TOKENS (CHARTE ORIGINALE)
    ========================================================================== */
 :root {
-    /* Palette officielle */
     --violet: #9039cd;
     --violet-clair: #f3e5f5;
     --orange: #ff914d;
-    --orange-pale: #F1E9E2;
     --sombre: #2d2d2d;
     --gris-fond: #f8f9fa;
     --blanc: #ffffff;
-    --bleu: #22a1c5;
-    --bleu-pale: rgb(125, 198, 218);
-    --vert: #2e7d32; 
-
-    /* Typographie */
+    
     --font-titre: 'Bree Serif', serif;
     --font-corps: 'Questrial', sans-serif;
     
-    /* Design système */
     --ombre: 0 10px 30px rgba(0,0,0,0.08);
     --radius: 15px;
-    --container-width: 1140px;
-    --transition: all 0.3s ease;
 }
 
 /* ==========================================================================
-   RESET & BASES (POUR TOUTES LES PAGES)
+   RESET & BASES GLOBALES
    ========================================================================== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body { 
-    font-family: var(--font-corps); 
-    background-color: var(--blanc); 
-    color: var(--sombre); 
-    line-height: 1.6;
-    overflow-x: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1, h2, h3 { font-family: var(--font-titre); line-height: 1.2; }
-a { text-decoration: none; color: inherit; transition: var(--transition); }
-ul { list-style: none; }
-img { max-width: 100%; height: auto; }
+body {
+    font-family: var(--font-corps);
+    background-color: var(--blanc);
+    color: var(--sombre);
+    line-height: 1.6;
+}
 
-.container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 100px 0; }
-.text-center { text-align: center; }
+h1, h2, h3 {
+    font-family: var(--font-titre);
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
 
 /* ==========================================================================
-   NAVIGATION (LA STRUCTURE ORIGINALE)
+   NAVIGATION (RESTAURÉE)
    ========================================================================== */
 nav {
     background: var(--blanc);
@@ -66,126 +65,153 @@ nav {
     align-items: center;
 }
 
-.logo-zone { display: flex; align-items: center; gap: 12px; }
-.logo-img { height: 45px; width: auto; }
-.logo-nom { font-family: var(--font-titre); font-size: 1.5rem; color: var(--sombre); }
-.logo-nom span { color: var(--violet); }
+.logo-zone {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
 
-nav ul { display: flex; gap: 35px; align-items: center; }
-nav ul li a { color: var(--sombre); font-weight: 500; font-size: 1rem; }
-nav ul li a:hover, nav ul li a.active { color: var(--violet); }
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.logo-nom {
+    font-family: var(--font-titre);
+    font-size: 1.5rem;
+    color: var(--sombre);
+}
+
+.logo-nom span {
+    color: var(--violet);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--sombre);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--violet);
+}
 
 /* ==========================================================================
-   COMPOSANTS GÉNÉRAUX (BOUTONS & BADGES)
+   BOUTONS & BADGES
    ========================================================================== */
 .btn {
     display: inline-block;
-    padding: 14px 28px;
+    padding: 12px 25px;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 0.95rem;
-    border: none;
+    text-decoration: none;
+    transition: 0.3s;
     cursor: pointer;
-    transition: var(--transition);
 }
 
-.btn-primary { background: var(--violet); color: var(--blanc) !important; }
-.btn-primary:hover { 
-    background: #7a2eb1; 
-    transform: translateY(-3px); 
-    box-shadow: 0 5px 15px rgba(144, 57, 205, 0.3); 
+.btn-primary {
+    background: var(--violet);
+    color: white !important;
 }
 
-.btn-secondary { 
-    border: 2px solid var(--violet); 
-    color: var(--violet); 
-    background: transparent;
+.btn-secondary {
+    border: 2px solid var(--violet);
+    color: var(--violet);
 }
-.btn-secondary:hover { background: var(--violet-clair); }
 
 .badge {
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: bold;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* ==========================================================================
-   SYSTÈME DE GRILLE ET CARTES (GALERIE)
+   GALERIE & CARTES
    ========================================================================== */
 .grid-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .card {
-    background: var(--blanc);
+    background: #fff;
     border-radius: var(--radius);
     box-shadow: var(--ombre);
-    border: 1px solid rgba(0,0,0,0.03);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: hidden;
-    transition: var(--transition);
+    border: 1px solid #eee;
+    transition: 0.3s;
 }
 
-.card:hover { transform: translateY(-8px); }
-
-.card img { width: 100%; height: 230px; object-fit: cover; }
-
-.card-content { 
-    padding: 25px; 
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
+.card:hover {
+    transform: translateY(-8px);
 }
 
-.card h3 { margin-bottom: 10px; color: var(--sombre); font-size: 1.4rem; }
-.card p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
 
-/* L'ALIGNEMENT DES PUCES (SOLUTION TECHNIQUE) */
-.card ul { margin: 15px 0 20px 0; }
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: var(--sombre);
+}
+
+/* --- LA CORRECTION D'ALIGNEMENT SÉCURISÉE --- */
+/* On utilise GRID uniquement ici pour ne pas casser le reste du site */
+
+.card ul {
+    list-style: none;
+    margin: 15px 0;
+}
 
 .card li {
     display: grid;
-    /* Col 1: Icône (30px) | Col 2: Titre (110px) | Col 3: Texte */
+    /* Col 1: Icône (30px) | Col 2: Label (110px) | Col 3: Description */
     grid-template-columns: 30px 110px 1fr;
     gap: 5px;
     align-items: start;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-size: 0.9rem;
 }
 
-.card li strong { color: var(--sombre); font-weight: bold; }
-.card li .text-content { color: #666; line-height: 1.4; }
+.card li strong {
+    color: var(--sombre);
+}
 
-.card-cta { margin-top: auto; }
-.card-cta .btn { width: 100%; text-align: center; }
+.text-content {
+    color: #666;
+}
 
 /* ==========================================================================
    FOOTER
    ========================================================================== */
 footer {
     background: var(--sombre);
-    color: var(--blanc);
-    padding: 60px 0;
-    margin-top: 100px;
-}
-footer a { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
-footer a:hover { color: var(--orange); }
-
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
-@media (max-width: 768px) {
-    nav ul { display: none; }
-    .section-padding { padding: 60px 0; }
-    .card li { grid-template-columns: 30px 1fr; }
-    .card li strong { grid-column: 2; }
+    color: white;
+    padding: 50px 0;
+    text-align: center;
 }
