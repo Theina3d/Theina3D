@@ -2,34 +2,59 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sécurisation Bouteille CO2 | Étude de Cas Theina3D</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
     <style>
-        /* Styles spécifiques pour enrichir la mise en page sans modifier le CSS global */
+        :root {
+            --success: #27ae60;
+            --accent: var(--violet);
+        }
         .project-header {
-            padding: 160px 0 60px 0;
-            background: linear-gradient(to bottom, var(--violet-clair), var(--blanc));
+            padding: 160px 0 80px 0;
+            background: linear-gradient(135deg, var(--violet-clair) 0%, #ffffff 100%);
+            text-align: center;
         }
-        .feature-icon {
-            color: var(--violet);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            display: block;
+        .hero-title { font-size: clamp(2.5rem, 5vw, 3.5rem); margin: 20px 0; color: var(--sombre); }
+        .hero-title em { color: var(--violet); font-style: normal; border-bottom: 3px solid var(--orange); }
+
+        /* Vidéo Responsive */
+        .video-section { margin: 60px 0; }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            background: #000;
         }
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 30px 0;
+        .video-wrapper video, .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: none;
         }
-        .status-badge {
-            background: var(--sombre);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-size: 0.8rem;
+
+        /* Grilles et Cartes */
+        .comparison-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .img-label {
+            position: absolute; top: 15px; left: 15px;
+            padding: 5px 12px; border-radius: 4px;
+            font-size: 0.75rem; font-weight: bold; color: white;
+            text-transform: uppercase; letter-spacing: 1px;
         }
+        .badge-check { 
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #e8f5e9; color: var(--success);
+            padding: 8px 16px; border-radius: 50px; font-weight: bold;
+        }
+        .tech-card {
+            background: white; border-radius: 15px; padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            height: 100%; border: 1px solid #eee;
+        }
+        .feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+        .feature-list li strong { color: var(--sombre); }
     </style>
 </head>
 <body>
@@ -37,7 +62,7 @@
 <nav>
     <div class="container nav-content">
         <a href="index.html" class="logo-zone">
-            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
+            <img src="LogoSimple.png" class="logo-img" alt="Theina3D Logo">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
         <ul>
@@ -51,75 +76,91 @@
 
 <header class="project-header">
     <div class="container">
-        <a href="galerie.html" style="color: var(--violet); text-decoration: none; font-weight: bold;">← Retour aux réalisations</a>
-        <h1 style="margin-top: 20px; font-size: 3rem;">Sécurisation de <em>Bouteille CO2</em></h1>
-        <p class="hero-desc">Conception d'un support anti-chute sur-mesure sans modification du mobilier existant.</p>
+        <a href="galerie.html" class="back-link" style="text-decoration: none; font-weight: bold; color: var(--violet);">← PROJETS SUR-MESURE</a>
+        <h1 class="hero-title">Support de Sécurité pour <em>Bouteille CO2</em></h1>
+        <p class="hero-desc" style="max-width: 700px; margin: 0 auto; font-size: 1.2rem; opacity: 0.8;">
+            Une solution de maintien robuste, discrète et 100% amovible conçue pour l'aquariophilie de précision.
+        </p>
     </div>
 </header>
 
-<section class="section-padding" style="padding-top: 0;">
+<section class="section-padding">
     <div class="container">
-        <div class="grid-2">
-            <!-- Visuel du projet -->
-           <!-- Visuel du projet : Avant / Après -->
-        <div class="card" style="padding: 10px; overflow: hidden;">
-            <!-- Sous-grille pour les deux images -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
-                <div style="position: relative;">
-                    <img src="Avant.jpg" alt="Avant - Bouteille instable" style="display: block; width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-                    <span style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.7rem;">AVANT</span>
-                </div>
-                <div style="position: relative;">
-                    <img src="Apres.jpg" alt="Après - Support Theina3D" style="display: block; width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-                    <span style="position: absolute; top: 10px; left: 10px; background: var(--orange); color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.7rem;">APRÈS</span>
-                </div>
-            </div>
-
-            <div style="padding: 20px;">
-                <span class="status-badge">Phase : Prototype validé</span>
-                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Comparatif entre la situation initiale à risque et la solution de maintien par bride conçue sur mesure.</p>
-            </div>
-        </div>
-
-            <!-- Analyse Technique -->
+        <div class="grid-2" style="align-items: center;">
             <div>
-                <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Problématique</span>
-                <h2 style="margin-bottom: 20px;">Comment sécuriser un gaz sous pression en milieu fragile ?</h2>
-                <p>Initialement, la bouteille d'oxygène était simplement posée au sol, créant un risque majeur de basculement contre les vitres de l'aquarium ou les éléments environnants.</p>
+                <div class="comparison-container">
+                    <div style="position: relative;">
+                        <img src="Avant.jpg" alt="Instabilité bouteille" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover;">
+                        <span class="img-label" style="background: #e74c3c;">Risque initial</span>
+                    </div>
+                    <div style="position: relative;">
+                        <img src="Apres.jpg" alt="Support installé" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover;">
+                        <span class="img-label" style="background: var(--success);">Solution Theina3D</span>
+                    </div>
+                </div>
+                <div class="badge-check">
+                    <span>✓</span> Test de charge et stabilité validé en PLA
+                </div>
+            </div>
+
+            <div style="padding-left: 20px;">
+                <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Étude de cas</span>
+                <h2 style="margin: 20px 0;">Sécuriser sans dénaturer</h2>
+                <p>Dans une installation aquascaping, la <strong>bouteille de CO2</strong> est un élément vital mais instable. Posée librement, elle représente un danger pour les vitres et le matériel technique en cas de choc.</p>
                 
-                <div class="grid-2" style="margin-top: 30px; gap: 20px;">
-                    <div>
-                        <span class="feature-icon">🛡️</span>
-                        <h3>Sécurité</h3>
-                        <p style="font-size: 0.9rem;">Maintien vertical absolu via des ergots de blocage (bitoniaux).</p>
+                <div style="margin-top: 30px;">
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                        <div style="font-size: 2rem;">🛡️</div>
+                        <div>
+                            <h4 style="margin: 0;">Maintien Absolu</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Bride ajustée au millimètre avec verrouillage par ergots pour empêcher tout glissement vertical ou latéral.</p>
+                        </div>
                     </div>
-                    <div>
-                        <span class="feature-icon">🗜️</span>
-                        <h3>Zéro Perçage</h3>
-                        <p style="font-size: 0.9rem;">Installation par bride sur le portant du meuble.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="font-size: 2rem;">🔌</div>
+                        <div>
+                            <h4 style="margin: 0;">Installation non-invasive</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Système de fixation par serrage mécanique sur le bâti du meuble : aucun trou, aucune trace après retrait.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <hr style="margin: 80px 0; border: none; border-top: 1px solid #eee;">
+        <div class="video-section">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h3>Processus de Fabrication</h3>
+                <p>De la modélisation paramétrique à la sortie d'imprimante.</p>
+            </div>
+            <div class="video-wrapper">
+                <video controls poster="Apres.jpg">
+                    <source src="votre-video.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        </div>
 
         <div class="grid-2">
-            <div>
-                <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Matériaux & Évolution</span>
-                <h2>Du PLA vers le PETG</h2>
-                <p>Pour ce projet, le choix du matériau est dicté par l'environnement humide et les contraintes mécaniques.</p>
-                <br>
-                <ul style="display: flex; flex-direction: column; gap: 15px;">
-                    <li><strong>• Étape 1 :</strong> Impression en <strong>PLA Noir</strong> pour valider l'ergonomie et l'esthétique sur le meuble.</li>
-                    <li><strong>• Étape 2 :</strong> Tests de solidité en charge réelle (bouteille pleine).</li>
-                    <li><strong>• Étape 3 (À venir) :</strong> Production finale en <strong>PETG</strong> pour une meilleure résistance chimique et thermique.</li>
+            <div class="tech-card">
+                <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Matériaux & Performance</span>
+                <h3 style="margin: 15px 0;">Validation Technique</h3>
+                <p style="margin-bottom: 20px;">Initialement envisagé en PETG, le prototype final a été maintenu en <strong>PLA Premium</strong> suite aux résultats de tests mécaniques.</p>
+                <ul class="feature-list" style="list-style: none; padding: 0;">
+                    <li><span>✔</span> <strong>Rigidité du PLA :</strong> Offre une excellente résistance à la compression, idéale pour un maintien statique.</li>
+                    <li><span>✔</span> <strong>Option PETG :</strong> Disponible pour les installations en extérieur ou soumises à de fortes chaleurs (>45°C), apportant une ténacité et une "dureté" accrues.</li>
+                    <li><span>✔</span> <strong>Précision :</strong> Impression en couches de 0.2mm pour un état de surface lisse protégeant le mobilier.</li>
                 </ul>
             </div>
-            
-            <div class="card" style="background: var(--gris-fond);">
-                <h3 style="margin-bottom: 15px;">🔍 Le saviez-vous ?</h3>
-                <p>L'impression 3D permet de créer des "pièces sacrificielles" : des éléments conçus pour casser en cas de choc extrême afin de protéger l'objet le plus précieux (ici, la cuve de l'aquarium).</p>
+
+            <div class="tech-card" style="border-left: 5px solid var(--violet);">
+                <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Modularité</span>
+                <h3 style="margin: 15px 0;">Adaptable à votre besoin</h3>
+                <p>Ce n'est pas qu'un produit fini, c'est un <strong>système adaptable</strong>.</p>
+                <ul class="feature-list" style="list-style: none; padding: 0;">
+                    <li>📍 <strong>Supports variables :</strong> La bride peut être redimensionnée pour des montants carrés, ronds ou des profilés alu (Type T-Slot).</li>
+                    <li>🍾 <strong>Multi-formats :</strong> Ajustable pour des bouteilles de 500g, 2kg ou tout autre contenant pressurisé.</li>
+                    <li>🎨 <strong>Esthétique :</strong> Large choix de coloris pour une intégration invisible dans votre meuble technique.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -127,15 +168,20 @@
 
 <section class="section-padding" style="background: var(--sombre); color: white; text-align: center;">
     <div class="container">
-        <h2>Un besoin technique spécifique ?</h2>
-        <p style="margin-bottom: 30px; opacity: 0.8;">Theina3D analyse vos contraintes pour créer la pièce qui manque à votre installation.</p>
-        <a href="index.html#contact" class="btn btn-primary">Demander une étude de projet</a>
+        <h2 style="margin-bottom: 15px;">Un projet similaire ?</h2>
+        <p style="opacity: 0.8; max-width: 600px; margin: 0 auto 30px auto;">
+            Que vous soyez aquariophile, maker ou professionnel, Theina3D conçoit vos systèmes de fixation sur-mesure en PLA ou PETG haute performance.
+        </p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="index.html#contact" class="btn btn-primary">Demander une étude gratuite</a>
+            <a href="galerie.html" class="btn" style="background: transparent; border: 1px solid white; color: white;">Voir d'autres réalisations</a>
+        </div>
     </div>
 </section>
 
 <footer>
-    <div class="container">
-        <p>© 2026 Theina3D - Expertise en Impression 3D & Conception.</p>
+    <div class="container" style="text-align: center; opacity: 0.6; font-size: 0.9rem;">
+        <p>© 2026 Theina3D - Expertise en Fabrication Additive & Ingénierie de précision.</p>
     </div>
 </footer>
 
