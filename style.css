@@ -373,3 +373,52 @@ tbody td:first-child {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* --- MENU BURGER DESIGN --- */
+.menu-toggle {
+    display: none; /* Caché sur PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--sombre);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Apparaît sur mobile */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px; /* Juste en dessous de la nav */
+        left: -100%; /* Caché à gauche par défaut */
+        flex-direction: column;
+        background-color: var(--blanc);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 20px 0 !important;
+        z-index: 1000;
+    }
+
+    /* Quand le menu est actif */
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+
+    /* Animation des barres en "X" quand ouvert */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
