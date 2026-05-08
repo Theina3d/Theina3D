@@ -335,3 +335,45 @@ tbody td:first-child {
     font-size: 0.95rem;
     line-height: 1.4;
 }
+
+
+/* --- ESPACE DÉDIÉ À LA PAGE GALERIE --- */
+
+/* On cible uniquement la grille dans la page galerie */
+.page-galerie .grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* On cible uniquement les cartes de la galerie */
+.page-galerie .card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #eee; /* Optionnel : bordure légère */
+}
+
+.page-galerie .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Gestion du responsive sans toucher au reste */
+@media (max-width: 992px) {
+    .page-galerie .grid-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .page-galerie .grid-gallery {
+        grid-template-columns: 1fr;
+    }
+}
