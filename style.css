@@ -1,30 +1,47 @@
 /* ==========================================================================
-   VARIABLES & BASES
+   VARIABLES & DESIGN TOKENS (TES COULEURS)
    ========================================================================== */
 :root {
     --violet: #9039cd;
     --violet-clair: #f3e5f5;
+    --orange: #ff914d;
+    --orange-pale: #F1E9E2;
     --sombre: #2d2d2d;
     --gris-fond: #f8f9fa;
     --blanc: #ffffff;
+    --bleu: #22a1c5;
+    --bleu-pale: rgb(125, 198, 218);
+    --vert: #2e7d32; 
+
     --font-titre: 'Bree Serif', serif;
     --font-corps: 'Questrial', sans-serif;
+    
     --ombre: 0 10px 30px rgba(0,0,0,0.08);
     --radius: 15px;
     --container-width: 1140px;
+    --transition: all 0.3s ease;
 }
 
+/* ==========================================================================
+   BASES
+   ========================================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
     font-family: var(--font-corps); 
     background-color: var(--blanc); 
     color: var(--sombre); 
-    line-height: 1.6; 
+    line-height: 1.6;
 }
 
+h1, h2, h3 { font-family: var(--font-titre); line-height: 1.2; }
+a { text-decoration: none; transition: var(--transition); }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; }
+
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 80px 0; }
+.section-padding { padding: 100px 0; }
+.text-center { text-align: center; }
 
 /* ==========================================================================
    NAVIGATION (RESTAURÉE)
@@ -45,60 +62,73 @@ nav {
     align-items: center;
 }
 
-.logo-zone {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
+.logo-zone { display: flex; align-items: center; gap: 12px; }
 .logo-img { height: 45px; width: auto; }
-
-.logo-nom {
-    font-family: var(--font-titre);
-    font-size: 1.5rem;
-    color: var(--sombre);
-}
-
+.logo-nom { font-family: var(--font-titre); font-size: 1.5rem; color: var(--sombre); }
 .logo-nom span { color: var(--violet); }
 
-nav ul { 
-    display: flex; 
-    gap: 35px; 
-    align-items: center; 
-    list-style: none;
+nav ul { display: flex; gap: 35px; align-items: center; }
+nav ul li a { color: var(--sombre); font-weight: 500; }
+nav ul li a:hover, nav ul li a.active { color: var(--violet); }
+
+/* ==========================================================================
+   COMPOSANTS & BOUTONS
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: var(--sombre);
-    font-weight: 500;
-    transition: 0.3s;
-}
+.btn-primary { background: var(--violet); color: var(--blanc) !important; }
+.btn-primary:hover { background: #7a2eb1; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(144, 57, 205, 0.3); }
 
-nav ul li a:hover, nav ul li a.active {
-    color: var(--violet);
+.btn-secondary { 
+    border: 2px solid var(--violet); 
+    color: var(--violet); 
+    background: transparent; 
+    margin-top: auto; 
+    text-align: center;
+}
+.btn-secondary:hover { background: var(--violet-clair); }
+
+.badge {
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 /* ==========================================================================
-   GRILLE & CARTES (ALIGNEMENT CORRIGÉ)
+   GALERIE & CARTES (ALIGNEMENT PARFAIT)
    ========================================================================== */
+header.gallery-header { margin-top: 80px; background: var(--gris-fond); text-align: center; }
+
 .grid-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    margin-top: 50px;
 }
 
 .card {
     background: var(--blanc);
     border-radius: var(--radius);
     box-shadow: var(--ombre);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.03);
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: var(--transition);
 }
 
 .card:hover { transform: translateY(-8px); }
@@ -112,49 +142,29 @@ nav ul li a:hover, nav ul li a.active {
     flex-direction: column; 
 }
 
-/* Structure des puces dans la carte */
-.card ul { list-style: none; margin: 15px 0; padding: 0; }
+.card h3 { margin-bottom: 10px; color: var(--sombre); }
+.card p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
 
+/* SYSTEME D'ALIGNEMENT DES PUCES */
+.card ul { margin-bottom: 20px; }
 .card li {
-    display: flex; 
+    display: flex;
     align-items: flex-start;
+    gap: 10px;
     margin-bottom: 12px;
     font-size: 0.9rem;
 }
 
-/* On force les largeurs pour l'alignement vertical */
-.card li .icon { flex: 0 0 30px; }
-.card li strong { flex: 0 0 110px; color: var(--sombre); }
+.card li .icon { flex: 0 0 25px; }
+.card li strong { flex: 0 0 110px; color: var(--sombre); } /* Aligne tous les titres */
 .card li .text-content { flex: 1; color: #666; }
 
-/* ==========================================================================
-   BOUTONS & BADGES
-   ========================================================================== */
-.badge {
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: bold;
+/* Carte Spéciale Devis */
+.card-custom {
+    border: 2px dashed var(--violet);
+    background: var(--violet-clair);
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    text-decoration: none;
-    transition: 0.3s;
-    cursor: pointer;
-    border: none;
+    padding: 40px;
 }
-
-.btn-primary { background: var(--violet); color: white !important; }
-.btn-secondary { border: 2px solid var(--violet); color: var(--violet); margin-top: auto; }
-.btn-secondary:hover { background: var(--violet-clair); }
-
-/* Espacement pour le header fixe */
-header { margin-top: 80px; }
