@@ -128,52 +128,25 @@
         </div>
     </div>
 </section>
-
-<section id="contact" class="section-padding">
-    <div class="container">
-        <div class="grid-2">
-            <div>
-                <h2>Parlons de votre projet</h2>
-                <p>Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.</p>
-                <br>
-                <p>📦 <strong>Livraison :</strong> Mondial Relay disponible partout en France.</p>
-                <br>
-                <p>Suivez l'atelier :</p>
-                <a href="https://www.youtube.com/@Theina3d" target="_blank">YouTube</a><br>
-                <a href="https://www.tiktok.com/@Theina3d" target="_blank">TikTok</a>  
-            </div>
-
-            <!-- 4. Formulaire Netlify prêt avec gestion de fichiers et page de succès -->
-            <form action='/success' class='contact-form' enctype='multipart/form-data' method='POST' name='contact-devis'>
-                <input type="hidden" name="form-name" value="contact-devis" />
-                
-                <div class="form-group">
-                    <label>Votre Nom</label>
-                    <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
-                    <label>Votre Mail</label>
-                    <input type="email" name="email" placeholder="Ex: jean@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Type de demande</label>
-                    <select name="type-demande">
-                        <option>J'ai déjà un fichier (.STL, .OBJ)</option>
-                        <option>J'ai un problème à résoudre (Besoin de conception)</option>
-                        <option>Autre demande</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Ajouter un fichier ou croquis (STL, Image...)</label>
-                    <input type="file" name="fichier-joint">
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea name="message" rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Envoyer ma demande</button>
-            </form>
-        </div>
+<div>
+    <h2>Parlons de votre projet</h2>
+    <p>Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.</p>
+    
+    <div style="margin: 30px 0;">
+        <p style="margin-bottom: 10px;">
+            <strong>📧 Contact direct :</strong><br>
+            <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold; text-decoration: none; font-size: 1.1rem;">contact@theina3d.fr</a>
+        </p>
+        
+        <p>📦 <strong>Livraison :</strong> Mondial Relay disponible partout en France.</p>
     </div>
-</section>  
+
+    <p>Suivez l'atelier :</p>
+    <div style="display: flex; gap: 15px; margin-top: 10px;">
+        <a href="https://www.youtube.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">YouTube</a>
+        <a href="https://www.tiktok.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">TikTok</a>
+    </div>
+</div>
 </body>
     
 
