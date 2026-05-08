@@ -5,6 +5,28 @@
     <title>Galerie Réalisations - Theina3D</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        /* Optimisation des images dans les cartes */
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        .card li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,74 +45,79 @@
     </div>
 </nav>
 
-<!-- HEADER DE PAGE -->
 <header class="section-padding" style="background: var(--gris-fond); margin-top: 80px; text-align: center;">
     <div class="container">
         <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Portfolio</span>
         <h1>Galerie de <em>Réalisations</em></h1>
-        <p class="hero-desc" style="margin: 0 auto;">Découvrez nos derniers projets, de la conception mécanique sur-mesure à l'impression haute précision.</p>
+        <p class="hero-desc" style="margin: 0 auto; max-width: 700px;">Découvrez comment nous transformons des problématiques quotidiennes en solutions durables grâce à l'impression 3D.</p>
     </div>
 </header>
 
-<!-- GRILLE DE LA GALERIE -->
 <section class="section-padding">
     <div class="container">
-        <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
             
-            <!-- Projet 1 -->         
-            <div class="card">
-                <img src="Apres.jpg" alt="Support CO2" height="10px">
-                <h3>Support sécurisé de la bouteille de CO2</h3>
-                <p>Fixation innovante sur meuble sans perçage...</p>
-                <ul>
-                    <li>🛡️ Sécurité : Anti-chute et anti-choc.</li>
-                    <li>🛠️ Installation : Sans modification du meuble.</li>
-                    <li>♻️ Évolutif : Pro totype validé, version PETG à venir.</li>
-                </ul>
-                <div style="margin-bottom: 15px;">
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <img src="Apres.jpg" alt="Support CO2">
+                <div class="card-content">
                     <span class="badge" style="background:var(--violet-clair); color:var(--violet);">Aquariophilie</span>
+                    <h3 style="margin: 10px 0;">Sécurisation Bouteille CO2</h3>
+                    <p>Maintien vertical absolu sur meuble technique sans perçage.</p>
+                    <ul>
+                        <li>🛡️ <strong>Sécurité :</strong> Bride anti-basculement.</li>
+                        <li>🗜️ <strong>Installation :</strong> Serrage mécanique non-invasif.</li>
+                        <li>✅ <strong>Matériau :</strong> Validé en PLA Haute Résistance.</li>
+                    </ul>
+                    <a href="projet-aquarium.html" class="btn btn-secondary" style="display: block; text-align: center; margin-top: 15px;">Voir l'étude de cas</a>
                 </div>
-                <a href="projet-aquarium.html" class="btn btn-secondary" style="width: 100%; text-align: center;">Plus de détails</a>
             </div>
 
-            <!-- Projet 2 
             <div class="card" style="padding: 0; overflow: hidden;">
-                <img src="projet-mecanique.jpg" alt="Pièce mécanique" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 20px;">
-                    <span style="font-size: 0.8rem; color: var(--orange); font-weight: bold;">Mécanique</span>
-                    <h3 style="margin: 10px 0;">Engrenage de Remplacement</h3>
-                    <p style="font-size: 0.9rem; color: #666;">Réparation d'une machine ancienne par la modélisation et l'impression d'une pièce introuvable.</p>
+                <img src="crochet-douche.jpg" alt="Crochet paroi de douche">
+                <div class="card-content">
+                    <span class="badge" style="background: #e1f5fe; color: #039be5;">Maison & Salle de Bain</span>
+                    <h3 style="margin: 10px 0;">Crochet pour Paroi en Verre</h3>
+                    <p>Solution sur-mesure pour suspendre vos serviettes sans ventouses.</p>
+                    <ul>
+                        <li>💧 <strong>Résistance :</strong> Idéal en PETG pour l'humidité.</li>
+                        <li>📏 <strong>Précision :</strong> Ajusté à l'épaisseur de votre paroi.</li>
+                        <li>✨ <strong>Design :</strong> Minimaliste et anti-rayures.</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-secondary" style="display: block; text-align: center; margin-top: 15px;">Demander le vôtre</a>
                 </div>
-            </div>-->
+            </div>
 
-            <!-- Projet 3 
             <div class="card" style="padding: 0; overflow: hidden;">
-                <img src="projet-deco.jpg" alt="Objet déco" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 20px;">
-                    <span style="font-size: 0.8rem; color: var(--orange); font-weight: bold;">Design</span>
-                    <h3 style="margin: 10px 0;">Logo 3D Personnalisé</h3>
-                    <p style="font-size: 0.9rem; color: #666;">Enseigne de bureau multi-couleurs réalisée pour un partenaire local.</p>
+                <img src="rack-verres.jpg" alt="Support verre à vin">
+                <div class="card-content">
+                    <span class="badge" style="background: #fff3e0; color: #ef6c00;">Cuisine & Optimisation</span>
+                    <h3 style="margin: 10px 0;">Rack à Verres Suspendu</h3>
+                    <p>Optimisation de l'espace sous meuble pour verres à pied.</p>
+                    <ul>
+                        <li>🍷 <strong>Capacité :</strong> Rails modulables et extensibles.</li>
+                        <li>🛠️ <strong>Fixation :</strong> Discrète sous étagère.</li>
+                        <li>🧼 <strong>Entretien :</strong> Matériau compatible usage cuisine.</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-secondary" style="display: block; text-align: center; margin-top: 15px;">Personnaliser mon rangement</a>
                 </div>
-            </div>-->
+            </div>
 
-            <!-- Projet 4 (Case vide pour futur projet) 
-            <div class="card" style="display: flex; align-items: center; justify-content: center; border: 2px dashed #ddd; background: transparent; box-shadow: none; height: 100%;">
-                <div class="text-center">
-                    <p style="color: #999;">Votre projet ici ?</p>
-                    <a href="index.html#contact" style="color: var(--violet); font-weight: bold;">Me contacter</a>
+            <div class="card" style="display: flex; align-items: center; justify-content: center; border: 2px dashed var(--violet); background: var(--violet-clair); box-shadow: none; min-height: 400px;">
+                <div style="text-align: center; padding: 20px;">
+                    <h3 style="color: var(--violet);">Votre besoin sur-mesure ?</h3>
+                    <p style="margin-bottom: 20px;">Une pièce cassée à reproduire ou une idée à concrétiser ?</p>
+                    <a href="index.html#contact" class="btn btn-primary">Lancer mon projet</a>
                 </div>
-            </div>-->
+            </div>
 
         </div>
     </div>
 </section>
 
-
-
-<footer class="text-center">
+<footer class="text-center" style="padding: 40px 0; background: var(--sombre); color: white;">
     <div class="container">
         <p>&copy; 2026 Theina3D - Expertise en Fabrication Additive</p>
-        <a href="mentionlegal.html">Mentions Légales</a>
+        <a href="mentionlegal.html" style="color: var(--violet-clair); font-size: 0.8rem;">Mentions Légales</a>
     </div>
 </footer>
 
