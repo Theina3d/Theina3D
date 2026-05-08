@@ -32,119 +32,115 @@
 <section class="hero">
     <div class="container grid-2">
         <div>
-            <span class="badge" style="background: #F1E9E2; color: var(--orange);">Creality K1C Tech</span>
+            <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Creality K1C Tech</span>
             <h1>Vos besoins sur mesure, notre <em>expertise 3D</em>.</h1>
-            <p class="hero-desc">Du simple fichier STL à la résolution de problèmes complexes (croquis, photos, vidéos). Je conçois et j'imprime vos solutions durables.</p>
+            <p class="hero-desc">Du simple fichier STL à la résolution de problèmes complexes. Je conçois et j'imprime vos solutions durables.</p>
             <div style="display: flex; gap:15px;">
                 <a href="#contact" class="btn btn-primary">Soumettre un projet</a>
                 <a href="#solutions" class="btn btn-secondary">Voir un exemple</a>
             </div>
         </div>
         <div class="text-center">
-            <img src="LogoTheina3D.png" width="800" height="450" style="width: 80%; max-width: 400px; height: auto;" alt="Logo Theina3D">
-        </div>
-    </div>
-</section>
-
-<section id="apropos" class="section-padding">
-    <div class="container grid-2">
-        <div class="text-center">
-            <div style="overflow: hidden; border-radius: 20px; box-shadow: var(--ombre);">
-                <img src="equipe.jpg" alt="L'équipe Theina3D en plein travail" width="600" height="400" style="width: 100%; height: auto; display: block; object-fit: cover;">
-            </div>
-        </div>
-        <div>
-            <span class="badge" style="background: #f3e5f5; color: var(--violet);">Notre Expertise</span>
-            <h2 style="margin: 15px 0;">Pourquoi nous faire confiance pour vos projets ?</h2>
-            <p><strong>Theina3D</strong> est né d'une conviction simple : l'impression 3D ne doit pas être un gadget, mais une solution industrielle accessible.</p>
-            <p>Mon parcours en <strong>Génie Mécanique et Productique (GMP)</strong> permet d'analyser les contraintes physiques pour concevoir des pièces qui durent.</p>
-            <div style="margin: 20px 0; border-left: 4px solid var(--orange); padding-left: 20px; font-style: italic;">
-                "Ici, chaque problème trouve sa pièce sur-mesure."
-            </div>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;">✅ <strong>Légitimité technique :</strong> Expertise CAO et matériaux.</li>
-                <li style="margin-bottom: 10px;">✅ <strong>Parc machine pro :</strong> Creality K1C haute vitesse.</li>
-            </ul>
+            <img src="LogoTheina3D.png" width="400" alt="Logo Theina3D">
         </div>
     </div>
 </section>
 
 <section id="contact" class="section-padding" style="background: var(--gris-fond);">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; align-items: start;">
             
-            <div class="contact-info">
-                <h2 style="font-size: 2.8rem; margin-bottom: 20px;">Parlons de votre <em>projet</em></h2>
-                <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
-                    Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.
-                </p>
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Parlons de votre <em>projet</em></h2>
+                <p style="margin-bottom: 30px;">Réponse sous 24h à 48h. Vos données sont directement ajoutées à notre suivi d'atelier.</p>
                 
-                <div class="card" style="padding: 30px; margin-bottom: 30px; background: var(--blanc);">
-                    <p style="margin-bottom: 20px;">
-                        <strong style="color: var(--sombre); display: block; margin-bottom: 5px;">📧 Contact direct :</strong>
-                        <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold; font-size: 1.2rem;">contact@theina3d.fr</a>
+                <div class="card" style="margin-bottom: 25px;">
+                    <p style="margin-bottom: 15px;">
+                        <strong>📧 Contact direct :</strong><br>
+                        <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold;">contact@theina3d.fr</a>
                     </p>
-                    <p>
-                        <strong style="color: var(--sombre); display: block; margin-bottom: 5px;">📦 Livraison :</strong>
-                        Mondial Relay et Delivengo Easy disponibles partout en Europe depuis la France !
-                    </p>
+                    <p><strong>📦 Livraison :</strong> Europe & France (Mondial Relay / Delivengo).</p>
                 </div>
 
-                <p style="font-weight: bold; margin-bottom: 15px;">Suivez l'atelier :</p>
-                <div style="display: flex; gap: 20px;">
-                    <a href="https://www.youtube.com/@Theina3d" target="_blank" style="color: #666; font-weight: 500;">YouTube</a>
-                    <a href="https://www.tiktok.com/@Theina3d" target="_blank" style="color: #666; font-weight: 500;">TikTok</a>
-                    <a href="https://www.instagram.com/Theina3d" target="_blank" style="color: #666; font-weight: 500;">Instagram</a>
+                <p>Suivez l'atelier :</p>
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <a href="https://youtube.com/@Theina3d" target="_blank">YouTube</a>
+                    <a href="https://tiktok.com/@Theina3d" target="_blank">TikTok</a>
+                    <a href="https://instagram.com/Theina3d" target="_blank">Instagram</a>
                 </div>
             </div>
 
             <div class="contact-form-container">
-                <form action='/success' class='contact-form' enctype='multipart/form-data' method='POST' name='contact-devis' data-netlify="true" style="box-shadow: var(--ombre); background: var(--blanc);">
-                    <input type="hidden" name="form-name" value="contact-devis" />
+                <form id="sheetdb-form" action="https://sheetdb.io/api/v1/4kexbmu4y8qtc?sheet=forms" method="POST" class="contact-form" style="background: var(--blanc); box-shadow: var(--ombre);">
                     
                     <div class="form-group">
                         <label>Votre Nom</label>
-                        <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
+                        <input type="text" name="data[Nom]" placeholder="Jean Dupont" required>
                     </div>
                     
                     <div class="form-group">
                         <label>Votre Mail</label>
-                        <input type="email" name="email" placeholder="Ex: jean@email.com" required>
+                        <input type="email" name="data[mail]" placeholder="jean@email.com" required>
                     </div>
 
                     <div class="form-group">
                         <label>Type de demande</label>
-                        <select name="type-demande">
-                            <option>J'ai déjà un fichier (.STL, .OBJ)</option>
-                            <option>J'ai un problème à résoudre (Conception)</option>
-                            <option>Autre demande</option>
+                        <select name="data[type de demande]">
+                            <option>Conception sur-mesure</option>
+                            <option>Impression d'un fichier STL</option>
+                            <option>Réparation de pièce</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label>Fichier ou croquis (STL, Image...)</label>
-                        <input type="file" name="fichier-joint" style="padding: 10px 0;">
-                    </div>
-
-                    <div class="form-group">
                         <label>Description</label>
-                        <textarea name="message" rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
+                        <textarea name="data[description]" rows="4" placeholder="Détaillez votre besoin..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Envoyer ma demande</button>
+                    <input type="hidden" name="data[traité]" value="NON">
+
+                    <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Envoyer ma demande</button>
+                    <p id="success-msg" style="display:none; color: var(--vert); margin-top: 15px; font-weight: bold;">✅ Message reçu ! On revient vers vous vite.</p>
                 </form>
             </div>
-
         </div>
     </div>
 </section>
 
-<footer class="text-center" style="padding: 40px 0; background: var(--sombre); color: white;">
+<footer class="text-center">
     <div class="container">
         <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
-        <a href="mentionlegal.html" style="color: #ccc;">Mentions Légales</a>
+        <a href="mentionlegal.html">Mentions Légales</a>
     </div>
 </footer>
+
+<script>
+    const form = document.getElementById('sheetdb-form');
+    const btn = document.getElementById('submit-btn');
+    const msg = document.getElementById('success-msg');
+
+    form.addEventListener("submit", e => {
+        e.preventDefault(); // Empêche de quitter la page
+        
+        btn.innerHTML = "Envoi en cours...";
+        btn.disabled = true;
+
+        fetch(form.action, {
+            method : "POST",
+            body: new FormData(document.getElementById("sheetdb-form")),
+        }).then(response => {
+            if (response.ok) {
+                form.reset();
+                btn.style.display = "none";
+                msg.style.display = "block";
+            } else {
+                alert("Erreur lors de l'envoi. Contactez-nous par mail.");
+                btn.disabled = false;
+                btn.innerHTML = "Réessayer";
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
