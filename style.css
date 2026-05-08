@@ -2,7 +2,6 @@
    VARIABLES & DESIGN TOKENS
    ========================================================================== */
 :root {
-    /* Palette de couleurs */
     --violet: #9039cd;
     --violet-clair: #f3e5f5;
     --orange: #ff914d;
@@ -10,15 +9,8 @@
     --sombre: #2d2d2d;
     --gris-fond: #f8f9fa;
     --blanc: #ffffff;
-    --bleu: #22a1c5;
-    --bleu-pale: rgb(125, 198, 218);
-    --vert: #2e7d32; 
-    
-    /* Typographie */
     --font-titre: 'Bree Serif', serif;
     --font-corps: 'Questrial', sans-serif;
-    
-    /* Design système */
     --ombre: 0 10px 30px rgba(0,0,0,0.08);
     --radius: 15px;
     --container-width: 1140px;
@@ -39,20 +31,14 @@ body {
     background-color: var(--blanc);
     color: var(--sombre);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-h1, h2, h3 {
-    font-family: var(--font-titre);
-    line-height: 1.2;
-}
-
-a { text-decoration: none; color: inherit; transition: var(--transition); }
+h1, h2, h3 { font-family: var(--font-titre); }
+a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
-img { max-width: 100%; height: auto; }
 
 /* ==========================================================================
-   LAYOUT (STRUCTURE)
+   STRUCTURE DE LA GALERIE (3 COLONNES)
    ========================================================================== */
 .container {
     max-width: var(--container-width);
@@ -61,113 +47,27 @@ img { max-width: 100%; height: auto; }
 }
 
 .section-padding {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
-.text-center {
-    text-align: center;
-}
-
-/* Grilles Globales */
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    align-items: center;
-}
-
+/* Force l'affichage en 3 colonnes sur PC, 2 sur tablette, 1 sur mobile */
 .grid-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Force 3 colonnes égales */
     gap: 30px;
 }
 
-/* ==========================================================================
-   NAVIGATION
-   ========================================================================== */
-nav {
-    background: var(--blanc);
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 2000;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+@media (max-width: 1024px) {
+    .grid-gallery { grid-template-columns: repeat(2, 1fr); } /* Tablette */
 }
 
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@media (max-width: 768px) {
+    .grid-gallery { grid-template-columns: 1fr; } /* Mobile */
 }
-
-.logo-zone {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-img { height: 45px; width: auto; }
-
-.logo-nom {
-    font-family: var(--font-titre);
-    font-size: 1.5rem;
-    color: var(--sombre);
-}
-
-.logo-nom span { color: var(--violet); }
-
-nav ul { display: flex; gap: 35px; align-items: center; }
-nav ul li a:hover { color: var(--violet); }
 
 /* ==========================================================================
-   COMPOSANTS (BOUTONS, BADGES, CARDS)
+   CARTES (CARDS)
    ========================================================================== */
-.btn {
-    display: inline-block;
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 0.95rem;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    text-align: center;
-}
-
-.btn-primary {
-    background: var(--violet);
-    color: var(--blanc) !important;
-}
-
-.btn-primary:hover {
-    background: #7a2eb1;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(144, 57, 205, 0.3);
-}
-
-.btn-secondary {
-    border: 2px solid var(--violet);
-    color: var(--violet);
-    background: transparent;
-}
-
-.btn-secondary:hover {
-    background: var(--violet-clair);
-}
-
-.badge {
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-/* Cartes de la Galerie */
 .card {
     background: var(--blanc);
     border-radius: var(--radius);
@@ -180,13 +80,11 @@ nav ul li a:hover { color: var(--violet); }
     transition: var(--transition);
 }
 
-.card:hover {
-    transform: translateY(-8px);
-}
+.card:hover { transform: translateY(-8px); }
 
 .card img {
     width: 100%;
-    height: 230px;
+    height: 220px;
     object-fit: cover;
 }
 
@@ -197,133 +95,84 @@ nav ul li a:hover { color: var(--violet); }
     flex-direction: column;
 }
 
-.card h3 {
-    margin: 10px 0;
-    color: var(--sombre);
-}
-
-.card p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 15px;
-}
-
 /* ==========================================================================
-   ALIGNEMENT DES LISTES (GRID METHOD) - LA CORRECTION ICI
+   ALIGNEMENT DES PUCES (L'ASTUCE DES 3 COLONNES INTERNES)
    ========================================================================== */
-.card ul, .feature-list {
-    list-style: none;
-    padding: 0;
+.card ul {
     margin: 20px 0;
 }
 
-.card li, .feature-list li {
+.card li {
     display: grid;
-    /* Col 1: Icône (30px) | Col 2: Titre (120px) | Col 3: Description (reste) */
-    grid-template-columns: 30px 120px 1fr; 
-    gap: 10px;
+    /* 1: Icône (25px) | 2: Titre (105px) | 3: Description (le reste) */
+    grid-template-columns: 25px 105px 1fr; 
+    gap: 8px;
     align-items: start;
     margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.card li strong {
+    color: var(--sombre);
+    font-weight: bold;
+}
+
+.card li .text-content {
+    color: #666;
     line-height: 1.4;
 }
 
-.card li strong, .feature-list li strong {
-    color: var(--sombre);
-    font-weight: bold;
-    font-size: 0.95rem;
-}
-
-.card li .text-content, .feature-list li .text-content {
-    color: #666;
-    font-size: 0.95rem;
-}
-
 /* ==========================================================================
-   AUTRES SECTIONS
+   BOUTONS & BADGES
    ========================================================================== */
-.card-cta {
-    margin-top: auto;
+.btn {
+    display: block;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-align: center;
+    transition: var(--transition);
+    margin-top: auto; /* Pousse le bouton en bas de la carte */
 }
 
+.btn-primary { background: var(--violet); color: white; }
+.btn-secondary { border: 2px solid var(--violet); color: var(--violet); }
+.btn-secondary:hover { background: var(--violet-clair); }
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* Carte Devis spéciale */
 .card-custom {
     border: 2px dashed var(--violet);
     background: var(--violet-clair);
+    text-align: center;
     justify-content: center;
-    align-items: center;
-    text-align: center;
     padding: 40px 20px;
-    box-shadow: none;
 }
-
-/* Hero Section */
-.hero {
-    padding: 160px 0 100px 0;
-    background-color: var(--blanc);
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 25px;
-}
-
-.hero h1 em {
-    color: var(--violet);
-    font-style: normal;
-}
-
-.hero-desc {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 40px;
-}
-
-/* Tableau Comparatif */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--ombre);
-}
-
-thead tr {
-    background-color: var(--violet);
-    color: var(--blanc);
-    text-align: left;
-}
-
-th, td { padding: 15px 20px; }
-tbody tr { border-bottom: 1px solid #ddd; background: var(--blanc); }
-tbody tr:nth-of-type(even) { background-color: #f9f9f9; }
-tbody td:first-child { font-weight: bold; }
-
-/* Footer */
-footer {
-    background: var(--sombre);
-    color: var(--blanc);
-    padding: 60px 0;
-    text-align: center;
-}
-
-footer a { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
 
 /* ==========================================================================
-   RESPONSIVE (MOBILE)
+   NAVIGATION & FOOTER (BASIQUE)
    ========================================================================== */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    nav ul { display: none; }
-    .section-padding { padding: 60px 0; }
-    
-    /* Sur mobile, on simplifie l'alignement pour éviter l'écrasement */
-    .card li, .feature-list li {
-        grid-template-columns: 30px 1fr;
-    }
-    .card li strong {
-        grid-column: 2;
-    }
-    .card li .text-content {
-        grid-column: 2;
-    }
+nav {
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
+
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo-nom { font-family: var(--font-titre); font-size: 1.4rem; }
+.logo-nom span { color: var(--violet); }
+nav ul { display: flex; gap: 30px; }
+
+footer { background: var(--sombre); color: white; padding: 40px 0; text-align: center; margin-top: 50px; }
