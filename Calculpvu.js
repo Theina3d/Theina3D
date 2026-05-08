@@ -7,11 +7,10 @@ async function init() {
     const colSelect = document.getElementById('color_custom');
     
     try {
-        // Récupérer le stock depuis Google Sheets
         const res = await fetch(`${SHEETDB_URL}?sheet=Stocks`);
         const stocks = await res.json();
         
-        // Extraire les matières et couleurs uniques
+        // Extraction des matières et couleurs pour remplir les menus
         let matieres = [...new Set(stocks.map(s => s.mat))];
         let couleurs = [...new Set(stocks.map(s => s.col))];
 
@@ -26,7 +25,7 @@ async function init() {
             let o = document.createElement('option'); o.text = c; o.value = c;
             colSelect.add(o);
         });
-    } catch (e) { console.log("Erreur chargement stocks cloud"); }
+    } catch (e) { console.log("Mode hors-ligne ou erreur Cloud"); }
 
     refreshClientList();
     toggleFormMode();
@@ -40,14 +39,14 @@ async function saveClient() {
         contact: document.getElementById('client_contact').value,
         address: document.getElementById('client_address').value
     };
-    if(!data.name) return alert("Nom client requis");
+    if(!data.name) return alert("Le nom du client est obligatoire.");
 
     await fetch(`${SHEETDB_URL}?sheet=Clients`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ data: [data] })
     });
-    alert("Client synchronisé avec succès !");
+    alert("Client enregistré dans la base !");
     refreshClientList();
 }
 
@@ -62,7 +61,7 @@ async function refreshClientList() {
             o.value = JSON.stringify(c); o.text = c.name;
             list.add(o);
         });
-    } catch(e) { console.log("Erreur clients"); }
+    } catch(e) { console.log("Erreur liste clients"); }
 }
 
 function loadClient() {
@@ -74,7 +73,7 @@ function loadClient() {
     document.getElementById('client_address').value = c.address;
 }
 
-// --- LOGIQUE DE CALCUL ---
+// --- CALCULS ---
 function update(source) {
     const mode = document.getElementById('mode_projet').value;
     const qty = parseFloat(document.getElementById('qty').value) || 1;
@@ -85,7 +84,6 @@ function update(source) {
     if (mode === 'impression') {
         const h = parseFloat(document.getElementById('h_imp').value) || 0;
         const p = parseFloat(document.getElementById('p_imp').value) || 0;
-        // Calcul : (Élec * h) + (Matière * kg) + (Usure * h) + Frais fixes 3€
         baseProdHT = (h * 0.15 * CONFIG.electricity) + ((p / 1000) * CONFIG.material_kg) + (h * CONFIG.machine_wear) + 3.00;
     } else {
         const complex = parseFloat(document.getElementById('concep_complex').value) || 0;
@@ -94,16 +92,16 @@ function update(source) {
     }
 
     const totalHT_unitaire = (baseProdHT * 1.5) / (1 - CONFIG.charge_rate);
-    const totalFinal = (totalHT_unitaire * qty) + shipping;
+    const totalSuggere = (totalHT_unitaire * qty) + shipping;
 
     if (source === 'params') {
-        document.getElementById('input_total_ht').value = totalFinal.toFixed(2);
+        document.getElementById('input_total_ht').value = totalSuggere.toFixed(2);
     }
 
-    const totalAffiche = parseFloat(document.getElementById('input_total_ht').value) || 0;
-    const charges = totalAffiche * CONFIG.charge_rate;
+    const totalHTVal = parseFloat(document.getElementById('input_total_ht').value) || 0;
+    const charges = totalHTVal * CONFIG.charge_rate;
     const revient = (baseProdHT * qty) + shipping + charges;
-    const benef = totalAffiche - revient;
+    const benef = totalHTVal - revient;
 
     document.getElementById('res_base').innerText = (baseProdHT * qty).toFixed(2) + "€";
     document.getElementById('res_shipping').innerText = shipping.toFixed(2) + "€";
@@ -121,13 +119,19 @@ function toggleFormMode() {
     update('params');
 }
 
-// --- GÉNÉRATION PDF & STOCK ---
+// --- GÉNÉRATION PDF & ENVOI STOCK ---
 async function genererPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    const numDevis = "D-" + Date.now().toString().slice(-6);
     
-    // Ajout à l'onglet Attentes de SheetDB
+    // Variables de nommage
+    const numDevis = "D-" + Date.now().toString().slice(-6);
+    const rawNom = document.getElementById('client_name').value || "Client_Anonyme";
+    const nomClient = rawNom.replace(/[^a-z0-9]/gi, '_');
+    const dateLabel = new Date().toISOString().slice(0,10);
+    const fileName = `DEVIS_${dateLabel}_${nomClient}_${numDevis}.pdf`;
+
+    // 1. Envoi à l'onglet "Attentes" pour le stock
     if(document.getElementById('mode_projet').value === 'impression') {
         const dataAttente = {
             numDevis: numDevis,
@@ -136,24 +140,48 @@ async function genererPDF() {
             poids: parseFloat(document.getElementById('p_imp').value) * parseFloat(document.getElementById('qty').value)
         };
 
-        await fetch(`${SHEETDB_URL}?sheet=Attentes`, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ data: [dataAttente] })
-        });
+        try {
+            await fetch(`${SHEETDB_URL}?sheet=Attentes`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ data: [dataAttente] })
+            });
+        } catch (e) { console.error("Erreur Cloud Stock"); }
     }
 
-    // PDF Simple
-    doc.setFontSize(20);
-    doc.text("DEVIS THEINA3D", 20, 20);
-    doc.setFontSize(12);
-    doc.text(`Devis n° : ${numDevis}`, 20, 30);
-    doc.text(`Client : ${document.getElementById('client_name').value}`, 20, 40);
-    doc.text(`Projet : ${document.getElementById('designation_custom').value}`, 20, 50);
-    doc.text(`TOTAL HT : ${document.getElementById('input_total_ht').value} EUR`, 20, 70);
+    // 2. Construction visuelle du PDF
+    doc.setFontSize(22);
+    doc.setTextColor(100, 80, 160); 
+    doc.text("THEINA 3D - DEVIS", 20, 20);
     
-    doc.save(`Devis_${numDevis}.pdf`);
-    alert("Devis généré et envoyé en attente de stock !");
+    doc.setFontSize(10);
+    doc.setTextColor(0, 0, 0);
+    doc.text(`Devis n° : ${numDevis}`, 20, 30);
+    doc.text(`Date : ${new Date().toLocaleDateString('fr-FR')}`, 20, 35);
+    
+    doc.line(20, 40, 190, 40);
+
+    doc.setFont("helvetica", "bold");
+    doc.text("DESTINATAIRE :", 20, 50);
+    doc.setFont("helvetica", "normal");
+    doc.text(document.getElementById('client_name').value, 20, 57);
+    doc.text(document.getElementById('client_address').value, 20, 64);
+
+    doc.setFont("helvetica", "bold");
+    doc.text("OBJET DU DEVIS :", 20, 85);
+    doc.setFont("helvetica", "normal");
+    doc.text(document.getElementById('designation_custom').value, 20, 92);
+
+    doc.setFontSize(14);
+    doc.text(`Montant Total HT : ${document.getElementById('input_total_ht').value} EUR`, 20, 120);
+    
+    doc.setFontSize(9);
+    doc.setTextColor(120);
+    doc.text("TVA non applicable, article 293 B du Code général des impôts.", 20, 130);
+
+    // 3. Sorties : Téléchargement + Ouverture
+    doc.save(fileName); // Télécharge directement
+    window.open(doc.output('bloburl'), '_blank'); // Ouvre l'aperçu
 }
 
 window.onload = init;
