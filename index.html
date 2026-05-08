@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theina3D | Conception & Impression 3D sur-mesure</title>
     
-    <!-- 1. Optimisation des polices (Supprime le blocage au rendu) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
@@ -16,16 +15,15 @@
 
 <nav>
     <div class="container nav-content">
-        <a href="#" class="logo-zone">
-            <!-- Ajout de dimensions pour éviter le saut au chargement -->
+        <a href="index.html" class="logo-zone">
             <img src="LogoSimple.png" width="40" height="40" class="logo-img" alt="Theina3D">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
         <ul>
             <li><a href="#solutions">Solutions</a></li>
             <li><a href="#apropos">Expertise</a></li>
-            <li><a href='galerie'>Galerie</a></li>
-            <li><a href='blog'>Blog</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="#contact" class="btn btn-primary" style="padding: 8px 20px; color:white;">Devis</a></li>
         </ul>
     </div>
@@ -43,13 +41,7 @@
             </div>
         </div>
         <div class="text-center">
-            <!-- 2. Correction CLS : Ajout width/height et passage au format WebP conseillé -->
-            <!-- Note : Pense à convertir ton LogoTheina3D.png en .webp pour un gain de poids maximal -->
-            <img src="LogoTheina3D.png" 
-                 width="800" 
-                 height="450" 
-                 style="width: 80%; max-width: 400px; height: auto;" 
-                 alt="Logo Theina3D">
+            <img src="LogoTheina3D.png" width="800" height="450" style="width: 80%; max-width: 400px; height: auto;" alt="Logo Theina3D">
         </div>
     </div>
 </section>
@@ -64,130 +56,83 @@
         <div>
             <span class="badge" style="background: #f3e5f5; color: var(--violet);">Notre Expertise</span>
             <h2 style="margin: 15px 0;">Pourquoi nous faire confiance pour vos projets ?</h2>
-            
             <p><strong>Theina3D</strong> est né d'une conviction simple : l'impression 3D ne doit pas être un gadget, mais une solution industrielle accessible.</p>
-            
-            <p>Mon parcours en <strong>Génie Mécanique et Productique (GMP)</strong> me permet de ne pas simplement "imprimer un fichier", mais d'analyser les contraintes physiques (résistance, température, frottements) pour concevoir des pièces qui durent.</p>
-            
+            <p>Mon parcours en <strong>Génie Mécanique et Productique (GMP)</strong> permet d'analyser les contraintes physiques pour concevoir des pièces qui durent.</p>
             <div style="margin: 20px 0; border-left: 4px solid var(--orange); padding-left: 20px; font-style: italic;">
-                "Accompagnée de mon conjoint, nous avons transformé notre passion pour la fabrication additive en un atelier de précision. Ici, chaque problème trouve sa pièce sur-mesure."
+                "Ici, chaque problème trouve sa pièce sur-mesure."
             </div>
-
             <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;">✅ <strong>Légitimité technique :</strong> Expertise en conception mécanique (CAO) et choix des matériaux.</li>
-                <li style="margin-bottom: 10px;">✅ <strong>Parc machine pro :</strong> Impression haute vitesse et précision sur Creality K1C.</li>
-                <li style="margin-bottom: 10px;">✅ <strong>Engagement :</strong> Prototypage rapide et tests de validation avant envoi.</li>
+                <li style="margin-bottom: 10px;">✅ <strong>Légitimité technique :</strong> Expertise CAO et matériaux.</li>
+                <li style="margin-bottom: 10px;">✅ <strong>Parc machine pro :</strong> Creality K1C haute vitesse.</li>
             </ul>
         </div>
     </div>
 </section>
 
-<section id="solutions" class="section-padding" style="background: #f0f0f0;">
-    <div class="container">
-        <div class="text-center" style="margin-bottom: 50px;">
-            <h2>Cas concret : Sécurité Aquarium</h2>
-            <p>Comment nous avons résolu le problème d'une bouteille de CO2 instable.</p>
-        </div>
-        <div class="grid-2">
-            <!-- 3. Comparatif Avant / Après optimisé -->
-            <div class="card" style="padding: 10px; overflow: hidden;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
-                    <div style="position: relative;">
-                        <img src="Avant.jpg" alt="Avant - Bouteille instable" style="display: block; width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.7rem;">AVANT</span>
-                    </div>
-                    <div style="position: relative;">
-                        <!-- Assure-toi que Apres.jpg existe dans ton dossier -->
-                        <img src="Apres.jpg" alt="Après - Support Theina3D" style="display: block; width: 100%; border-radius: 10px; height: 250px; object-fit: cover;">
-                        <span style="position: absolute; top: 10px; left: 10px; background: var(--orange); color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.7rem;">APRÈS</span>
-                    </div>
-                </div>
-                <div style="padding: 20px;">
-                    <span class="status-badge">Phase : Prototype validé</span>
-                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Comparaison entre la situation initiale à risque et notre solution de maintien sur mesure.</p>
-                </div>
+<section id="contact" class="section-padding" style="background: #f9f9f9;">
+    <div class="container grid-2">
+        
+        <div>
+            <h2>Parlons de votre projet</h2>
+            <p>Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.</p>
+            
+            <div style="margin: 30px 0;">
+                <p style="margin-bottom: 15px;">
+                    <strong>📧 Contact direct :</strong><br>
+                    <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold; text-decoration: none; font-size: 1.1rem;">contact@theina3d.fr</a>
+                </p>
+                <p>📦 <strong>Livraison :</strong> Mondial Relay et Delivengo Easy disponibles partout en Europe !</p>
             </div>
 
-            <div>
-                <span class="badge" style="background: #f3e5f5; color: var(--violet);">Problématique</span>
-                <h2 style="margin-bottom: 20px;">Comment sécuriser un gaz sous pression en milieu fragile ?</h2>
-                <p>Initialement, la bouteille de CO2 était simplement posée au sol, créant un risque de basculement contre les vitres de l'aquarium.</p>
-                <div class="grid-2" style="margin-top: 30px; gap: 20px;">
-                    <div>
-                        <span class="feature-icon">🛡️</span>
-                        <h3>Sécurité</h3>
-                        <p style="font-size: 0.9rem;">Maintien vertical absolu via des ergots de blocage conçus en CAO.</p>
-                    </div>
-                    <div>
-                        <span class="feature-icon">🗜️</span>
-                        <h3>Zéro Perçage</h3>
-                        <p style="font-size: 0.9rem;">Installation par bride solide sur le portant du meuble.</p>
-                    </div>
-                </div>
+            <p>Suivez l'atelier :</p>
+            <div style="display: flex; gap: 15px; margin-top: 10px;">
+                <a href="https://www.youtube.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">YouTube</a>
+                <a href="https://www.tiktok.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">TikTok</a>
+                <a href="https://www.instagram.com/Theina3d" target="_blank" style="text-decoration: none; color: #555;">Instagram</a>
             </div>
         </div>
+
+        <form action='success.html' class='contact-form' enctype='multipart/form-data' method='POST' name='contact-devis' data-netlify="true">
+            <input type="hidden" name="form-name" value="contact-devis" />
+            
+            <div class="form-group">
+                <label>Votre Nom</label>
+                <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
+                <label>Votre Mail</label>
+                <input type="email" name="email" placeholder="Ex: jean@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Type de demande</label>
+                <select name="type-demande">
+                    <option>J'ai déjà un fichier (.STL, .OBJ)</option>
+                    <option>J'ai un problème à résoudre (Besoin de conception)</option>
+                    <option>Autre demande</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Ajouter un fichier (STL, Image...)</label>
+                <input type="file" name="fichier-joint">
+            </div>
+            
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="message" rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Envoyer ma demande</button>
+        </form>
+
     </div>
 </section>
-<div class="container grid-2">
-    <h2>Parlons de votre projet</h2>
-    <p>Réponse sous 24h à 48h. Estimation précise basée sur la complexité de conception et le temps d'impression.</p>
-    
-    <div style="margin: 30px 0;">
-        <p style="margin-bottom: 10px;">
-            <strong>📧 Contact direct :</strong><br>
-            <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold; text-decoration: none; font-size: 1.1rem;">contact@theina3d.fr</a>
-        </p>
-        
-        <p>📦 <strong>Livraison :</strong> Mondial Relay et Delivengo Easy disponible partout en Europe depuis la france !</p>
-    </div>
 
-    <p>Suivez l'atelier :</p>
-    <div style="display: flex; gap: 15px; margin-top: 10px;">
-        <a href="https://www.youtube.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">YouTube</a>
-        <a href="https://www.tiktok.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">TikTok</a>
-        <a href="https://www.instagram.com/Theina3d" target="_blank" style="text-decoration: none; color: #555;">Instagram</a>
-    </div>
-
-
-    <!-- 4. Formulaire Netlify prêt avec gestion de fichiers et page de succès -->
-            <form action='/success' class='contact-form' enctype='multipart/form-data' method='POST' name='contact-devis'>
-                <input type="hidden" name="form-name" value="contact-devis" />
-                
-                <div class="form-group">
-                    <label>Votre Nom</label>
-                    <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
-                    <label>Votre Mail</label>
-                    <input type="email" name="email" placeholder="Ex: jean@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Type de demande</label>
-                    <select name="type-demande">
-                        <option>J'ai déjà un fichier (.STL, .OBJ)</option>
-                        <option>J'ai un problème à résoudre (Besoin de conception)</option>
-                        <option>Autre demande</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Ajouter un fichier ou croquis (STL, Image...)</label>
-                    <input type="file" name="fichier-joint">
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea name="message" rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Envoyer ma demande</button>
-            </form>
-</div>
-</body>
-    
-
-<footer class="text-center">
+<footer class="text-center" style="padding: 40px 0; background: var(--sombre); color: white;">
     <div class="container">
-        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p><!DOCTYPE html>
-        <a href="mentionlegal.html">Mentions Légales</a>
+        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
+        <a href="mentionlegal.html" style="color: #ccc;">Mentions Légales</a>
     </div>
 </footer>
 
-
-
+</body>
 </html>
