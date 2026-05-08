@@ -20,6 +20,11 @@
         .net-box { background: #3d342d; padding: 18px; border-radius: 12px; margin-top: 15px; display: flex; justify-content: space-between; font-weight: bold; font-size: 1.1rem; }
         .btn-devis { background: #ff914d; color: white; border: none; width: 100%; padding: 18px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 20px; text-transform: uppercase; }
         .btn-save { background: var(--violet); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; margin-bottom: 10px; }
+        
+        /* Barre de recherche avec bouton flèche */
+        .search-container { display: flex; gap: 5px; margin-bottom: 10px; }
+        .btn-search-list { background: #eee; border: 1px solid #ddd; border-radius: 8px; padding: 0 15px; cursor: pointer; color: var(--violet); font-size: 0.8rem; }
+
         @media (max-width: 768px) { .grid-main { grid-template-columns: 1fr; } .result-zone { position: static; } }
     </style>
 </head>
@@ -39,19 +44,27 @@
         <div class="card">
             <h2 style="margin-bottom: 20px;">Éditeur de Devis</h2>
 
-            <div class="section-title">👤 Client</div>
-            <select id="client_list" class="highlight-input" onchange="loadClient()"></select>
-            <div class="grid-2">
-                <input type="text" id="client_name" class="highlight-input" placeholder="Nom">
-                <input type="text" id="client_contact" class="highlight-input" placeholder="Email/Tel">
+            <div class="section-title">👤 Sélectionner un Client</div>
+            <div class="search-container">
+                <input list="client_suggestions" id="client_search" class="highlight-input" 
+                       placeholder="🔍 Rechercher ou choisir dans la liste..." 
+                       oninput="handleClientSearch(this)"
+                       onclick="this.value=''"
+                       style="margin-bottom: 0;">
+                <datalist id="client_suggestions"></datalist>
             </div>
-            <textarea id="client_address" class="highlight-input" placeholder="Adresse" style="height: 60px;"></textarea>
-            <button class="btn-save" onclick="saveClient()">💾 Sauvegarder Client</button>
 
-            <div class="section-title">📦 Objet</div>
-            <input type="text" id="designation_custom" class="highlight-input" placeholder="Nom du projet">
+            <div class="section-title">📝 Coordonnées du Client</div>
+            <div class="grid-2">
+                <input type="text" id="client_name" class="highlight-input" placeholder="Nom complet">
+                <input type="text" id="client_contact" class="highlight-input" placeholder="Email / Téléphone">
+            </div>
+            <textarea id="client_address" class="highlight-input" placeholder="Adresse complète" style="height: 70px;"></textarea>
+            <button class="btn-save" onclick="saveClient()">💾 Enregistrer / Mettre à jour ce Client</button>
 
-            <div class="section-title">🎯 Prestation</div>
+            <div class="section-title">📦 Détails de la mission</div>
+            <input type="text" id="designation_custom" class="highlight-input" placeholder="Objet du devis (ex: Casque Iron Man)">
+
             <select id="mode_projet" class="highlight-input" onchange="toggleFormMode()">
                 <option value="impression">🖨️ IMPRESSION 3D</option>
                 <option value="conception">🛠️ CONCEPTION / DESIGN</option>
@@ -88,25 +101,25 @@
 
             <div class="form-group" style="width: 30%"><label>Quantité</label><input type="number" id="qty" class="highlight-input" value="1" oninput="update('params')"></div>
 
-            <div class="section-title">🚚 Livraison</div>
-            <input type="number" id="shipping_cost" class="highlight-input" value="0" step="0.1" oninput="update('params')" placeholder="Frais de port">
+            <div class="section-title">🚚 Expédition</div>
+            <input type="number" id="shipping_cost" class="highlight-input" value="0" step="0.1" oninput="update('params')" placeholder="0.00 €">
         </div>
 
         <div class="result-zone">
-            <h3 style="text-align: center; font-weight: normal; margin-bottom: 10px;">Net à Payer HT</h3>
+            <h3 style="text-align: center; font-weight: normal; margin-bottom: 10px;">Prix de Vente HT</h3>
             <div class="price-input-container">
                 <input type="number" id="input_total_ht" step="0.01" oninput="update('price')">
                 <span style="font-size: 3.5rem;">€</span>
             </div>
             
             <div class="cost-breakdown">
-                <div class="cost-line"><span>⚡ Production HT</span> <span id="res_base">0.00€</span></div>
-                <div class="cost-line" style="color: #6fbaff;"><span>📦 Expédition</span> <span id="res_shipping">0.00€</span></div>
-                <div class="cost-line" style="color: #aaa;"><span>📉 Cotisations</span> <span id="res_charges">0.00€</span></div>
+                <div class="cost-line"><span>⚡ Coût Prod HT</span> <span id="res_base">0.00€</span></div>
+                <div class="cost-line" style="color: #6fbaff;"><span>📦 Livraison</span> <span id="res_shipping">0.00€</span></div>
+                <div class="cost-line" style="color: #aaa;"><span>📉 Charges (21.2%)</span> <span id="res_charges">0.00€</span></div>
             </div>
-            <div class="revient-line"><span>COÛT DE REVIENT</span> <span id="res_revient">0.00€</span></div>
+            <div class="revient-line"><span>TOTAL REVIENT</span> <span id="res_revient">0.00€</span></div>
             <div class="net-box" id="net_container"><span>BÉNÉFICE NET</span> <span id="res_net">0.00€</span></div>
-            <button class="btn-devis" onclick="genererPDF()">Générer Devis PDF</button>
+            <button class="btn-devis" onclick="genererPDF()">📥 Télécharger le Devis PDF</button>
         </div>
     </div>
 </div>

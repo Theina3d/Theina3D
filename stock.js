@@ -21,7 +21,7 @@ async function uiAjouterStock() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ data: [data] })
     });
-    alert("Achat enregistré !");
+    //alert("Achat enregistré !");
     refreshUI();
 }
 
