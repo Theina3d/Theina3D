@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie - Theina3D</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Theina3D | Conception & Impression 3D sur-mesure</title>
+    
+    <!-- 1. Optimisation des polices (Supprime le blocage au rendu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
     <div class="container nav-content">
-        <div class="logo-nom">Theina<span>3D</span></div>
-        <ul style="display: flex; gap: 20px; list-style: none;">
-            <li><a href="index.html">Accueil</a></li>
+        <a href="#" class="logo-zone">
+            <!-- Ajout de dimensions pour éviter le saut au chargement -->
+            <img src="LogoSimple.png" width="40" height="40" class="logo-img" alt="Theina3D">
+            <span class="logo-nom">Theina<span>3D</span></span>
+        </a>
+        <ul>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#apropos">Expertise</a></li>
             <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact" class="btn btn-primary" style="padding: 8px 20px; color:white;">Devis</a></li>
         </ul>
     </div>
 </nav>
-
 <section class="section-padding">
     <div class="container">
         <div class="grid-gallery">
