@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie Réalisations - Theina3D</title>
+    <title>Galerie - Theina3D</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
 </head>
@@ -11,134 +11,102 @@
 
 <nav>
     <div class="container nav-content">
-        <a href="index.html" class="logo-zone">
-            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
-            <span class="logo-nom">Theina<span>3D</span></span>
-        </a>
-        <ul>
+        <div class="logo-nom">Theina<span>3D</span></div>
+        <ul style="display: flex; gap: 20px; list-style: none;">
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="galerie.html" class="active" style="color: var(--violet); font-weight: bold;">Nos Solutions</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#contact" class="btn btn-primary" style="padding: 8px 20px; color:white;">Devis</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
         </ul>
     </div>
 </nav>
 
-<header class="section-padding" style="background: var(--gris-fond); margin-top: 80px; text-align: center;">
-    <div class="container">
-        <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Portfolio</span>
-        <h1 style="font-size: 3rem; margin: 20px 0;">Galerie de <em>Réalisations</em></h1>
-        <p class="hero-desc" style="margin: 0 auto; max-width: 750px; opacity: 0.8;">Découvrez nos solutions sur-mesure : de la sécurisation technique à l'optimisation de votre quotidien.</p>
-    </div>
-</header>
-
 <section class="section-padding">
     <div class="container">
         <div class="grid-gallery">
-            
+
             <article class="card">
-                <img src="Apres.jpg" alt="Support Bouteille CO2">
+                <img src="Apres.jpg" alt="Support CO2">
                 <div class="card-content">
-                    <span class="badge" style="background:var(--violet-clair); color:var(--violet);">Aquariophilie</span>
+                    <span class="badge">Aquariophilie</span>
                     <h3>Support Bouteille CO2</h3>
-                    <p>Système de bride paramétrique pour sécuriser les installations haute pression.</p>
+                    <p>Sécurisation pour installations haute pression.</p>
                     <ul>
                         <li>
-                            <span>🛡️</span>
+                            <span class="icon">🛡️</span>
                             <strong>Maintien :</strong>
                             <span class="text-content">Verrouillage anti-basculement.</span>
                         </li>
                         <li>
-                            <span>🗜️</span>
+                            <span class="icon">🗜️</span>
                             <strong>Installation :</strong>
                             <span class="text-content">Zéro perçage, 100% amovible.</span>
                         </li>
                         <li>
-                            <span>✅</span>
+                            <span class="icon">✅</span>
                             <strong>Matériau :</strong>
-                            <span class="text-content">PLA Rigide (Option PETG dispo).</span>
+                            <span class="text-content">PLA Haute Résistance.</span>
                         </li>
                     </ul>
-                    <div class="card-cta">
-                        <a href="projet-aquarium.html" class="btn btn-secondary" style="width: 100%; display: block; text-align: center;">Détails techniques</a>
-                    </div>
+                    <a href="projet-aquarium.html" class="btn btn-secondary">Détails techniques</a>
                 </div>
             </article>
 
             <article class="card">
-                <img src="crochet-douche.jpg" alt="Crochet paroi de douche">
+                <img src="crochet-douche.jpg" alt="Crochet Douche">
                 <div class="card-content">
-                    <span class="badge" style="background: #e1f5fe; color: #039be5;">Maison</span>
-                    <h3>Crochet Paroi de Douche</h3>
-                    <p>Support de serviette dessiné sur-mesure pour s'ajuster parfaitement au verre.</p>
+                    <span class="badge">Maison</span>
+                    <h3>Crochet de Douche</h3>
+                    <p>Optimisation de rangement salle de bain.</p>
                     <ul>
                         <li>
-                            <span>💧</span>
+                            <span class="icon">💧</span>
                             <strong>PETG :</strong>
                             <span class="text-content">Résistant à l'eau et à la chaleur.</span>
                         </li>
                         <li>
-                            <span>📏</span>
+                            <span class="icon">📏</span>
                             <strong>Sur-mesure :</strong>
-                            <span class="text-content">Adapté à l'épaisseur du verre.</span>
+                            <span class="text-content">Adapté à votre paroi de verre.</span>
                         </li>
                         <li>
-                            <span>✨</span>
+                            <span class="icon">✨</span>
                             <strong>Finition :</strong>
-                            <span class="text-content">Design épuré, sans rayures.</span>
+                            <span class="text-content">Design épuré et anti-rayures.</span>
                         </li>
                     </ul>
-                    <div class="card-cta">
-                        <a href="index.html#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center;">Commander le mien</a>
-                    </div>
+                    <a href="#" class="btn btn-secondary">Commander</a>
                 </div>
             </article>
 
             <article class="card">
-                <img src="rack-verres.jpg" alt="Support verres à pied">
+                <img src="rack-verres.jpg" alt="Rack Verres">
                 <div class="card-content">
-                    <span class="badge" style="background: #fff3e0; color: #ef6c00;">Cuisine</span>
-                    <h3>Rack à Verres Suspendu</h3>
-                    <p>Optimisation de rangement sous meuble pour vos verres à vin.</p>
+                    <span class="badge">Cuisine</span>
+                    <h3>Rack à Verres</h3>
+                    <p>Rangement suspendu pour verres à pied.</p>
                     <ul>
                         <li>
-                            <span>🍷</span>
-                            <strong>Gain de place :</strong>
-                            <span class="text-content">Utilise l'espace inutilisé.</span>
+                            <span class="icon">🍷</span>
+                            <strong>Gain place :</strong>
+                            <span class="text-content">Utilise l'espace sous meuble.</span>
                         </li>
                         <li>
-                            <span>🛠️</span>
+                            <span class="icon">🛠️</span>
                             <strong>Modularité :</strong>
                             <span class="text-content">Rails extensibles à l'infini.</span>
                         </li>
                         <li>
-                            <span>🧼</span>
-                            <strong>Robuste :</strong>
-                            <span class="text-content">Conçu pour un usage intensif.</span>
+                            <span class="icon">🧼</span>
+                            <strong>Hygiène :</strong>
+                            <span class="text-content">Séchage rapide tête en bas.</span>
                         </li>
                     </ul>
-                    <div class="card-cta">
-                        <a href="index.html#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center;">Demander un devis</a>
-                    </div>
+                    <a href="#" class="btn btn-secondary">Demander un devis</a>
                 </div>
             </article>
-
-            <div class="card card-custom">
-                <h3 style="color: var(--violet);">Un projet en tête ?</h3>
-                <p>Réparation de pièce cassée ou invention sur-mesure...</p>
-                <a href="index.html#contact" class="btn btn-primary">Lancer mon projet</a>
-            </div>
 
         </div>
     </div>
 </section>
-
-<footer class="text-center" style="padding: 50px 0; background: var(--sombre); color: white;">
-    <div class="container">
-        <p>&copy; 2026 Theina3D - Fabrication Additive de Précision</p>
-        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.5); font-size: 0.8rem; text-decoration: none;">Mentions Légales</a>
-    </div>
-</footer>
 
 </body>
 </html>
