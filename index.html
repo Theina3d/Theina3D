@@ -147,6 +147,36 @@
         <a href="https://www.tiktok.com/@Theina3d" target="_blank" style="text-decoration: none; color: #555;">TikTok</a>
         <a href="https://www.instagram.com/Theina3d" target="_blank" style="text-decoration: none; color: #555;">Instagram</a>
     </div>
+
+
+    <!-- 4. Formulaire Netlify prêt avec gestion de fichiers et page de succès -->
+            <form action='/success' class='contact-form' enctype='multipart/form-data' method='POST' name='contact-devis'>
+                <input type="hidden" name="form-name" value="contact-devis" />
+                
+                <div class="form-group">
+                    <label>Votre Nom</label>
+                    <input type="text" name="nom" placeholder="Ex: Jean Dupont" required>
+                    <label>Votre Mail</label>
+                    <input type="email" name="email" placeholder="Ex: jean@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Type de demande</label>
+                    <select name="type-demande">
+                        <option>J'ai déjà un fichier (.STL, .OBJ)</option>
+                        <option>J'ai un problème à résoudre (Besoin de conception)</option>
+                        <option>Autre demande</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ajouter un fichier ou croquis (STL, Image...)</label>
+                    <input type="file" name="fichier-joint">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="message" rows="4" placeholder="Expliquez-moi votre besoin..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Envoyer ma demande</button>
+            </form>
 </div>
 </body>
     
