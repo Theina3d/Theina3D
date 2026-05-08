@@ -11,8 +11,9 @@
     --gris-fond: #f8f9fa;
     --blanc: #ffffff;
     --bleu: #22a1c5;
-    --bleu-pale :rgb(125, 198, 218)5;
+    --bleu-pale: rgb(125, 198, 218);
     --vert: #2e7d32; 
+    
     /* Typographie */
     --font-titre: 'Bree Serif', serif;
     --font-corps: 'Questrial', sans-serif;
@@ -35,7 +36,7 @@
 
 body {
     font-family: var(--font-corps);
-    background-color: var(--blanc); /* Fond global blanc */
+    background-color: var(--blanc);
     color: var(--sombre);
     line-height: 1.6;
     overflow-x: hidden;
@@ -65,12 +66,14 @@ img { max-width: 100%; height: auto; }
     gap: 40px;
     align-items: center;
 }
+
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 0px;
     align-items: center;
 }
+
 .section-padding {
     padding: 100px 0;
 }
@@ -173,13 +176,46 @@ nav ul li a:hover { color: var(--violet); }
 }
 
 /* ==========================================================================
+   ALIGNEMENT DES LISTES (SOLUTION MISE EN PAGE)
+   ========================================================================== */
+.card ul, .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.card li, .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/* Correction de l'alignement des labels en gras */
+.card li strong, .feature-list li strong {
+    min-width: 110px; /* Largeur fixe pour aligner tous les textes */
+    display: inline-block;
+    color: var(--sombre);
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+/* Contenu textuel à côté du label */
+.card li span.text-content, .feature-list li span.text-content {
+    flex: 1;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
    SECTIONS SPÉCIFIQUES
    ========================================================================== */
 
-/* Hero Section - Résout ton problème d'image noire */
+/* Hero Section */
 .hero {
     padding: 160px 0 100px 0;
-    background-color: var(--blanc); /* Force le blanc partout */
+    background-color: var(--blanc);
 }
 
 .hero h1 {
@@ -249,19 +285,8 @@ footer a {
 footer a:hover { color: var(--orange); }
 
 /* ==========================================================================
-   RESPONSIVE (MOBILE)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    nav ul { display: none; } /* Pour un futur menu burger */
-    .section-padding { padding: 60px 0; }
-    .grid-2 { gap: 30px; }
-}
-
-/* ==========================================================================
    TABLEAU
    ========================================================================== */
-   /* Style global du tableau */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -269,11 +294,10 @@ table {
     font-size: 0.95rem;
     font-family: var(--font-corps);
     border-radius: var(--radius);
-    overflow: hidden; /* Pour que les arrondis fonctionnent */
+    overflow: hidden;
     box-shadow: var(--ombre);
 }
 
-/* En-tête du tableau */
 thead tr {
     background-color: var(--violet);
     color: var(--blanc);
@@ -281,12 +305,10 @@ thead tr {
     font-family: var(--font-titre);
 }
 
-/* Espacement des cellules */
 th, td {
     padding: 15px 20px;
 }
 
-/* Lignes alternées (Zebra effect) pour la lecture */
 tbody tr {
     border-bottom: 1px solid #dddddd;
     background-color: var(--blanc);
@@ -296,42 +318,30 @@ tbody tr:nth-of-type(even) {
     background-color: #f9f9f9;
 }
 
-/* Mise en avant de la dernière ligne si besoin */
 tbody tr:last-of-type {
     border-bottom: 3px solid var(--violet);
 }
 
-/* Style spécifique pour les noms de matériaux (première colonne) */
 tbody td:first-child {
     font-weight: bold;
     color: var(--sombre);
 }
 
-
-.feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.feature-list li {
-    display: flex; /* Aligne l'icône et le texte sur la même ligne */
-    align-items: flex-start; /* Aligne en haut si le texte fait plusieurs lignes */
-    gap: 12px; /* Espace entre l'icône et le texte */
-    margin-bottom: 15px;
-}
-
-/* Pour aligner parfaitement les labels en gras à gauche */
-.feature-list li strong {
-    min-width: 100px; /* Ajuste cette valeur selon la longueur de tes titres (ex: "Rigidité :") */
-    display: inline-block;
-    color: var(--sombre);
-    flex-shrink: 0; /* Empêche le titre de s'écraser */
-}
-
-.feature-list li span.text-content {
-    flex: 1; /* Le reste du texte prend tout l'espace restant */
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.4;
+/* ==========================================================================
+   RESPONSIVE (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    nav ul { display: none; }
+    .section-padding { padding: 60px 0; }
+    .grid-2 { gap: 30px; }
+    
+    /* Sur mobile, on empile le label et le texte si l'écran est trop petit */
+    .card li, .feature-list li {
+        flex-direction: column;
+        gap: 2px;
+    }
+    .card li strong, .feature-list li strong {
+        min-width: 100%;
+    }
 }
