@@ -196,8 +196,8 @@
             if (response.ok) {
                 form.reset();
                 btn.style.display = "none";
-                msg.style.display = "block";
-            } else {
+                msg.style.display = "block";}
+            else {
                 alert("Erreur lors de l'envoi.");
                 btn.disabled = false;
                 btn.innerHTML = "Réessayer";
@@ -229,33 +229,6 @@
 </footer>
 
 <script>
-    // --- GESTION DU FORMULAIRE (SheetDB) ---
-    const form = document.getElementById('sheetdb-form');
-    const btn = document.getElementById('submit-btn');
-    const msg = document.getElementById('success-msg');
-
-    form.addEventListener("submit", e => {
-        e.preventDefault(); // Empêche le rechargement de la page
-        
-        btn.innerHTML = "Envoi en cours...";
-        btn.disabled = true;
-
-        fetch(form.action, {
-            method : "POST",
-            body: new FormData(form),
-        }).then(response => {
-            if (response.ok) {
-                form.reset();
-                btn.style.display = "none";
-                msg.style.display = "block";
-            } else {
-                alert("Erreur de connexion. Vérifiez que l'onglet Sheets s'appelle 'forms'.");
-                btn.disabled = false;
-                btn.innerHTML = "Réessayer";
-            }
-        });
-    });
-
     // --- GESTION DU MENU MOBILE ---
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-menu');
