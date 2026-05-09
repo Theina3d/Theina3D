@@ -4,42 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theina3D | Conception & Impression 3D sur-mesure</title>
-    <meta name="description" content="Expertise en impression 3D (Creality K1C) et modélisation CAO. Conception de pièces mécaniques sur-mesure et prototypage rapide. Devis gratuit 24h.">
-    <link rel="canonical" href="https://theina3d.github.io/Theina3D/index.html">
+    <meta name="description" content="Expertise en impression 3D (Creality K1C) et modélisation CAO. Conception de pièces mécaniques sur-mesure. Devis gratuit 24h.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Ajouts spécifiques pour le carrousel si non présents dans style.css */
-        .carousel-container { position: relative; overflow: hidden; border-radius: 20px; box-shadow: var(--ombre); background: white; }
-        .carousel-slide { display: none; padding: 20px; animation: fadeIn 0.5s; }
+        /* Styles additionnels pour le carrousel (non présents dans ton CSS) */
+        .carousel-container { position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: var(--ombre); background: var(--blanc); }
+        .carousel-slide { display: none; padding: 20px; animation: fadeIn 0.8s ease; }
         .carousel-slide.active { display: block; }
-        .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; background: var(--orange-pale); color: var(--orange); }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .dots-container { text-align: center; margin-top: 15px; }
-        .dot { height: 10px; width: 10px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; }
-        .dot.active { background-color: var(--violet); }
+        .tag-project { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; background: var(--orange-pale); color: var(--orange); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+        .dots-container { text-align: center; margin-top: 20px; }
+        .dot { height: 12px; width: 12px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; transition: var(--transition); }
+        .dot.active { background-color: var(--violet); transform: scale(1.2); }
     </style>
 </head>
 
 <body>
+
 <nav>
     <div class="container nav-content">
         <a href="index.html" class="logo-zone">
-            <img src="LogoSimple.png" width="40" height="40" class="logo-img" alt="Logo Theina3D">
+            <img src="LogoSimple.png" width="45" height="45" class="logo-img" alt="Logo Theina3D">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
+        
         <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
+
         <ul class="nav-menu">
             <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#materiaux">Matériaux</a></li>
             <li><a href="#apropos">Expertise</a></li>
             <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="#contact" class="btn btn-primary" style="color:white !important;">Devis</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact" class="btn btn-primary">Devis</a></li>
         </ul>
     </div>
 </nav>
@@ -47,49 +54,51 @@
 <section class="hero">
     <div class="container grid-2">
         <div>
-            <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Technologie Creality K1C (CoreXY)</span>
-            <h1>Expertise en <em>Impression 3D</em> et Conception Mécanique</h1>
-            <p class="hero-desc">Issu d'une formation GMP, je transforme vos problématiques en solutions durables. Impression haute vitesse et matériaux techniques pour particuliers et professionnels.</p>
+            <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Ingénierie GMP & Tech K1C</span>
+            <h1>Expertise en <em>Impression 3D</em> & Conception</h1>
+            <p class="hero-desc">Conception de pièces mécaniques durables et prototypage haute performance. De l'idée à l'objet, avec une précision industrielle.</p>
             <div style="display: flex; gap:15px; flex-wrap: wrap;">
-                <a href="#contact" class="btn btn-primary">Soumettre un projet</a>
-                <a href="#solutions" class="btn btn-secondary">Voir les réalisations</a>
+                <a href="#contact" class="btn btn-primary">Lancer un projet</a>
+                <a href="#solutions" class="btn btn-secondary">Voir nos solutions</a>
             </div>
         </div>
         <div class="text-center">
-            <img src="LogoTheina3D.png" width="400" alt="Theina3D Pro" style="max-width: 100%; height: auto;">
+            <img src="LogoTheina3D.png" alt="Theina3D Pro" style="max-width: 90%; height: auto;">
         </div>
     </div>
 </section>
 
 <section id="solutions" class="section-padding">
     <div class="container">
-        <div class="text-center" style="margin-bottom: 40px;">
-            <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Portfolio & Applications</span>
-            <h2>Ce que nous concevons pour vous</h2>
+        <div class="text-center" style="margin-bottom: 50px;">
+            <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Portfolio</span>
+            <h2>Réalisations & Applications</h2>
         </div>
 
         <div class="carousel-container">
             <div class="carousel-slide active">
-                <div class="grid-2" style="align-items: center;">
-                    <img src="avant-apres.jpg" alt="Support CO2" style="width: 100%; border-radius: 15px;">
-                    <div class="carousel-text">
-                        <span class="tag">Aquariophilie / Sécurité</span>
-                        <h3>Support de Bouteille CO2</h3>
-                        <p><strong>Défi :</strong> Sécuriser une bouteille sous pression sans percer le support.</p>
-                        <p><strong>Solution :</strong> Conception CAO d'une bride de maintien ergonomique imprimée en matériau haute résistance.</p>
-                        <a href="#contact" class="btn btn-secondary">Demander une pièce similaire</a>
+                <div class="grid-2">
+                    <img src="avant-apres.jpg" alt="Support CO2 Aquarium" style="border-radius: var(--radius);">
+                    <div class="carousel-content">
+                        <span class="tag-project">Aquariophilie / Sécurité</span>
+                        <h3>Support Bouteille CO2</h3>
+                        <p>Conception d'une bride de sécurité anti-basculement sans perçage. Optimisé pour résister aux contraintes de pression.</p>
+                        <ul class="feature-list" style="margin-top: 20px;">
+                            <li>✅ <strong>Conception :</strong> Sur-mesure (CAO)</li>
+                            <li>✅ <strong>Matériau :</strong> PLA Haute Performance</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="carousel-slide">
-                <div class="grid-2" style="align-items: center;">
-                    <img src="reparation.jpg" alt="Réparation 3D" style="width: 100%; border-radius: 15px;">
-                    <div class="carousel-text">
-                        <span class="tag">Maintenance / Économie Circulaire</span>
-                        <h3>Réparation & Pièces Détachées</h3>
-                        <p>Ne jetez plus vos appareils. Nous reproduisons vos engrenages, pignons ou clips cassés à partir de la pièce originale, même usée.</p>
-                        <a href="#contact" class="btn btn-secondary">Réparer un objet</a>
+                <div class="grid-2">
+                    <img src="reparation.jpg" alt="Réparation mécanique" style="border-radius: var(--radius);">
+                    <div class="carousel-content">
+                        <span class="tag-project">Maintenance Industrielle</span>
+                        <h3>Réparation de Pièces Usées</h3>
+                        <p>Ne remplacez pas tout votre équipement pour un engrenage cassé. Nous modélisons et imprimons vos pièces détachées introuvables.</p>
+                        <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Réparer mon objet</a>
                     </div>
                 </div>
             </div>
@@ -102,71 +111,129 @@
     </div>
 </section>
 
-<section id="apropos" class="section-padding" style="background: white;">
+<section id="materiaux" class="section-padding" style="background: var(--gris-fond);">
+    <div class="container">
+        <div class="text-center">
+            <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Technique</span>
+            <h2>Matériaux Haute Performance</h2>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Matériau</th>
+                    <th>Propriétés principales</th>
+                    <th>Applications idéales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PLA+ / Hyper PLA</td>
+                    <td>Rigidité, précision, biodégradable</td>
+                    <td>Prototypes, décoration, outillage léger</td>
+                </tr>
+                <tr>
+                    <td>PETG</td>
+                    <td>Résistant UV, étanche, solide</td>
+                    <td>Usage extérieur, aquariophilie, supports</td>
+                </tr>
+                <tr>
+                    <td>TPU</td>
+                    <td>Flexible, élastique, incassable</td>
+                    <td>Joints, coques, amortisseurs</td>
+                </tr>
+                <tr>
+                    <td>ABS / ASA</td>
+                    <td>Haute température, ultra-résistant</td>
+                    <td>Pièces mécaniques, automobile</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="apropos" class="section-padding">
     <div class="container grid-2">
         <div class="text-center">
-            <img src="equipe.jpg" alt="Atelier Theina3D" style="width: 100%; border-radius: 20px; box-shadow: var(--ombre);">
+            <img src="equipe.jpg" alt="Atelier de fabrication" style="border-radius: var(--radius); box-shadow: var(--ombre);">
         </div>
         <div>
-            <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Pourquoi Theina3D ?</span>
-            <h2>L'ingénierie au service de l'impression</h2>
-            <p><strong>Theina3D</strong> n'est pas qu'un simple service d'impression. Grâce à un background en <strong>Génie Mécanique (GMP)</strong>, chaque projet bénéficie d'une analyse de viabilité.</p>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;">🚀 <strong>Vitesse K1C :</strong> Vos prototypes livrés en un temps record grâce à la technologie haute vitesse.</li>
-                <li style="margin-bottom: 15px;">🛠️ <strong>Matériaux Pro :</strong> PLA+, PETG (alimentaire/UV), TPU (souple) ou ABS selon vos besoins.</li>
-                <li style="margin-bottom: 15px;">📐 <strong>Précision CAO :</strong> Modélisation de fichiers 3D avec tolérances mécaniques ajustées.</li>
+            <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Expertise</span>
+            <h2>Pourquoi nous faire confiance ?</h2>
+            <p>Avec un diplôme en <strong>Génie Mécanique et Productique (GMP)</strong>, j'apporte une vision industrielle à l'impression 3D.</p>
+            
+            <ul class="feature-list" style="margin-top: 30px;">
+                <li>
+                    <strong>Vitesse :</strong> 
+                    <span class="text-content">La Creality K1C (CoreXY) permet d'imprimer jusqu'à 600mm/s pour une réactivité maximale.</span>
+                </li>
+                <li>
+                    <strong>Qualité :</strong> 
+                    <span class="text-content">Buse en acier trempé pour l'utilisation de matériaux chargés en fibre de carbone.</span>
+                </li>
+                <li>
+                    <strong>Accompagnement :</strong> 
+                    <span class="text-content">Aide à la conception pour optimiser le coût et la solidité de vos pièces.</span>
+                </li>
             </ul>
         </div>
     </div>
 </section>
 
-<section id="contact" class="section-padding" style="background: var(--gris-fond);">
+<section id="contact" class="section-padding" style="background: var(--blanc);">
     <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px;">
+        <div class="grid-2" style="align-items: start;">
             <div>
-                <h2>Parlons de votre <em>projet</em></h2>
-                <p>Réponse sous 24h à 48h. Livraison possible partout en Europe via Mondial Relay.</p>
-                <div class="card" style="background: white; padding: 25px; margin-top: 20px; border-radius: 15px;">
-                    <strong>📧 Contact :</strong><br>
-                    <a href="mailto:contact@theina3d.fr" style="color: var(--violet); font-weight: bold;">contact@theina3d.fr</a>
+                <h2>Un projet en tête ?</h2>
+                <p style="margin-bottom: 30px;">Réponse et devis gratuit sous 24h.</p>
+                <div class="card">
+                    <p><strong>📧 Email :</strong> contact@theina3d.fr</p>
+                    <p><strong>📦 Livraison :</strong> France & Europe (Mondial Relay)</p>
                 </div>
             </div>
 
-            <form id="sheetdb-form" action="https://sheetdb.io/api/v1/4kexbmu4y8qtc?sheet=forms" method="POST" class="contact-form" style="background: white; padding: 30px; border-radius: 20px; box-shadow: var(--ombre);">
+            <form id="sheetdb-form" action="https://sheetdb.io/api/v1/4kexbmu4y8qtc?sheet=forms" method="POST" class="contact-form">
                 <div class="form-group">
-                    <label>Nom</label>
-                    <input type="text" name="data[nom]" placeholder="Votre nom" required style="width: 100%; margin-bottom: 15px;">
+                    <label>Votre Nom</label>
+                    <input type="text" name="data[nom]" placeholder="Jean Dupont" required>
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="data[mail]" placeholder="votre@email.com" required style="width: 100%; margin-bottom: 15px;">
+                    <label>Votre Email</label>
+                    <input type="email" name="data[mail]" placeholder="jean@email.com" required>
                 </div>
                 <div class="form-group">
-                    <label>Type de projet</label>
-                    <select name="data[type]" style="width: 100%; margin-bottom: 15px;">
-                        <option>Impression d'un fichier (.STL)</option>
-                        <option>Conception + Impression</option>
-                        <option>Réparation de pièce</option>
+                    <label>Type de demande</label>
+                    <select name="data[type]">
+                        <option>Impression (Fichier STL prêt)</option>
+                        <option>Modélisation + Impression</option>
+                        <option>Réparation de pièce cassée</option>
                     </select>
                 </div>
-                <textarea name="data[description]" rows="4" placeholder="Décrivez votre besoin..." style="width: 100%; margin-bottom: 15px;"></textarea>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="data[description]" rows="4" placeholder="Dimensions, usage, environnement..."></textarea>
+                </div>
                 <input type="hidden" name="data[traité]" value="NON">
-                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Envoyer la demande</button>
-                <div id="success-msg" style="display:none; color: green; margin-top: 10px; text-align: center;">✅ Envoyé avec succès !</div>
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Envoyer ma demande</button>
+                <div id="success-msg" style="display:none; margin-top:15px; color: var(--vert); font-weight:bold; text-align:center;">
+                    ✅ Demande envoyée avec succès !
+                </div>
             </form>
         </div>
     </div>
 </section>
 
-<footer class="text-center" style="background: var(--sombre); color: white; padding: 40px 0;">
-    <div class="container">
-        <p>&copy; 2026 Theina3D - Expertise Impression 3D</p>
-        <a href="mentionlegal.html" style="color: #aaa; font-size: 0.8rem;">Mentions Légales</a>
+<footer>
+    <div class="container text-center">
+        <p>&copy; 2026 Theina3D - Conception & Impression 3D</p>
+        <div style="margin-top: 15px;">
+            <a href="mentionlegal.html">Mentions Légales</a>
+        </div>
     </div>
 </footer>
 
 <script>
-    // GESTION DU CARROUSEL
+    // CARROUSEL
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.dot');
@@ -178,29 +245,44 @@
         if (slideIndex > slides.length) {slideIndex = 1}
         slides[slideIndex-1].classList.add('active');
         dots[slideIndex-1].classList.add('active');
-        setTimeout(showSlides, 5000); // Change toutes les 5 secondes
+        setTimeout(showSlides, 6000);
     }
     showSlides();
 
+    function currentSlide(n) {
+        slideIndex = n;
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        slides[n].classList.add('active');
+        dots[n].classList.add('active');
+    }
+
     // MENU MOBILE
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('.nav-menu');
-    menu.addEventListener('click', () => {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
+    const menuToggle = document.querySelector('#mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
     });
 
-    // FORMULAIRE
+    // FORMULAIRE SHEETDB
     const form = document.getElementById('sheetdb-form');
     form.addEventListener("submit", e => {
         e.preventDefault();
         const btn = document.getElementById('submit-btn');
-        btn.innerHTML = "Envoi...";
-        fetch(form.action, { method : "POST", body: new FormData(form) })
-        .then(() => {
-            form.reset();
-            btn.style.display = "none";
-            document.getElementById('success-msg').style.display = "block";
+        btn.innerHTML = "Envoi en cours...";
+        btn.disabled = true;
+
+        fetch(form.action, {
+            method : "POST",
+            body: new FormData(form),
+        }).then(response => {
+            if (response.ok) {
+                form.reset();
+                btn.style.display = "none";
+                document.getElementById('success-msg').style.display = "block";
+            }
         });
     });
 </script>
