@@ -422,3 +422,58 @@ tbody td:first-child {
     .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
+
+/* ==========================================================================
+   STLYES SPÉCIFIQUES AUX PAGES PROJETS
+   ========================================================================== */
+.project-header {
+    padding: 160px 0 60px 0;
+    background: linear-gradient(to bottom, var(--violet-clair), var(--blanc));
+    text-align: center;
+}
+
+.comparison-card { 
+    background: var(--blanc); 
+    padding: 20px; 
+    border-radius: var(--radius); 
+    box-shadow: var(--ombre); 
+}
+
+.img-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+}
+
+.img-box { 
+    position: relative; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    height: 300px; 
+}
+
+.img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+.img-label { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    background: rgba(0,0,0,0.7); 
+    color: white; 
+    padding: 5px 12px; 
+    border-radius: 5px; 
+    font-size: 0.7rem; 
+    font-weight: bold; 
+}
+
+.video-wrapper {
+    margin: 60px 0;
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--ombre);
+}
+
+.video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
