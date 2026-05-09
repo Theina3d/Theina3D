@@ -138,7 +138,7 @@ nav ul li a:hover { color: var(--violet); }
 }
 
 .btn-primary:hover {
-    background: #7a2eb1;
+    background: var(--violet);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(144, 57, 205, 0.3);
 }
