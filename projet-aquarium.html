@@ -5,130 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sécurisation Bouteille CO2 | Theina3D</title>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    
     <style>
-        :root {
-            --violet: #6c5ce7;
-            --violet-clair: #efedff;
-            --orange: #ff7675;
-            --orange-pale: #fff2f2;
-            --sombre: #2d3436;
-            --blanc: #ffffff;
-            --gris-fond: #f9f9fb;
-            --success: #27ae60;
-        }
-
-        body {
-            font-family: 'Questrial', sans-serif;
-            margin: 0;
-            color: var(--sombre);
-            line-height: 1.6;
-            background-color: var(--blanc);
-        }
-
-        h1, h2, h3 { font-family: 'Bree Serif', serif; }
-
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-        /* Navigation */
-        nav {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-content { display: flex; justify-content: space-between; width: 100%; align-items: center; }
-        .logo-zone { display: flex; align-items: center; text-decoration: none; color: var(--sombre); font-weight: bold; font-size: 1.2rem; }
-        .logo-nom span { color: var(--violet); }
-        ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
-        ul a { text-decoration: none; color: var(--sombre); }
-        .btn-primary { background: var(--violet); color: white !important; padding: 10px 25px; border-radius: 8px; font-weight: bold; }
-
-        /* Header */
+        /* Styles spécifiques à cette page qui ne sont pas dans le CSS global */
         .project-header {
-            padding: 140px 0 60px 0;
+            padding: 160px 0 60px 0; /* Ajusté pour la nav fixed */
             background: linear-gradient(to bottom, var(--violet-clair), var(--blanc));
             text-align: center;
         }
-        .hero-title { font-size: 3rem; margin: 20px 0; }
-        .hero-title em { font-style: normal; color: var(--violet); border-bottom: 3px solid var(--orange); }
+        
+        .hero-title em { 
+            font-style: normal; 
+            color: var(--violet); 
+            border-bottom: 3px solid var(--orange); 
+        }
 
-        /* Sections */
-        .section-padding { padding: 80px 0; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .comparison-card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: var(--radius); 
+            box-shadow: var(--ombre); 
+        }
 
-        /* Images Avant/Après */
-        .comparison-card { background: white; padding: 15px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .img-box { position: relative; border-radius: 12px; overflow: hidden; height: 280px; }
+        
+        .img-box { 
+            position: relative; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            height: 280px; 
+        }
+        
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .img-label { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
 
-        /* Vidéo */
+        .img-label { 
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            background: rgba(0,0,0,0.7); 
+            color: white; 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            font-size: 0.7rem; 
+            font-weight: bold; 
+        }
+
         .video-wrapper {
             margin: 60px 0;
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
-            border-radius: 20px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: var(--ombre);
             background: #000;
         }
+        
         .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* Badges */
-        .badge { display: inline-block; padding: 6px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
-
-        /* LISTES TECHNIQUES (Correction du décalage) */
-        .feature-list { list-style: none; padding: 0; margin: 0; }
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .feature-list .icon {
-            flex-shrink: 0;
-            width: 24px;
-            font-size: 1.1rem;
-            display: flex;
-            justify-content: center;
-        }
-        .feature-list .content { flex: 1; }
-        .feature-list strong {
-            display: inline-block;
-            min-width: 90px;
-            color: var(--sombre);
-        }
-        .feature-list p { margin: 0; font-size: 0.95rem; color: #555; display: inline; }
-
-        /* Cartes Techniques */
-        .tech-card {
-            background: var(--blanc);
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
-            height: 100%;
-            box-sizing: border-box;
-        }
         .tech-card.accent { border-left: 6px solid var(--violet); }
-
-        footer { padding: 40px 0; text-align: center; background: var(--gris-fond); font-size: 0.9rem; color: #888; }
-        
-        .btn-cta { 
-            background: var(--sombre); 
-            color: white !important; 
-            padding: 15px 35px; 
-            border-radius: 10px; 
-            text-decoration: none; 
-            display: inline-block;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -138,11 +74,18 @@
         <a href="index.html" class="logo-zone">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
-        <ul>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="galerie.html" style="color: var(--violet); font-weight: bold;">Galerie</a></li>
-            <li><a href="blog.html" class="btn-primary">Blog</a></li>
-            <li><a href="index.html#contact" class="btn-primary">Devis</a></li>
+            <li><a href="blog.html" class="btn btn-primary">Blog</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary">Devis</a></li>
         </ul>
     </div>
 </nav>
@@ -151,7 +94,7 @@
     <div class="container">
         <a href="galerie.html" style="color: var(--violet); text-decoration: none; font-weight: bold; font-size: 0.9rem;">← RETOUR AUX RÉALISATIONS</a>
         <h1 class="hero-title">Support de Sécurité <em>Bouteille CO2</em></h1>
-        <p style="max-width: 650px; margin: 0 auto; opacity: 0.7;">Conception paramétrique d'un système de maintien anti-chute sans perçage pour aquarium de précision.</p>
+        <p style="max-width: 650px; margin: 20px auto; opacity: 0.7;">Conception paramétrique d'un système de maintien anti-chute sans perçage pour aquarium de précision.</p>
     </div>
 </header>
 
@@ -167,11 +110,11 @@
                     </div>
                     <div class="img-box">
                         <img src="Apres.jpg" alt="Support installé">
-                        <span class="img-label" style="background: var(--success);">APRÈS</span>
+                        <span class="img-label" style="background: var(--vert);">APRÈS</span>
                     </div>
                 </div>
                 <div style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
-                    <span style="color: var(--success); font-weight: bold;">✓ Solution validée</span>
+                    <span style="color: var(--vert); font-weight: bold;">✓ Solution validée</span>
                     <span style="font-size: 0.85rem; color: #888;">Testée sous charge réelle (bouteille 2kg).</span>
                 </div>
             </div>
@@ -202,68 +145,75 @@
         </div>
 
         <div class="grid-2">
-            
-            <div class="tech-card">
+            <div class="card tech-card">
                 <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Matériaux & Performance</span>
                 <h3 style="margin-top: 0;">Validation Technique</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 25px;">Le prototype final a été maintenu en <strong>PLA Premium</strong> suite aux excellents résultats mécaniques.</p>
+                <p style="font-size: 0.9rem; margin-bottom: 25px;">Le prototype final a été maintenu en <strong>PLA Premium</strong>.</p>
                 
                 <ul class="feature-list">
                     <li>
-                        <div class="icon">✓</div>
-                        <div class="content"><strong>Rigidité :</strong> <p>Offre une excellente résistance à la compression, idéale pour un maintien statique.</p></div>
+                        <strong>Rigidité :</strong>
+                        <span class="text-content">Offre une excellente résistance à la compression, idéale pour un maintien statique.</span>
                     </li>
                     <li>
-                        <div class="icon">✓</div>
-                        <div class="content"><strong>Option PETG :</strong> <p>Disponible pour les installations extérieures ou soumises à de fortes chaleurs (>45°C).</p></div>
+                        <strong>Option PETG :</strong>
+                        <span class="text-content">Disponible pour les installations extérieures ou soumises à de fortes chaleurs.</span>
                     </li>
                     <li>
-                        <div class="icon">✓</div>
-                        <div class="content"><strong>Précision :</strong> <p>Impression en couches de 0.2mm pour un état de surface lisse protégeant le mobilier.</p></div>
+                        <strong>Précision :</strong>
+                        <span class="text-content">Impression en couches de 0.2mm pour un état de surface lisse protégeant le mobilier.</span>
                     </li>
                 </ul>
             </div>
 
-            <div class="tech-card accent">
+            <div class="card tech-card accent">
                 <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Modularité</span>
                 <h3 style="margin-top: 0;">Adaptable à votre besoin</h3>
                 <p style="font-size: 0.9rem; margin-bottom: 25px;">Ce n'est pas qu'un produit fini, c'est un <strong>système paramétrique</strong>.</p>
                 
                 <ul class="feature-list">
                     <li>
-                        <div class="icon">📍</div>
-                        <div class="content"><strong>Supports :</strong> <p>La bride peut être redimensionnée pour des montants carrés, ronds ou profilés alu (T-Slot).</p></div>
+                        <strong>Supports :</strong>
+                        <span class="text-content">La bride peut être redimensionnée pour des montants carrés, ronds ou profilés alu.</span>
                     </li>
                     <li>
-                        <div class="icon">🍾</div>
-                        <div class="content"><strong>Formats :</strong> <p>Ajustable pour des bouteilles de 500g, 2kg ou tout autre contenant pressurisé.</p></div>
+                        <strong>Formats :</strong>
+                        <span class="text-content">Ajustable pour des bouteilles de 500g, 2kg ou tout autre contenant pressurisé.</span>
                     </li>
                     <li>
-                        <div class="icon">🎨</div>
-                        <div class="content"><strong>Esthétique :</strong> <p>Large choix de coloris pour une intégration invisible dans votre meuble technique.</p></div>
+                        <strong>Esthétique :</strong>
+                        <span class="text-content">Large choix de coloris pour une intégration invisible dans votre meuble technique.</span>
                     </li>
                 </ul>
             </div>
-
         </div>
 
         <div style="margin-top: 80px; text-align: center;">
             <h2>Un besoin spécifique pour votre installation ?</h2>
             <p style="margin-bottom: 30px; opacity: 0.7;">Theina3D analyse vos contraintes pour créer la pièce qui manque à votre projet.</p>
-            <a href="index.html#contact" class="btn-cta">Demander une étude de projet</a>
+            <a href="index.html#contact" class="btn btn-primary">Demander une étude de projet</a>
         </div>
 
     </div>
 </section>
 
-
-<footer class="text-center">
-    <div class="container">
+<footer>
+    <div class="container text-center">
         <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
         <a href="mentionlegal.html">Mentions Légales</a>
     </div>
 </footer>
 
+<script>
+    // Petit script pour activer le menu mobile (Burger)
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('.nav-menu');
+
+    menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+    });
+</script>
 
 </body>
 </html>
