@@ -4,67 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sécurisation Bouteille CO2 | Theina3D</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> 
     
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+
     <style>
-        /* Styles spécifiques à cette page qui ne sont pas dans le CSS global */
+        /* Uniquement l'ajustement de la bannière pour ne pas être cachée par la nav fixed */
         .project-header {
-            padding: 160px 0 60px 0; /* Ajusté pour la nav fixed */
+            padding: 160px 0 60px 0;
             background: linear-gradient(to bottom, var(--violet-clair), var(--blanc));
             text-align: center;
         }
-        
-        .hero-title em { 
+        /* Style pour l'italique coloré du titre, s'il n'est pas dans ton CSS global */
+        .project-header h1 em { 
             font-style: normal; 
             color: var(--violet); 
             border-bottom: 3px solid var(--orange); 
         }
-
-        .comparison-card { 
-            background: white; 
-            padding: 15px; 
-            border-radius: var(--radius); 
-            box-shadow: var(--ombre); 
-        }
-
-        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        
-        .img-box { 
-            position: relative; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            height: 280px; 
-        }
-        
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-
+        /* Ajustement mineur pour les labels photo */
         .img-label { 
-            position: absolute; 
-            top: 10px; 
-            left: 10px; 
-            background: rgba(0,0,0,0.7); 
-            color: white; 
-            padding: 4px 10px; 
-            border-radius: 4px; 
-            font-size: 0.7rem; 
-            font-weight: bold; 
+            position: absolute; top: 10px; left: 10px; 
+            background: rgba(0,0,0,0.7); color: white; 
+            padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; 
         }
-
-        .video-wrapper {
-            margin: 60px 0;
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--ombre);
-            background: #000;
-        }
-        
-        .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        .tech-card.accent { border-left: 6px solid var(--violet); }
     </style>
 </head>
 <body>
@@ -92,9 +55,9 @@
 
 <header class="project-header">
     <div class="container">
-        <a href="galerie.html" style="color: var(--violet); text-decoration: none; font-weight: bold; font-size: 0.9rem;">← RETOUR AUX RÉALISATIONS</a>
+        <a href="galerie.html" style="color: var(--violet); font-weight: bold; font-size: 0.9rem;">← RETOUR AUX RÉALISATIONS</a>
         <h1 class="hero-title">Support de Sécurité <em>Bouteille CO2</em></h1>
-        <p style="max-width: 650px; margin: 20px auto; opacity: 0.7;">Conception paramétrique d'un système de maintien anti-chute sans perçage pour aquarium de précision.</p>
+        <p class="hero-desc" style="margin: 20px auto;">Conception paramétrique d'un système de maintien anti-chute sans perçage pour aquarium de précision.</p>
     </div>
 </header>
 
@@ -102,96 +65,85 @@
     <div class="container">
         
         <div class="grid-2">
-            <div class="comparison-card">
-                <div class="img-grid">
-                    <div class="img-box">
-                        <img src="Avant.jpg" alt="Bouteille instable">
+            <div class="card">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="position: relative; border-radius: 12px; overflow: hidden; height: 280px;">
+                        <img src="Avant.jpg" alt="Bouteille instable" style="width: 100%; height: 100%; object-fit: cover;">
                         <span class="img-label">AVANT</span>
                     </div>
-                    <div class="img-box">
-                        <img src="Apres.jpg" alt="Support installé">
+                    <div style="position: relative; border-radius: 12px; overflow: hidden; height: 280px;">
+                        <img src="Apres.jpg" alt="Support installé" style="width: 100%; height: 100%; object-fit: cover;">
                         <span class="img-label" style="background: var(--vert);">APRÈS</span>
                     </div>
                 </div>
-                <div style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                <div style="margin-top: 15px;">
                     <span style="color: var(--vert); font-weight: bold;">✓ Solution validée</span>
-                    <span style="font-size: 0.85rem; color: #888;">Testée sous charge réelle (bouteille 2kg).</span>
+                    <p style="font-size: 0.85rem; color: #888;">Testée sous charge réelle (bouteille 2kg).</p>
                 </div>
             </div>
 
-            <div style="padding-top: 20px;">
+            <div>
                 <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Problématique</span>
                 <h2>Sécuriser un gaz sous pression</h2>
-                <p>Initialement, la bouteille de CO2 était simplement posée au sol. En milieu aquatique, le risque de basculement contre la cuve en verre ou les électrovannes est critique.</p>
+                <p>Le risque de basculement contre la cuve en verre ou les électrovannes est critique. Ma solution permet un maintien ferme sans altérer le support.</p>
                 
-                <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="grid-2" style="margin-top: 30px; gap: 20px;">
                     <div>
-                        <h4 style="margin-bottom: 10px;">🛡️ Sécurité</h4>
-                        <p style="font-size: 0.9rem; color: #666;">Verrouillage par bride avec ergots de blocage intégrés.</p>
+                        <h4>🛡️ Sécurité</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Bride avec ergots de blocage intégrés.</p>
                     </div>
                     <div>
-                        <h4 style="margin-bottom: 10px;">🗜️ Zéro Perçage</h4>
-                        <p style="font-size: 0.9rem; color: #666;">Serrage mécanique sur le bâti pour préserver le mobilier.</p>
+                        <h4>🗜️ Zéro Perçage</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Serrage mécanique pour préserver le mobilier.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="video-wrapper">
-            <video controls poster="Apres.jpg">
-                <source src="votre-video-cao.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la vidéo.
-            </video>
+        <div class="card" style="margin: 60px 0; padding: 0; overflow: hidden;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    <source src="votre-video-cao.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
 
         <div class="grid-2">
-            <div class="card tech-card">
-                <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Matériaux & Performance</span>
-                <h3 style="margin-top: 0;">Validation Technique</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 25px;">Le prototype final a été maintenu en <strong>PLA Premium</strong>.</p>
-                
-                <ul class="feature-list">
+            <div class="card">
+                <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Matériaux</span>
+                <h3>Validation Technique</h3>
+                <ul class="feature-list" style="margin-top: 20px;">
                     <li>
                         <strong>Rigidité :</strong>
-                        <span class="text-content">Offre une excellente résistance à la compression, idéale pour un maintien statique.</span>
+                        <span class="text-content">Résistance à la compression idéale pour un maintien statique.</span>
                     </li>
                     <li>
-                        <strong>Option PETG :</strong>
-                        <span class="text-content">Disponible pour les installations extérieures ou soumises à de fortes chaleurs.</span>
-                    </li>
-                    <li>
-                        <strong>Précision :</strong>
-                        <span class="text-content">Impression en couches de 0.2mm pour un état de surface lisse protégeant le mobilier.</span>
+                        <strong>PETG :</strong>
+                        <span class="text-content">Option pour installations soumises à de fortes chaleurs (>45°C).</span>
                     </li>
                 </ul>
             </div>
 
-            <div class="card tech-card accent">
+            <div class="card" style="border-left: 6px solid var(--violet);">
                 <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Modularité</span>
-                <h3 style="margin-top: 0;">Adaptable à votre besoin</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 25px;">Ce n'est pas qu'un produit fini, c'est un <strong>système paramétrique</strong>.</p>
-                
-                <ul class="feature-list">
+                <h3>Système adaptable</h3>
+                <ul class="feature-list" style="margin-top: 20px;">
                     <li>
                         <strong>Supports :</strong>
-                        <span class="text-content">La bride peut être redimensionnée pour des montants carrés, ronds ou profilés alu.</span>
+                        <span class="text-content">Adaptable pour montants carrés, ronds ou profilés alu.</span>
                     </li>
                     <li>
                         <strong>Formats :</strong>
-                        <span class="text-content">Ajustable pour des bouteilles de 500g, 2kg ou tout autre contenant pressurisé.</span>
-                    </li>
-                    <li>
-                        <strong>Esthétique :</strong>
-                        <span class="text-content">Large choix de coloris pour une intégration invisible dans votre meuble technique.</span>
+                        <span class="text-content">Ajustable pour bouteilles de 500g, 2kg ou plus.</span>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div style="margin-top: 80px; text-align: center;">
-            <h2>Un besoin spécifique pour votre installation ?</h2>
-            <p style="margin-bottom: 30px; opacity: 0.7;">Theina3D analyse vos contraintes pour créer la pièce qui manque à votre projet.</p>
-            <a href="index.html#contact" class="btn btn-primary">Demander une étude de projet</a>
+        <div class="text-center" style="margin-top: 80px;">
+            <h2>Un besoin spécifique ?</h2>
+            <p style="margin-bottom: 30px; opacity: 0.7;">Analyse de vos contraintes pour créer la pièce manquante à votre projet.</p>
+            <a href="index.html#contact" class="btn btn-primary">Demander une étude</a>
         </div>
 
     </div>
@@ -205,11 +157,10 @@
 </footer>
 
 <script>
-    // Petit script pour activer le menu mobile (Burger)
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-menu');
 
-    menu.addEventListener('click', function() {
+    menu.addEventListener('click', () => {
         menu.classList.toggle('is-active');
         menuLinks.classList.toggle('active');
     });
