@@ -1,0 +1,10 @@
+User-agent: *
+# Pages privées ou outils internes
+Disallow: /calculpvu.html
+Disallow: /stock.html
+
+# Autoriser tout le reste
+Allow: /
+
+# Lien vers ton plan de site
+Sitemap: https://theina3d.github.io/Theina3D/sitemap.xml
