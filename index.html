@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Styles additionnels pour le carrousel (non présents dans ton CSS) */
+        /* Styles spécifiques au carrousel pour l'index */
         .carousel-container { position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: var(--ombre); background: var(--blanc); }
         .carousel-slide { display: none; padding: 20px; animation: fadeIn 0.8s ease; }
         .carousel-slide.active { display: block; }
@@ -22,6 +22,9 @@
         .dots-container { text-align: center; margin-top: 20px; }
         .dot { height: 12px; width: 12px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; transition: var(--transition); }
         .dot.active { background-color: var(--violet); transform: scale(1.2); }
+        .social-links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .social-btn { display: flex; align-items: center; gap: 10px; font-weight: bold; color: var(--sombre); }
+        .social-btn:hover { color: var(--violet); }
     </style>
 </head>
 
@@ -55,15 +58,15 @@
     <div class="container grid-2">
         <div>
             <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Ingénierie GMP & Tech K1C</span>
-            <h1>L'Ingénierie Mécanique et l'<em>Impression 3D</em>à votre service !</h1>
-            <p class="hero-desc">Conception Mécanique et Impression 3D : De l'idée au prototype fonctionnel.</p>
+            <h1>L'Ingénierie Mécanique et l'<em>Impression 3D</em> à votre service !</h1>
+            <p class="hero-desc">De l'idée au prototype fonctionnel : nous concevons vos pièces avec une rigueur industrielle pour un résultat professionnel.</p>
             <div style="display: flex; gap:15px; flex-wrap: wrap;">
                 <a href="#contact" class="btn btn-primary">Lancer un projet</a>
-                <a href="#solutions" class="btn btn-secondary" alt="Découvrir nos solutions">Voir nos solutions</a>
+                <a href="#solutions" class="btn btn-secondary">Voir nos solutions</a>
             </div>
         </div>
         <div class="text-center">
-            <img src="LogoTheina3D.png" alt="Service d'impression 3D Theina3D - Conception de pièces mécaniques et prototypage rapide style="max-width: 90%; height: auto;">
+            <img src="LogoTheina3D.png" alt="Service d'impression 3D Theina3D" style="max-width: 90%; height: auto;">
         </div>
     </div>
 </section>
@@ -78,27 +81,32 @@
         <div class="carousel-container">
             <div class="carousel-slide active">
                 <div class="grid-2">
-                    <img src="avant-apres.jpg" alt="Support CO2 Aquarium" style="border-radius: var(--radius);">
+                    <img src="avant-apres.jpg" alt="Support CO2 Aquarium" style="border-radius: var(--radius); width: 100%; object-fit: cover;">
                     <div class="carousel-content">
                         <span class="tag-project">Aquariophilie / Sécurité</span>
-                        <h3><a href="projet-aquarium.html">Support Bouteille CO2</a></h3>
-                        <p>Conception d'une bride de sécurité anti-basculement sans perçage. Optimisé pour résister aux contraintes de pression.</p>
+                        <h3>Support Bouteille CO2</h3>
+                        <p>Conception d'une bride de sécurité anti-basculement sans perçage. Une solution CAO optimisée pour résister aux contraintes de pression et à l'humidité.</p>
                         <ul class="feature-list" style="margin-top: 20px;">
-                            <li>✅ <strong>Conception :</strong> Sur-mesure (CAO)</li>
-                            <li>✅ <strong>Matériau :</strong> PLA Haute Performance</li>
+                            <li>✅ <strong>Conception :</strong> Modélisation sur-mesure</li>
+                            <li>✅ <strong>Matériau :</strong> PETG (Résistant à l'eau)</li>
                         </ul>
+                        <a href="projet-aquarium.html" class="btn btn-secondary" style="margin-top: 15px;">Détails du projet</a>
                     </div>
                 </div>
             </div>
 
             <div class="carousel-slide">
                 <div class="grid-2">
-                    <img src="reparation.jpg" alt="Réparation mécanique" style="border-radius: var(--radius);">
+                    <img src="reparation.jpg" alt="Réparation mécanique" style="border-radius: var(--radius); width: 100%; object-fit: cover;">
                     <div class="carousel-content">
                         <span class="tag-project">Maintenance Industrielle</span>
                         <h3>Réparation de Pièces Usées</h3>
-                        <p>Ne remplacez pas tout votre équipement pour un engrenage cassé. Nous modélisons et imprimons vos pièces détachées introuvables.</p>
-                        <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Réparer mon objet</a>
+                        <p>Ne remplacez pas tout votre équipement pour un engrenage cassé. Nous redonnons vie à vos machines en recréant des pièces détachées introuvables.</p>
+                        <ul class="feature-list" style="margin-top: 20px;">
+                            <li>✅ <strong>Analyse :</strong> Relevé de côtes précis</li>
+                            <li>✅ <strong>Solidité :</strong> Matériaux chargés (Carbone/ASA)</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 15px;">Réparer mon objet</a>
                     </div>
                 </div>
             </div>
@@ -113,15 +121,10 @@
 
 <section id="materiaux" class="section-padding" style="background: var(--gris-fond);">
     <div class="container">
-        <div class="text-center">
+        <div class="text-center" style="max-width: 800px; margin: 0 auto 40px auto;">
             <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Technique</span>
             <h2>Matériaux Haute Performance</h2>
-            <br>
-
-            <p><strong>Bien choisir son matériau : le guide technique </strong> <br>
-                À chaque projet sa solution ! Pour vous garantir un résultat optimal, nous travaillons avec une large gamme de polymères aux propriétés variées. <br>
-                Rigidité, flexibilité ou résistance thermique : découvrez les caractéristiques de nos matériaux phares pour identifier celui qui donnera vie à vos idées 
-                dans les meilleures conditions.</p>
+            <p><strong>À chaque projet sa solution !</strong> Pour vous garantir un résultat optimal, nous travaillons avec une large gamme de polymères aux propriétés variées : rigidité, flexibilité ou résistance thermique.</p>
         </div>
         
         <table>
@@ -134,22 +137,22 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>PLA+ / Hyper PLA</td>
+                    <td><strong>Hyper PLA</strong></td>
                     <td>Rigidité, précision, biodégradable</td>
-                    <td>Prototypes, décoration, outillage léger</td>
+                    <td>Prototypes, décoration, outillage</td>
                 </tr>
                 <tr>
-                    <td>PETG</td>
+                    <td><strong>PETG</strong></td>
                     <td>Résistant UV, étanche, solide</td>
-                    <td>Usage extérieur, aquariophilie, supports</td>
+                    <td>Extérieur, aquariophilie, supports</td>
                 </tr>
                 <tr>
-                    <td>TPU</td>
+                    <td><strong>TPU</strong></td>
                     <td>Flexible, élastique, incassable</td>
                     <td>Joints, coques, amortisseurs</td>
                 </tr>
                 <tr>
-                    <td>ABS / ASA</td>
+                    <td><strong>ASA / ABS</strong></td>
                     <td>Haute température, ultra-résistant</td>
                     <td>Pièces mécaniques, automobile</td>
                 </tr>
@@ -161,48 +164,45 @@
 <section id="apropos" class="section-padding">
     <div class="container grid-2">
         <div class="text-center">
-            <img src="equipe.jpg" alt="Atelier de fabrication" style="border-radius: var(--radius); box-shadow: var(--ombre);">
+            <img src="equipe.jpg" alt="Atelier de fabrication Theina3D" style="border-radius: var(--radius); box-shadow: var(--ombre);">
         </div>
         <div>
             <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Expertise</span>
             <h2>Pourquoi nous faire confiance ?</h2>
-            <p>Avec un diplôme en <strong>Génie Mécanique et Productique (GMP)</strong>, j'apporte une vision industrielle à l'impression 3D.</p>
+            <p>Issu d'une formation en <strong>Génie Mécanique et Productique (GMP)</strong>, je n'imprime pas de simples objets : je conçois des solutions techniques viables.</p>
             
             <ul class="feature-list" style="margin-top: 30px;">
                 <li>
-                    <strong>Vitesse :</strong> 
-                    <span class="text-content">La Creality K1C (CoreXY) permet d'imprimer jusqu'à 600mm/s pour une réactivité maximale.</span>
+                    <strong>Vitesse (Creality K1C) :</strong> 
+                    <span class="text-content">La technologie CoreXY permet d'imprimer jusqu'à 600mm/s sans sacrifier la précision.</span>
                 </li>
                 <li>
-                    <strong>Qualité :</strong> 
-                    <span class="text-content">Buse en acier trempé pour l'utilisation de matériaux chargés en fibre de carbone.</span>
+                    <strong>Matériaux Techniques :</strong> 
+                    <span class="text-content">Buse en acier trempé permettant l'usage de filaments chargés en Carbone pour une solidité maximale.</span>
                 </li>
                 <li>
-                    <strong>Accompagnement :</strong> 
-                    <span class="text-content">Aide à la conception pour optimiser le coût et la solidité de vos pièces.</span>
+                    <strong>Étude CAO :</strong> 
+                    <span class="text-content">Optimisation des formes pour réduire le coût tout en maximisant la résistance mécanique.</span>
                 </li>
             </ul>
         </div>
     </div>
 </section>
 
-<section id="contact" class="section-padding" style="background: var(--blanc);">
+<section id="contact" class="section-padding">
     <div class="container">
         <div class="grid-2" style="align-items: start;">
             <div>
                 <h2>Un projet en tête ?</h2>
                 <p style="margin-bottom: 30px;">Réponse et devis gratuit sous 24h.</p>
-                <div class="card">
+                <div class="card" style="margin-bottom: 20px;">
                     <p><strong>📧 Email :</strong> theina3d@gmail.com</p>
-                    <p><strong>📦 Livraison :</strong> France & Europe (Mondial Relay & .Delivengo Easy)</p>
+                    <p><strong>📦 Livraison :</strong> France & Europe (Mondial Relay & Delivengo)</p>
                 </div>
-                <div>
-                    <a href="https://www.youtube.com/@Theina3d"class="social-btn youtube"><i class="fab fa-youtube"></i>Youtube</a><br>
-                    <a href="https://www.tiktok.com/@theina3d"class="social-btn tiktok"><i class="fab fa-tiktok"></i> Tiktok</a><br>
-                    <a href="https://www.instagram.com/Theina3d"class="social-btn instagram"><i class="fab fa-instagram"></i>Instagram</a>
-
-                    
-   
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@Theina3d" class="social-btn"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="20"> YouTube</a>
+                    <a href="https://www.tiktok.com/@theina3d" class="social-btn"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="20"> TikTok</a>
+                    <a href="https://www.instagram.com/Theina3d" class="social-btn"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20"> Instagram</a>
                 </div>
             </div>
 
@@ -237,17 +237,16 @@
     </div>
 </section>
 
-<footer>
-    <div class="container text-center">
-        <p>&copy; 2026 Theina3D - Conception & Impression 3D</p>
-        <div style="margin-top: 15px;">
-            <a href="mentionlegal.html">Mentions Légales</a>
-        </div>
+<footer class="text-center" style="padding: 60px 0; background: var(--sombre); color: white;">
+    <div class="container">
+        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
+        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.6);">Mentions Légales</a>
     </div>
 </footer>
 
+
 <script>
-    // CARROUSEL
+    // GESTION DU CARROUSEL
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.dot');
@@ -259,16 +258,18 @@
         if (slideIndex > slides.length) {slideIndex = 1}
         slides[slideIndex-1].classList.add('active');
         dots[slideIndex-1].classList.add('active');
-        setTimeout(showSlides, 6000);
     }
-    showSlides();
+    
+    let timer = setInterval(showSlides, 6000);
 
     function currentSlide(n) {
+        clearInterval(timer);
         slideIndex = n;
         slides.forEach(s => s.classList.remove('active'));
         dots.forEach(d => d.classList.remove('active'));
         slides[n].classList.add('active');
         dots[n].classList.add('active');
+        timer = setInterval(showSlides, 6000);
     }
 
     // MENU MOBILE
