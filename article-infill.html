@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimiser le remplissage (Infill) | Blog Theina3D</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="container nav-content">
+        <a href="index.html" class="logo-zone">
+            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
+            <span class="logo-nom">Theina<span>3D</span></span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact" class="btn btn-primary">Devis</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<header class="section-padding" style="margin-top: 80px; background: var(--gris-fond); text-align: center;">
+    <div class="container">
+        <a href="blog.html" style="color: var(--violet); font-weight: bold;"> ←Retour au blog</a><br>
+        <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Astuces Technique</span>
+        <p style="color: #999; font-size: 0.9rem;">Publié le 6 Mai 2026</p>
+        <h1>Optimiser le remplissage : <em>Équilibrer légèreté et solidité</em></h1>
+    </div>
+</header>
+
+<main class="section-padding">
+    <div class="container">
+        <article class="article-content clearfix">
+            
+            <img src="infill-optimization.jpg" alt="Exemple de remplissage Gyroïde" class="img-article-float">
+
+            <p>
+                L'un des avantages majeurs de l'impression 3D FDM est de pouvoir décider de ce qu'il se passe à <strong>l'intérieur</strong> de l'objet. Contrairement au moulage traditionnel, une pièce 3D n'a pas besoin d'être pleine pour être extrêmement robuste.
+            </p>
+
+            <p>
+                Le remplissage (ou <em>Infill</em>) est cette structure interne qui soutient les parois de votre pièce. Bien le choisir, c'est économiser du temps et de la matière tout en garantissant que votre pièce ne cassera pas au premier effort.
+            </p>
+
+            <h2>I. La Densité : Quel pourcentage choisir ?</h2>
+            <p>Le taux de remplissage définit la quantité de plastique à l'intérieur. Voici nos recommandations selon l'usage :</p>
+            <ul>
+                <li><strong>5% à 15% :</strong> Usage visuel (figurines, maquettes). Gain de temps maximum.</li>
+                <li><strong>20% à 40% :</strong> Usage standard. C'est le meilleur compromis poids/résistance.</li>
+                <li><strong>50% et plus :</strong> Usage intensif. Réservé aux pièces subissant de fortes contraintes mécaniques.</li>
+            </ul>
+
+            <h2>II. Les Motifs : La géométrie au service de la force</h2>
+            <p>Tous les motifs de remplissage ne se valent pas. Selon la direction des forces appliquées sur votre pièce, certains motifs sont bien plus performants :</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Motif</th>
+                        <th>Propriété principale</th>
+                        <th>Idéal pour...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Grille / Rectiligne</strong></td>
+                        <td>Vitesse d'impression</td>
+                        <td>Objets simples et rapides</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gyroïde</strong></td>
+                        <td>Force multidirectionnelle</td>
+                        <td>Pièces techniques complexes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nid d'abeille</strong></td>
+                        <td>Résistance à la compression</td>
+                        <td>Supports lourds</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Foudres (Lightning)</strong></td>
+                        <td>Économie de matière</td>
+                        <td>Grandes pièces décoratives</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>III. La règle d'or : Parois vs Remplissage</h2>
+            <p>
+                C'est l'erreur la plus commune : penser qu'une pièce à 100% de remplissage est forcément la plus solide. En réalité, <strong>ajouter des parois (murs)</strong> est souvent plus efficace. 
+            </p>
+            <p>
+                Une pièce avec 4 parois et 20% de remplissage sera souvent plus résistante à la flexion qu'une pièce avec 2 parois et 50% de remplissage. C'est le principe des structures tubulaires !
+            </p><br>
+
+            <div class="card card-conseil" style="background-color: var(--violet-clair);">
+                <h3>L'astuce de Theina3D</h3>
+                <p>
+                    Pour vos pièces mécaniques, nous privilégions le motif <strong>Gyroïde</strong>. Pourquoi ? Parce qu'il est "non-isotherme", ce qui signifie qu'il offre une résistance égale dans toutes les directions (X, Y et Z) et qu'il permet une meilleure circulation de l'air ou des fluides à l'intérieur de la pièce.
+                </p>
+            </div>
+
+            <div class="text-center" style="margin-top: 60px;">
+                <h3>Un besoin de haute performance ?</h3>
+                <p>Nos experts paramètrent chaque fichier pour maximiser la durabilité de vos projets.</p>
+                <br>
+                <a href="index.html#contact" class="btn btn-primary">Lancer un projet technique</a>
+            </div>
+
+        </article>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
+        <br>
+        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.5);">Mentions Légales</a>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('is-active');
+    });
+</script>
+
+</body>
+</html>
