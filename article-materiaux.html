@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les méthodes d'impression | Blog Theina3D</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -15,123 +19,137 @@
             <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
+        
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
+
         <ul class="nav-menu">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="blog.html"style="color: var(--violet); font-weight: bold;">Blog</a></li>
+            <li><a href="blog.html" class="nav-active">Blog</a></li>
             <li><a href="index.html#contact" class="btn btn-primary">Devis</a></li>
         </ul>
     </div>
 </nav>
 
-<header class="section-padding" style="margin-top: 80px; background: var(--gris-fond); text-align: center;">
+<header class="page-header">
     <div class="container">
-        <a href="blog.html" style="color: var(--violet); font-weight: bold;"> ←Retour au blog</a><br>
-        <span class="badge" style="background: var(--bleu-pale); color: var(--bleu);">Guide</span>
-        <p style="color: #999; font-size: 0.9rem;">Publié le 30 Avril 2026</p>
-        <h1>Les méthodes d'impression :<em>Quelle technologie pour quel usage ?</em></h1>
+        <a href="blog.html" style="text-decoration: none; color: var(--violet); font-weight: bold;"> ← Retour au blog</a>
+        <div style="margin-top: 25px;">
+            <span class="badge-tag" style="background: var(--violet); color: white;">Guide Technique</span>
+            <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">Publié le 30 Avril 2026 • 5 min de lecture</p>
+            <h1>Les méthodes d'impression : <em>Quelle technologie pour quel usage ?</em></h1>
+        </div>
     </div>
 </header>
 
 <main class="section-padding">
     <div class="container">
-        <article class="article-content clearfix">
+        <article class="article-body clearfix">
             
-            <img src="Articles-MI.jpg" alt="Technologies d'impression 3D" class="img-article-float">
+            <img src="Articles-MI.jpg" alt="Technologies d'impression 3D" class="img-article-wrap">
 
-            <p>
+            <p class="lettrine">
                 Vous avez une idée, un fichier ou un besoin technique ? Le succès d'une impression 3D repose sur deux piliers fondamentaux : la manière dont l'objet est fabriqué (la technologie) et ce dont il est fait (le matériau). 
             </p>
             
             <p>
-                Le choix de la technologie influence non seulement l'aspect visuel de votre pièce, mais aussi ses propriétés mécaniques et son coût de production. Il est donc essentiel de comprendre les forces de chaque méthode.
+                Le choix de la technologie influence non seulement l'aspect visuel de votre pièce, mais aussi ses propriétés mécaniques et son coût de production. Il est donc essentiel de comprendre les forces de chaque méthode. 
+                Contrairement aux idées reçues, l'impression 3D n'est pas une solution unique "bouton magique", mais un ensemble de procédés industriels adaptés à des contraintes précises.
             </p>
+
+            <p>
+                Que vous soyez un particulier cherchant à réparer un objet du quotidien ou un professionnel développant un prototype industriel, la réflexion doit être la même : quelle contrainte mon objet va-t-il subir ? Une pièce décorative n'exigera pas la même précision qu'un engrenage mécanique ou qu'un support exposé aux UV en extérieur.
+            </p>
+
+            <div style="clear: both;"></div>
 
             <h2>I. Les Technologies : Comment l'objet prend-il vie ?</h2>
-            <p>
-                Il existe plusieurs façons de construire un objet en 3D. Voici les trois méthodes principales que nous utilisons pour répondre à vos besoins spécifiques :
-            </p>
-
-            <ul style="margin-bottom: 25px;">
-                <li><strong>Le FDM (Dépôt de fil fondu) :</strong> La méthode la plus polyvalente. Un fil de plastique est fondu et déposé couche par couche. C'est idéal pour les pièces solides et économiques.</li>
-                <li style="margin-top: 10px;"><strong>Le SLA (Résine UV) :</strong> La haute précision. Un laser solidifie une résine liquide, offrant un rendu lisse comme du verre, parfait pour les détails minutieux.</li>
-                <li style="margin-top: 10px;"><strong>Le SLS (Frittage Laser) :</strong> La performance industrielle. Utilise de la poudre de nylon fusionnée par laser pour des pièces ultra-résistantes sans besoin de supports.</li>
-            </ul>
-
-            <h2>II. Les Matériaux : Quelle armure pour votre pièce ?</h2>
-            <p>Le choix du matériau dépend directement de l'environnement final de l'objet (exposition à la chaleur, chocs ou rayons UV).</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Matériau</th>
-                        <th>Points Forts</th>
-                        <th>Usage idéal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>PLA</td>
-                        <td>Esthétique & Écologique</td>
-                        <td>Décoration, Maquettes</td>
-                    </tr>
-                    <tr>
-                        <td>PETG</td>
-                        <td>Robuste & Imperméable</td>
-                        <td>Usage extérieur, Supports</td>
-                    </tr>
-                    <tr>
-                        <td>ABS / ASA</td>
-                        <td>Résistance Chaleur (90°C+)</td>
-                        <td>Automobile, Industrie</td>
-                    </tr>
-                    <tr>
-                        <td>TPU</td>
-                        <td>Flexible & Élastique</td>
-                        <td>Joints, Coques</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="card card-conseil" style="background-color: var(--violet-clair);">
-                <h3>Le conseil de Theina3D</h3>
-                <p>
-                    Il n'y a pas de "meilleur" matériau universel. Un projet en PLA pour une voiture finira par déformer sous la chaleur, tout comme une résine standard pourra être trop fragile pour un engrenage. Nous sommes là pour vous conseiller le duo gagnant.
-                </p>
+            <p>Il existe plusieurs façons de construire un objet en 3D. Voici les méthodes que nous privilégions pour garantir le meilleur rapport qualité/prix :</p>
+            
+            <div class="grid-2" style="gap: 25px; margin: 30px 0; align-items: start;">
+                <div class="card" style="border-top: 4px solid var(--orange);">
+                    <h3>FDM (Fil fondu)</h3>
+                    <p style="font-size: 0.95rem;">La plus polyvalente. Idéale pour les pièces robustes, les prototypes fonctionnels et les supports techniques à coût maîtrisé.</p>
+                </div>
+                <div class="card" style="border-top: 4px solid var(--violet);">
+                    <h3>SLA (Résine UV)</h3>
+                    <p style="font-size: 0.95rem;">La haute précision. Parfait pour les figurines, le prototypage de précision ou les pièces nécessitant un rendu de surface parfaitement lisse.</p>
+                </div>
             </div>
 
-            <div class="text-center" style="margin-top: 60px;">
-                <h3>Un projet en tête ?</h3>
-                <p>Contactez-nous pour une analyse technique de votre cahier des charges.</p>
-                <br>
-                <a href="index.html#contact" class="btn btn-primary">Obtenir un devis</a>
+            <h2>II. Les Matériaux : Quelle armure choisir ?</h2>
+            <p>Le choix du filament ou de la résine est le garant de la longévité de votre projet.</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Matériau</th>
+                            <th>Points Forts</th>
+                            <th>Usage idéal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PLA</strong></td>
+                            <td>Esthétique & Facile</td>
+                            <td>Décoration, Maquettes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PETG</strong></td>
+                            <td>Robuste & Imperméable</td>
+                            <td>Usage extérieur, Aquariophilie</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ABS / ASA</strong></td>
+                            <td>Résistance Chaleur</td>
+                            <td>Automobile, Industrie</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TPU</strong></td>
+                            <td>Flexible & Élastique</td>
+                            <td>Joints, Coques, Amortisseurs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="project-note">
+                <strong>Le conseil de Theina3D :</strong> Ne négligez jamais l'environnement de votre pièce. Un objet en PLA laissé dans une voiture en plein soleil se déformera en quelques heures. C'est pourquoi nous vous accompagnons dans le choix du couple technologie/matériau.
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #eee; margin: 60px 0;">
+
+            <div class="text-center">
+                <span class="badge-tag" style="background: var(--orange); color: white;">Devis Gratuit</span>
+                <h2 style="border: none; margin-top: 10px;">Un projet en tête ?</h2>
+                <p>Besoin d'une expertise pour le choix de vos matériaux ?</p>
+                <div style="margin-top: 30px;">
+                    <a href="index.html#contact" class="btn btn-primary">Analyser mon projet</a>
+                </div>
             </div>
 
         </article>
     </div>
 </main>
 
-<footer>
+<footer style="padding: 60px 0; background: var(--sombre); color: white; text-align: center;">
     <div class="container">
-        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
-        <br>
-        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.5);">Mentions Légales</a>
+        <p>&copy; 2026 Theina3D - Conception & Impression 3D</p>
+        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-decoration: none; margin-top: 15px; display: inline-block;">Mentions Légales</a>
     </div>
 </footer>
 
 <script>
-    // Script pour le menu mobile
-    const menuToggle = document.getElementById('mobile-menu');
+    // Menu Mobile
+    const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('is-active');
     });
 </script>
 

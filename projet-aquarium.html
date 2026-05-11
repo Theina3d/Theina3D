@@ -17,7 +17,7 @@
 <nav>
     <div class="container nav-content">
         <a href="index.html" class="logo-zone">
-            <img src="LogoSimple.png" width="45" height="45" class="logo-img" alt="Logo Theina3D">
+            <img src="LogoSimple.png" class="logo-img" alt="Logo Theina3D">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
         
@@ -28,118 +28,118 @@
         </div>
 
         <ul class="nav-menu">
-            <li><a href="index.html#solutions">Solutions</a></li>
-            <li><a href="index.html#materiaux">Matériaux</a></li>
-            <li><a href="index.html#apropos">Expertise</a></li>
-            <li><a href="galerie.html"style="color: var(--violet); font-weight: bold;">Galerie</a></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="galerie.html" class="nav-active">Galerie</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="index.html#contact" class="btn btn-primary">Devis</a></li>
         </ul>
     </div>
 </nav>
 
-<header class="project-header">
+<header class="page-header">
     <div class="container">
-        <a href="galerie.html" style="color: var(--violet); font-weight: bold;"> ← Retour à la galerie</a><br>
-        <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Étude de cas</span>
-        <h1>Support Bouteille <em>CO2</em></h1>
-        <p style="max-width: 700px; margin: 0 auto; color: #666;">Conception paramétrique d'un système de maintien anti-chute sans perçage pour aquarium de précision.</p>
+        <a href="galerie.html" style="text-decoration: none; color: var(--violet); font-weight: bold;">← Retour à la galerie</a>
+        <div style="margin-top: 20px;">
+            <span class="badge-tag" style="background: var(--orange-pale); color: var(--orange);">Étude de cas</span>
+            <h1>Support Bouteille <em>CO2</em></h1>
+            <p style="max-width: 700px; margin: 15px auto 0 auto;">Conception paramétrique d'un système de maintien anti-chute sans perçage pour aquarium de précision.</p>
+        </div>
     </div>
 </header>
 
-<section class="section-padding" style="padding-top: 0;">
+<main class="section-padding">
     <div class="container">
         
-        <div class="grid-2">
-            <div class="comparison-card">
-                <div class="img-grid">
-                    <div class="img-box">
+        <div class="grid-2" style="margin-bottom: 60px;">
+            <div>
+                <div class="grid-2" style="gap: 15px; margin-bottom: 20px;">
+                    <div class="comparison-box">
                         <img src="Avant.jpg" alt="Bouteille instable">
-                        <span class="img-label">SANS PROTECTION</span>
+                        <span class="comparison-label">SANS PROTECTION</span>
                     </div>
-                    <div class="img-box">
+                    <div class="comparison-box">
                         <img src="Apres.jpg" alt="Support installé">
-                        <span class="img-label" style="background: var(--vert);">AVEC SUPPORT</span>
+                        <span class="comparison-label" style="background: #2E7D32;">AVEC SUPPORT</span>
                     </div>
                 </div>
-                <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px;">
-                    <span style="color: var(--vert); font-weight: bold;">✓ Solution validée</span>
-                    <span style="font-size: 0.85rem; color: #888;">Testée sous charge réelle (bouteille 2kg).</span>
+                <div class="project-note" style="background: #F1F8E9; border-color: #2E7D32;">
+                    <p style="margin: 0; color: #2E7D32; font-weight: bold;">✓ Solution validée : Testée sous charge réelle (2kg).</p>
                 </div>
             </div>
 
-            <div style="padding-top: 20px;">
-                <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Problématique</span>
+            <div class="project-description">
+                <span class="badge-tag" style="background: var(--violet-clair); color: var(--violet);">Le Défi</span>
                 <h2>Sécuriser un gaz sous pression</h2>
-                <p>Initialement, la bouteille de CO2 était simplement posée entre les deux aquariums. En milieu aquatique, le risque de basculement contre la cuve en verre ou les électrovannes est critique.</p>
+                <p>Initialement, la bouteille de CO2 était simplement posée entre deux cuves. En milieu aquatique, le risque de basculement contre le verre ou les électrovannes est critique.</p>
                 
-                <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="grid-2" style="margin-top: 30px; gap: 20px;">
                     <div>
-                        <h4 style="font-family: var(--font-titre); margin-bottom: 10px;">🛡️ Sécurité</h4>
-                        <p style="font-size: 0.9rem; color: #666;">Verrouillage par bride avec ergots de blocage intégrés.</p>
+                        <h4 style="margin-bottom: 5px;">🛡️ Sécurité</h4>
+                        <p style="font-size: 0.9rem;">Verrouillage par bride avec ergots de blocage intégrés.</p>
                     </div>
                     <div>
-                        <h4 style="font-family: var(--font-titre); margin-bottom: 10px;">🗜️ Zéro Perçage</h4>
-                        <p style="font-size: 0.9rem; color: #666;">Serrage mécanique sur le bâti pour préserver le mobilier.</p>
+                        <h4 style="margin-bottom: 5px;">🗜️ Zéro Perçage</h4>
+                        <p style="font-size: 0.9rem;">Serrage mécanique sur le bâti pour préserver le mobilier.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="video-wrapper">
-            <video controls poster="Apres.jpg">
-                <source src="ProjetAquarium.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la vidéo.
-            </video>
+        <div class="grid-2" style="background: var(--gris-fond); padding: 40px; border-radius: var(--radius); align-items: center; margin-bottom: 60px;">
+            <div class="project-description">
+                <span class="badge-tag" style="background: var(--violet-clair); color: var(--violet);">Démonstration</span>
+                <h2>Le mécanisme en <em>action</em></h2>
+                <p>La vidéo montre la robustesse du système de verrouillage rapide.</p>
+                <ul>
+                    <li><strong>Ajustement :</strong> Précision au 1/10ème de mm.</li>
+                    <li><strong>Matériau :</strong> PETG résistant à l'humidité.</li>
+                    <li><strong>Ergonomie :</strong> Changement de bouteille sans outil.</li>
+                </ul>
+                <div class="project-note">
+                    "La bride est imprimée avec un remplissage spécifique pour garantir une élasticité sans rupture."
+                </div>
+            </div>
+
+            <div class="video-vertical-container">
+                <video controls poster="Apres.jpg">
+                    <source src="ProjetAquarium.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
         </div>
 
         <div class="grid-2">
-            <div class="card">
-                <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Fiche Technique</span>
-                <ul class="feature-list">
-                    <li>
-                        <strong>Logiciel :</strong> 
-                        <span class="text-content">Onshape</span>
-                    </li>
-                    <li>
-                        <strong>Imprimante :</strong> 
-                        <span class="text-content">Creality K1C</span>
-                    </li>
-                    <li>
-                        <strong>Matériau :</strong> 
-                        <span class="text-content">PETG (Résistance humidité & UV)</span>
-                    </li>
-                    <li>
-                        <strong>Temps :</strong> 
-                        <span class="text-content">3h d'impression</span>
-                    </li>
+            <div class="card" style="padding: 30px;">
+                <h3 style="margin-bottom: 20px;">Fiche Technique</h3>
+                <ul class="project-description" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><strong>Logiciel :</strong> Onshape (CAO Paramétrique)</li>
+                    <li style="margin-bottom: 10px;"><strong>Imprimante :</strong> Creality K1C (CoreXY)</li>
+                    <li style="margin-bottom: 10px;"><strong>Matériau :</strong> PETG (Anti-humidité)</li>
+                    <li><strong>Vitesse :</strong> 300mm/s (3h d'impression)</li>
                 </ul>
             </div>
-            <div class="text-center" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            
+            <div class="text-center project-description">
                 <h3>Besoin d'une pièce similaire ?</h3>
-                <p style="margin-bottom: 20px;">Nous adaptons nos fixations à vos dimensions.</p>
+                <p>Nous adaptons nos fixations à vos dimensions et contraintes spécifiques.</p>
                 <a href="index.html#contact" class="btn btn-primary">Demander une adaptation</a>
             </div>
         </div>
-    </div>
-</section>
 
-<footer>
-    <div class="container text-center">
-        <p>&copy; 2026 Theina3D - Conception & Impression 3D</p>
-        <div style="margin-top: 15px;">
-            <a href="mentionlegal.html">Mentions Légales</a>
-        </div>
+    </div>
+</main>
+
+<footer style="padding: 60px 0; background: var(--sombre); color: white; text-align: center;">
+    <div class="container">
+        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
+        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; margin-top: 10px; display: inline-block;">Mentions Légales</a>
     </div>
 </footer>
 
 <script>
-    // MENU MOBILE (Identique à l'index)
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');
     });
 </script>

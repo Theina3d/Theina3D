@@ -4,33 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog & Expertise | Theina3D</title>
-    <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        /* Ajustement spécifique pour que les cartes de blog soient de même hauteur */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            align-items: stretch;
+        /* Styles spécifiques aux métas du blog (non globaux) */
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .blog-grid .card {
+        .date {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: bold;
+        }
+
+        /* On s'assure que le contenu de la carte prend toute la place */
+        .card-body {
             display: flex;
             flex-direction: column;
             height: 100%;
-            margin-bottom: 0; /* On enlève le margin manuel */
         }
 
-        .blog-grid .card p {
+        .card-body p {
             flex-grow: 1; /* Pousse le bouton vers le bas */
-        }
-
-        body {
-            padding-top: 80px; /* Espace pour la nav fixe */
         }
     </style>
 </head>
@@ -39,7 +43,7 @@
 <nav>
     <div class="container nav-content">
         <a href="index.html" class="logo-zone">
-            <img src="LogoSimple.png" class="logo-img" alt="Theina3D" width="45" height="45">
+            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
         
@@ -52,71 +56,75 @@
         <ul class="nav-menu">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="blog.html" style="color: var(--violet); font-weight: bold;">Blog</a></li>
+            <li><a href="blog.html" class="nav-active">Blog</a></li>
             <li><a href="index.html#contact" class="btn btn-primary">Devis</a></li>
         </ul>
     </div>
 </nav>
 
-<header class="section-padding" style="background: var(--gris-fond);">
-    <div class="container text-center">
-        <span class="badge" style="background: var(--violet-clair); color: var(--violet);">Expertise</span>
+<header class="page-header">
+    <div class="container">
+        <span class="badge-tag" style="background: var(--violet); color: white;">Expertise</span>
         <h1>Conseils & <em>Expertise</em></h1>
-        <p class="hero-desc" style="margin: 0 auto;">Tout ce qu'il faut savoir pour réussir vos projets 3D.</p>
+        <p style="max-width: 600px; margin: 0 auto;">Tout ce qu'il faut savoir pour réussir vos projets d'impression 3D, du choix du filament à la conception CAO.</p>
     </div>
 </header>
 
 <section class="section-padding">
     <div class="container">
-        <div class="blog-grid">
+        <div class="grid-3">
             
             <article class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <span class="badge" style="background:#e8ebf5; color: var(--bleu); margin-bottom: 0;">Guide</span>
-                    <small style="color: #999;">Avril 2026</small>
+                <div class="card-body">
+                    <div class="blog-meta">
+                        <span class="badge-tag" style="background:#E8EBF5; color: #3F51B5; margin-bottom: 0;">Guide</span>
+                        <span class="date">Avril 2026</span>
+                    </div>
+                    <h3>Les méthodes d'impression : Quelle technologie ?</h3>
+                    <p>Comment choisir entre la solidité du PETG et la finesse de la résine ? Découvrez notre guide complet pour sélectionner le duo idéal.</p>
+                    <a href="article-materiaux.html" class="btn btn-outline" style="text-align: center; margin-top: 20px;">Lire la suite</a>
                 </div>
-                <h2 style="font-size: 1.5rem; margin-bottom: 15px;">Les méthodes d'impression : Quelle technologie ?</h2>
-                <p style="color: #666; margin-bottom: 20px;">Comment choisir entre la solidité du PETG et la finesse de la résine ? Découvrez notre guide complet pour sélectionner le duo idéal.</p>
-                <a href="article-materiaux.html" class="btn btn-secondary" style="text-align: center;">Lire la suite</a>
             </article>
 
             <article class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <span class="badge" style="background: #e8f5e9; color: #2e7d32; margin-bottom: 0;">Tutoriel</span>
-                    <small style="color: #999;">Mai 2026</small>
+                <div class="card-body">
+                    <div class="blog-meta">
+                        <span class="badge-tag" style="background: #E8F5E9; color: #2E7D32; margin-bottom: 0;">Tutoriel</span>
+                        <span class="date">Mai 2026</span>
+                    </div>
+                    <h3>Réussir sa prise de cotes : Le guide parfait</h3>
+                    <p>Une modélisation 3D précise commence par une mesure rigoureuse au pied à coulisse. Nos astuces de pro pour ne plus se tromper.</p>
+                    <a href="article-tuto-mesures.html" class="btn btn-outline" style="text-align: center; margin-top: 20px;">Lire le tuto</a>
                 </div>
-                <h2 style="font-size: 1.5rem; margin-bottom: 15px;">Réussir sa prise de cotes : Le guide parfait</h2>
-                <p style="color: #666; margin-bottom: 20px;">Une modélisation 3D précise commence par une mesure rigoureuse. Nos astuces de pro pour prendre les cotes d'une pièce cassée.</p>
-                <a href="article-tuto-mesures.html" class="btn btn-secondary" style="text-align: center;">Lire le tuto</a>
             </article>
 
             <article class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <span class="badge" style="background: var(--orange-pale); color: var(--orange); margin-bottom: 0;">Astuce</span>
-                    <small style="color: #999;">Juin 2026</small>
+                <div class="card-body">
+                    <div class="blog-meta">
+                        <span class="badge-tag" style="background: #FFF3E0; color: #EF6C00; margin-bottom: 0;">Astuce</span>
+                        <span class="date">Juin 2026</span>
+                    </div>
+                    <h3>Optimiser le remplissage (Infill)</h3>
+                    <p>Apprenez à équilibrer légèreté, temps d'impression et solidité mécanique en choisissant le bon motif de remplissage (Gyröid, Honeycomb...).</p>
+                    <a href="article-infill.html" class="btn btn-outline" style="text-align: center; margin-top: 20px;">Lire l'article</a>
                 </div>
-                <h2 style="font-size: 1.5rem; margin-bottom: 15px;">Optimiser le remplissage (Infill)</h2>
-                <p style="color: #666; margin-bottom: 20px;">Apprenez à équilibrer légèreté et solidité mécanique en choisissant le bon motif de remplissage pour vos pièces.</p>
-                <a href="article-infill.html" class="btn btn-secondary" style="text-align: center;">Lire l'article</a>
             </article>
 
         </div>
     </div>
 </section>
 
-<footer class="text-center" style="padding: 60px 0; background: var(--sombre); color: white;">
+<footer style="padding: 60px 0; background: var(--sombre); color: white; text-align: center;">
     <div class="container">
         <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
-        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.6);">Mentions Légales</a>
+        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Mentions Légales</a>
     </div>
 </footer>
 
 <script>
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');
     });
 </script>
