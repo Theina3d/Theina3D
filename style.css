@@ -363,3 +363,32 @@ td { padding: 15px; border-bottom: 1px solid #eee; }
         margin-right: 0;
     }
 }
+
+
+/*=======================================================================================
+8. Mention Légal 
+=======================================================================================*/
+/* Style spécifique pour le texte légal */
+.legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.legal-section {
+    margin-bottom: 40px;
+}
+
+.legal-section h3 {
+    color: var(--violet);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--violet-clair);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.legal-section p {
+    margin-bottom: 10px;
+    color: var(--gris-texte);
+    text-align: justify;
+}
