@@ -290,8 +290,26 @@ table { width: 100%; border-collapse: collapse; margin: 30px 0; background: whit
 th { background: var(--violet); color: white; padding: 15px; text-align: left; }
 td { padding: 15px; border-bottom: 1px solid #eee; }
 
-/* ==========================================================================
-   7. RESPONSIVE
+
+/* Style spécifique pour le tableau des matériaux */
+.materiaux-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+.materiaux-table th, .materiaux-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.materiaux-table th {
+    font-family: var(--font-titre);
+    color: var(--sombre);
+}/* ==========================================================================
+   7. RESPONSIVE (CORRIGÉ)
    ========================================================================== */
 @media (max-width: 992px) {
     .grid-2 { grid-template-columns: 1fr; }
@@ -299,58 +317,45 @@ td { padding: 15px; border-bottom: 1px solid #eee; }
 }
 
 @media (max-width: 768px) {
-    /* Style du bouton (les 3 barres) */
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-        z-index: 1100;
-    }
+    /* Espacement global des sections sur mobile */
+    .section-padding { padding: 40px 0; }
 
-    .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: var(--sombre);
-        transition: var(--transition);
-    }
-
-    /* Le menu caché par défaut */
+    /* MENU MOBILE (Ton code actuel conservé) */
+    .menu-toggle { display: block; cursor: pointer; z-index: 1100; }
+    .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--sombre); transition: var(--transition); }
     .nav-menu {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        left: -100%; /* Sorti de l'écran à gauche */
-        top: 80px;
-        gap: 0;
-        background-color: var(--blanc);
-        width: 100%;
-        height: calc(100vh - 80px);
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        z-index: 1050;
+        display: flex; flex-direction: column; position: fixed; left: -100%;
+        top: 80px; background-color: var(--blanc); width: 100%;
+        height: calc(100vh - 80px); text-align: center; transition: 0.3s;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1050;
     }
-
-    /* Quand le menu est activé via JS */
-    .nav-menu.active {
-        left: 0; /* Revient dans l'écran */
-    }
-
-    .nav-menu li {
-        margin: 25px 0;
-    }
-
-    .nav-menu a {
-        font-size: 1.2rem;
-    }
-
-    /* Optionnel : Transformer les barres en croix quand actif */
+    .nav-menu.active { left: 0; }
+    .nav-menu li { margin: 25px 0; }
     #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
     #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* L'image de blog reprend toute la largeur */
+    /* --- CORRECTIONS SPÉCIFIQUES --- */
+
+    /* 1. Rendre le tableau scrollable sur mobile pour éviter qu'il ne dépasse */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .materiaux-table { font-size: 0.9rem; min-width: 500px; } /* Force une largeur min pour garder l'alignement */
+
+    /* 2. Formulaire : On passe les labels au-dessus des inputs */
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 5px !important;
+    }
+    .form-group label {
+        flex: none !important;
+        width: 100%;
+    }
+    
+    /* 3. Image de blog reprend toute la largeur */
     .img-article-wrap {
         float: none;
         width: 100%;
