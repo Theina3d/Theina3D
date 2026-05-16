@@ -35,9 +35,9 @@
     </div>
 </nav>
 
-<header class="page-header">
+<header class="page-header-calculator">
     <div class="container">
-        <a href="blog.html" style="text-decoration: none; color: var(--violet); font-weight: bold;"> ← Retour au blog</a>
+        <a href="blog.html" class="blog-back-link">← Retour au blog</a>
         <div style="margin-top: 25px;">
             <span class="badge-tag" style="background: #e8f5e9; color: var(--vert);">Tutoriel</span>
             <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">Publié le 6 Mai 2026 • 4 min de lecture</p>
@@ -46,11 +46,11 @@
     </div>
 </header>
 
-<main class="section-padding">
+<main class="section-padding" style="background-color: var(--gris-fond);">
     <div class="container">
-        <article class="article-body clearfix">
+        <article class="article-container">
             
-            <img src="Articles-TM.png" alt="Illustration prise de cotes" class="img-article-wrap">
+            <img src="Articles-TM.png" alt="Illustration prise de cotes" class="article-hero-img">
 
             <p class="lettrine">
                 Réparer une pièce mécanique ou concevoir un support sur-mesure demande une précision au millimètre. Une erreur de mesure de 2 mm et la pièce ne s'emboîte plus. 
@@ -60,18 +60,16 @@
                 Pas de panique ! Voici comment devenir un expert du relevé de mesures, même sans être ingénieur. Une bonne préparation en amont est la garantie d'un projet réussi du premier coup, évitant ainsi les itérations inutiles et le gaspillage de matière.
             </p>
 
-            <div style="clear: both;"></div>
-
             <h2>I. Les outils indispensables</h2>
             <p>Pour obtenir un résultat professionnel, il faut s'équiper un minimum. Voici le trio gagnant :</p>
             
             <div class="grid-2" style="gap: 25px; margin: 30px 0; align-items: start;">
-                <div class="card" style="border-top: 4px solid var(--violet);">
-                    <h3>Le Pied à Coulisse</h3>
+                <div class="card" style="border-top: 4px solid var(--violet); padding: 25px;">
+                    <h3 style="margin-bottom: 10px;">Le Pied à Coulisse</h3>
                     <p style="font-size: 0.95rem;">C'est l'outil roi. Il permet de mesurer les diamètres intérieurs, extérieurs et les profondeurs avec une précision de 0.1 mm.</p>
                 </div>
-                <div class="card" style="border-top: 4px solid var(--orange);">
-                    <h3>Le Réglet</h3>
+                <div class="card" style="border-top: 4px solid var(--orange); padding: 25px;">
+                    <h3 style="margin-bottom: 10px;">Le Réglet</h3>
                     <p style="font-size: 0.95rem;">Plus précis qu'un mètre ruban, il est idéal pour les longueurs planes. Attention toutefois aux erreurs de parallaxe lors de la lecture.</p>
                 </div>
             </div>
@@ -86,25 +84,25 @@
             <h2>III. Quelles cotes nous envoyer ?</h2>
             <p>Ne perdez pas de temps à tout mesurer ! Concentrez-vous sur les points de contact et les contraintes d'assemblage :</p>
 
-            <ul style="margin-bottom: 30px;">
+            <ul style="margin: 20px 0 30px 20px; line-height: 1.8;">
                 <li><strong>Les entraxes :</strong> La distance entre le centre de deux trous (crucial pour la fixation).</li>
                 <li><strong>L'épaisseur totale :</strong> Pour garantir la solidité mécanique de la pièce.</li>
                 <li><strong>Les diamètres :</strong> Précisez s'il s'agit d'un trou (passage de vis) ou d'un axe plein.</li>
             </ul>
 
-            <div class="card" style="background: var(--violet-clair); border: none; margin: 40px 0;">
-                <h3 style="color: var(--violet); margin-bottom: 10px;">Le saviez-vous ?</h3>
+            <div class="expert-box">
+                <h3>Le saviez-vous ?</h3>
                 <p>En impression 3D, nous appliquons toujours un <strong>"jeu de tolérance"</strong>. Le plastique se rétracte légèrement en refroidissant. Pour qu'une tige de 10 mm entre dans un trou, nous concevons souvent ce dernier à 10.2 mm. C'est pour cela qu'une mesure précise de votre part est la clé d'un assemblage parfait.</p>
             </div>
 
-            <hr style="border: none; border-top: 1px solid #eee; margin: 60px 0;">
+            <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0;">
 
             <div class="text-center">
                 <span class="badge-tag" style="background: var(--orange); color: white;">Expertise 3D</span>
-                <h2 style="border: none; margin-top: 10px;">Vous hésitez encore ?</h2>
+                <h2 style="margin-top: 15px;">Vous hésitez encore ?</h2>
                 <p>Contactez-nous pour des conseils personnalisés. <br> Nous analyserons votre cahier des charges pour vous conseiller le duo Technologie + Matériau gagnant.</p>
-                <div style="margin-top: 30px;">
-                    <a href="index.html#contact" class="btn btn-primary">Nous contacter</a>
+                <div style="margin-top: 25px;">
+                    <a href="index.html#contact" class="btn btn-primary">Analyser mon projet</a>
                 </div>
             </div>
 
@@ -118,15 +116,6 @@
         <a href="mentionlegal.html" style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-decoration: none; margin-top: 15px; display: inline-block;">Mentions Légales</a>
     </div>
 </footer>
-
-<script>
-    // Menu Mobile
-    const menuToggle = document.querySelector('#mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-</script>
 
 </body>
 </html>

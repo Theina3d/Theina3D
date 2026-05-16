@@ -67,7 +67,7 @@
         <ul class="nav-menu">
             <li><a href="#solutions" class="nav-active">Solutions</a></li>
             <li><a href="#materiaux">Matériaux</a></li>
-            <li><a href="#apropos">Expertise</a></li>
+            <li><a href="#expertise">Expertise</a></li>
             <li><a href="galerie.html">Galerie</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="#contact" class="btn btn-primary">Devis</a></li>
@@ -139,6 +139,7 @@
         </div>
     </div>
 </section>
+
 <section id="materiaux" class="section-padding">
     <div class="container">
         <div class="text-center">
@@ -147,7 +148,7 @@
             <p>Nous travaillons avec une large gamme de polymères pour répondre à vos besoins mécaniques.</p>
         </div>
 
-        <div class="table-container card">
+        <div class="table-container card table-responsive" style="margin-top: 30px;">
             <table class="materiaux-table">
                 <thead>
                     <tr>
@@ -185,10 +186,34 @@
 
 <section id="expertise" class="section-padding" style="background: linear-gradient(to bottom, #ffffff, #fcfaff);">
     <div class="container">
-        <div class="text-center">
-            <span class="badge-tag" style="background: var(--violet); color: white;">Savoir-faire</span>
-            <h2>Une expertise <em>multi-dimensionnelle</em></h2>
-            <p style="max-width: 700px; margin: 0 auto;">De l'analyse du besoin à la pièce finale, nous maîtrisons chaque étape de la chaîne de valeur.</p>
+        
+        <div class="expertise-top-layout">
+            <div class="expertise-text">
+                <span class="badge-tag" style="background: var(--violet); color: white;">Savoir-faire</span>
+                <h2>Une expertise <em>multi-dimensionnelle</em></h2>
+                <p style="margin-top: 15px; color: var(--gris-texte);">De l'analyse du besoin à la pièce finale, nous maîtrisons chaque étape de la chaîne de valeur.</p>
+                
+                <p style="margin-top: 25px; font-size: 1.05rem; line-height: 1.8; color: var(--gris-texte);">
+                    Theina3D est né d'une conviction simple : l'impression 3D ne doit pas être un gadget, mais une solution industrielle accessible. <br>
+                    Mon parcours en <strong>Génie Mécanique et Productique (GMP)</strong> me permet d'analyser les contraintes physiques pour concevoir des pièces qui durent. <br>
+                    <strong style="color: var(--sombre);">"Chaque problème technique trouve sa pièce sur-mesure dans notre atelier."</strong>
+                </p>
+            </div>
+
+            <div class="card expertise-stats-card">
+                <div style="text-align: center;">
+                    <h4>24h</h4>
+                    <p>Délai Devis</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4>600mm/s</h4>
+                    <p>Vitesse d'impression</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4>100%</h4>
+                    <p>Sur-mesure</p>
+                </div>
+            </div>
         </div>
 
         <div class="expertise-grid">
@@ -196,34 +221,22 @@
                 <div class="icon-circle">📐</div>
                 <h3>Conception CAO</h3>
                 <p>Modélisation 3D avancée de pièces mécaniques et techniques. Nous optimisons vos concepts pour la fabrication (DFM) tout en garantissant la précision des côtes.</p>
+                <p style="margin-top: 15px; font-weight: bold; font-size: 0.9rem; color: var(--violet);">✅ Expertise en conception mécanique (CAO)</p>
             </article>
 
             <article class="expertise-card">
                 <div class="icon-circle">🖨️</div>
                 <h3>Impression Haute Vitesse</h3>
                 <p>Grâce à la technologie <strong>K1C</strong>, nous produisons des pièces de haute qualité avec une finition de surface exceptionnelle et des délais de production réduits.</p>
+                <p style="margin-top: 15px; font-weight: bold; font-size: 0.9rem; color: var(--violet);">✅ Impression haute vitesse sur Creality K1C</p>
             </article>
 
             <article class="expertise-card">
                 <div class="icon-circle">🧪</div>
                 <h3>Conseil Matériaux</h3>
                 <p>Choix du polymère idéal selon vos contraintes : résistance thermique (ASA), mécanique (Carbone), chimique (PETG) ou flexibilité (TPU).</p>
+                <p style="margin-top: 15px; font-weight: bold; font-size: 0.9rem; color: var(--violet);">✅ Durabilité &amp; Résistance ciblée</p>
             </article>
-        </div>
-
-        <div class="card" style="margin-top: 60px; background: var(--sombre); color: white; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; padding: 30px; border: none;">
-            <div style="text-align: center; margin: 10px;">
-                <h4 style="color: var(--violet); font-size: 1.8rem;">24h</h4>
-                <p style="font-size: 0.8rem; opacity: 0.8;">Délai Devis</p>
-            </div>
-            <div style="text-align: center; margin: 10px;">
-                <h4 style="color: var(--violet); font-size: 1.8rem;">600mm/s</h4>
-                <p style="font-size: 0.8rem; opacity: 0.8;">Vitesse d'impression</p>
-            </div>
-            <div style="text-align: center; margin: 10px;">
-                <h4 style="color: var(--violet); font-size: 1.8rem;">100%</h4>
-                <p style="font-size: 0.8rem; opacity: 0.8;">Sur-mesure</p>
-            </div>
         </div>
     </div>
 </section>
@@ -235,55 +248,55 @@
                 <h2>Un projet <em>en tête ?</em></h2>
                 <p style="margin-bottom: 30px;">Réponse et devis gratuit sous 24h.</p>
                 <div class="card" style="padding: 25px; border: none; margin-bottom: 25px; background: var(--violet-clair);">
-                    <p>📧 <strong>Email :</strong> theina3d@gmail.com</p>
-                    <p>📦 <strong>Livraison :</strong> France & Europe</p>
+                    <p style="margin-bottom: 10px;">📧 <strong>Email :</strong> theina3d@gmail.com</p>
+                    <p>📦 <strong>Livraison :</strong> France &amp; Europe</p>
                 </div>
                 <div class="social-links">
                     <a href="https://www.youtube.com/@Theina3d" target="_blank" class="social-btn">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="24"> YouTube
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="24"> YouTube
                     </a>
                     <a href="https://www.tiktok.com/@theina3d" target="_blank" class="social-btn">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="24"> TikTok
+                        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" width="24"> TikTok
                     </a>
                     <a href="https://www.Instagram.com/theina3d" target="_blank" class="social-btn">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" width="24"> Instagram
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" width="24"> Instagram
                     </a>
                 </div>
             </div>
 
-            <form id="sheetdb-form" action="https://sheetdb.io/api/v1/4kexbmu4y8qtc?sheet=forms" method="POST" class="card" style="padding: 30px; border: none; box-shadow: var(--ombre); max-width: 600px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                <label style="width: 140px; flex-shrink: 0; font-weight: bold;">Votre Nom</label>
-                <input type="text" name="data[nom]" placeholder="Jean Dupont" required style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-            </div>
+            <form id="sheetdb-form" action="https://sheetdb.io/api/v1/4kexbmu4y8qtc?sheet=forms" method="POST" style="max-width: 600px; margin: 0 auto;">
+                <div class="form-group">
+                    <label>Votre Nom</label>
+                    <input type="text" name="data[nom]" placeholder="Jean Dupont" required>
+                </div>
 
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                <label style="width: 140px; flex-shrink: 0; font-weight: bold;">Votre Email</label>
-                <input type="email" name="data[mail]" placeholder="jean@email.com" required style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-            </div>
+                <div class="form-group">
+                    <label>Votre Email</label>
+                    <input type="email" name="data[mail]" placeholder="jean@email.com" required>
+                </div>
 
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                <label style="width: 140px; flex-shrink: 0; font-weight: bold;">Type de demande</label>
-                <select name="data[type]" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px; background: white;">
-                    <option>Impression (Fichier STL prêt)</option>
-                    <option>Modélisation + Impression</option>
-                    <option>Réparation de pièce cassée</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Type de demande</label>
+                    <select name="data[type]">
+                        <option>Impression (Fichier STL prêt)</option>
+                        <option>Modélisation + Impression</option>
+                        <option>Réparation de pièce cassée</option>
+                    </select>
+                </div>
 
-            <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
-                <label style="width: 140px; flex-shrink: 0; font-weight: bold; margin-top: 10px;">Description</label>
-                <textarea name="data[description]" rows="4" placeholder="Dimensions, usage..." style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;"></textarea>
-            </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="data[description]" rows="4" placeholder="Dimensions, usage..."></textarea>
+                </div>
 
-            <input type="hidden" name="data[traité]" value="NON">
-            
-            <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; padding: 15px; font-size: 1.1rem;">Envoyer ma demande</button>
-            
-            <div id="success-msg" style="display:none; margin-top:15px; color: #2e7d32; font-weight:bold; text-align:center;">
-                ✅ Demande envoyée avec succès !
-            </div>
-        </form>
+                <input type="hidden" name="data[traité]" value="NON">
+                
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; padding: 15px; font-size: 1.1rem;">Envoyer ma demande</button>
+                
+                <div id="success-msg" style="display:none; margin-top:15px; color: #2e7d32; font-weight:bold; text-align:center;">
+                    ✅ Demande envoyée avec succès !
+                </div>
+            </form>
         </div>
     </div>
 </section>

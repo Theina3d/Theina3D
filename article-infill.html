@@ -35,9 +35,9 @@
     </div>
 </nav>
 
-<header class="page-header">
+<header class="page-header-calculator">
     <div class="container">
-        <a href="blog.html" style="text-decoration: none; color: var(--violet); font-weight: bold;"> ← Retour au blog</a>
+        <a href="blog.html" class="blog-back-link">← Retour au blog</a>
         <div style="margin-top: 25px;">
             <span class="badge-tag" style="background: var(--orange); color: white;">Astuces Techniques</span>
             <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">Publié le 6 Mai 2026 • 4 min de lecture</p>
@@ -46,11 +46,11 @@
     </div>
 </header>
 
-<main class="section-padding">
+<main class="section-padding" style="background-color: var(--gris-fond);">
     <div class="container">
-        <article class="article-body clearfix">
+        <article class="article-container">
             
-            <img src="Articles-Infill.jpg" alt="Exemple de remplissage Gyroïde" class="img-article-wrap">
+            <img src="Articles-Infill.jpg" alt="Exemple de remplissage Gyroïde" class="article-hero-img">
 
             <p class="lettrine">
                 L'un des avantages majeurs de l'impression 3D FDM est de pouvoir décider de ce qu'il se passe à <strong>l'intérieur</strong> de l'objet. Contrairement au moulage traditionnel, une pièce 3D n'a pas besoin d'être pleine pour être extrêmement robuste.
@@ -60,18 +60,16 @@
                 Le remplissage (ou <em>Infill</em>) est cette structure interne qui soutient les parois de votre pièce. Bien le choisir, c'est économiser du temps et de la matière tout en garantissant que votre pièce ne cassera pas au premier effort. C'est ici que l'ingénierie rencontre l'économie de ressources.
             </p>
 
-            <div style="clear: both;"></div>
-
             <h2>I. La Densité : Quel pourcentage choisir ?</h2>
             <p>Le taux de remplissage définit la quantité de plastique à l'intérieur. Voici nos recommandations selon l'usage :</p>
             
             <div class="grid-2" style="gap: 25px; margin: 30px 0; align-items: start;">
-                <div class="card" style="border-top: 4px solid var(--orange);">
-                    <h3>Usage Visuel (5% - 15%)</h3>
+                <div class="card" style="border-top: 4px solid var(--orange); padding: 25px;">
+                    <h3 style="margin-bottom: 10px;">Usage Visuel (5% - 15%)</h3>
                     <p style="font-size: 0.95rem;">Idéal pour les figurines, maquettes et objets de décoration. Gain de temps et d'argent maximum.</p>
                 </div>
-                <div class="card" style="border-top: 4px solid var(--violet);">
-                    <h3>Usage Technique (20% - 40%)</h3>
+                <div class="card" style="border-top: 4px solid var(--violet); padding: 25px;">
+                    <h3 style="margin-bottom: 10px;">Usage Technique (20% - 40%)</h3>
                     <p style="font-size: 0.95rem;">Le standard industriel. Offre le meilleur compromis entre légèreté et résistance mécanique.</p>
                 </div>
             </div>
@@ -79,8 +77,8 @@
             <h2>II. Les Motifs : La géométrie au service de la force</h2>
             <p>Tous les motifs de remplissage ne se valent pas. Selon la direction des forces appliquées, la structure interne doit s'adapter :</p>
 
-            <div style="overflow-x: auto; margin: 20px 0;">
-                <table>
+            <div class="table-responsive" style="margin: 25px 0;">
+                <table class="materiaux-table">
                     <thead>
                         <tr>
                             <th>Motif</th>
@@ -119,23 +117,23 @@
             </p>
             
             <div class="project-note">
-                <strong>Le conseil de l'expert :</strong> Une pièce avec 4 parois et 20% de remplissage sera souvent plus résistante à la flexion qu'une pièce avec 2 parois et 50% de remplissage. C'est le principe des structures tubulaires utilisé en aéronautique !
+                <strong>Le conseil de l'expert :</strong> Une pièce avec 4 parois et 20% de remplissage sera souvent mais plus résistante à la flexion qu'une pièce avec 2 parois et 50% de remplissage. C'est le principe des structures tubulaires utilisé en aéronautique !
             </div>
 
-            <div class="card" style="background: var(--violet-clair); border: none; margin: 40px 0;">
-                <h3 style="color: var(--violet); margin-bottom: 10px;">L'astuce de Theina3D</h3>
+            <div class="expert-box">
+                <h3>L'astuce de Theina3D</h3>
                 <p>
                     Pour vos pièces mécaniques, nous privilégions le motif <strong>Gyroïde</strong>. Pourquoi ? Parce qu'il offre une résistance égale dans toutes les directions (X, Y et Z) et qu'il évite les vibrations de la machine à haute vitesse.
                 </p>
             </div>
 
-            <hr style="border: none; border-top: 1px solid #eee; margin: 60px 0;">
+            <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0;">
 
             <div class="text-center">
-                <span class="badge-tag" style="background: var(--orange); color: white;">Devis Gratuit</span>
-                <h2 style="border: none; margin-top: 10px;">Un besoin de haute performance ?</h2>
+                <span class="badge-tag btn-primary">Devis Gratuit</span>
+                <h2 style="margin-top: 15px;">Un besoin de haute performance ?</h2>
                 <p>Nos experts paramètrent chaque fichier pour maximiser la durabilité de vos projets techniques.</p>
-                <div style="margin-top: 30px;">
+                <div style="margin-top: 25px;">
                     <a href="index.html#contact" class="btn btn-primary">Lancer un projet technique</a>
                 </div>
             </div>
@@ -150,15 +148,6 @@
         <a href="mentionlegal.html" style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-decoration: none; margin-top: 15px; display: inline-block;">Mentions Légales</a>
     </div>
 </footer>
-
-<script>
-    // Menu Mobile
-    const menuToggle = document.querySelector('#mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-</script>
 
 </body>
 </html>

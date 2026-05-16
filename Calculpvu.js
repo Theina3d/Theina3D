@@ -1,5 +1,26 @@
 const SHEETDB_URL = "https://sheetdb.io/api/v1/4kexbmu4y8qtc";
-const CONFIG = { electricity: 0.22, material_kg: 25, machine_wear: 0.16, charge_rate: 0.212 };
+
+const CONFIG = { 
+    electricity: 0.22, 
+    material_kg: 25, 
+    machine_wear: 0.16, 
+    charge_rate: 0.212,
+    // Grille tarifaire HT pour chaque transporteur et format
+    shipping_rates: {
+        standard: {
+            name: "Colissimo",
+            formats: { xs: 4.50, small: 5.90, medium: 7.50, large: 10.20 }
+        },
+        relay: {
+            name: "Mondial Relay",
+            formats: { xs: 3.20, small: 3.90, medium: 4.90, large: 6.80 }
+        },
+        express: {
+            name: "Chronopost",
+            formats: { xs: 11.90, small: 14.50, medium: 17.90, large: 22.00 }
+        }
+    }
+};
 
 // --- INITIALISATION ---
 async function init() {
@@ -19,7 +40,28 @@ async function init() {
 
     refreshClientList();
     toggleFormMode();
+    updateShippingFormats(); // Génère les formats de livraison initiaux
     update('params');
+}
+
+// --- GESTION DYNAMIQUE DE L'EXPÉDITION ---
+function updateShippingFormats() {
+    const provider = document.getElementById('shipping_provider').value;
+    const formatSelect = document.getElementById('shipping_format');
+    const formats = CONFIG.shipping_rates[provider].formats;
+    
+    formatSelect.innerHTML = '';
+    
+    formatSelect.options[formatSelect.options.length] = new Option(`Très Petit (max 250g) — ${formats.xs.toFixed(2)}€ HT`, 'xs');
+    formatSelect.options[formatSelect.options.length] = new Option(`Petit (max 500g) — ${formats.small.toFixed(2)}€ HT`, 'small');
+    formatSelect.options[formatSelect.options.length] = new Option(`Moyen (max 1kg) — ${formats.medium.toFixed(2)}€ HT`, 'medium');
+    formatSelect.options[formatSelect.options.length] = new Option(`Grand (max 5kg) — ${formats.large.toFixed(2)}€ HT`, 'large');
+}
+
+function getSelectedShippingCost() {
+    const provider = document.getElementById('shipping_provider').value;
+    const format = document.getElementById('shipping_format').value;
+    return CONFIG.shipping_rates[provider].formats[format] || 0;
 }
 
 // --- CONVERSION HH:mm EN DÉCIMAL ---
@@ -38,7 +80,9 @@ function parseTimeToDecimal(timeStr) {
 function update(source) {
     const mode = document.getElementById('mode_projet').value;
     const qty = parseFloat(document.getElementById('qty').value) || 1;
-    const shipping = parseFloat(document.getElementById('shipping_cost').value) || 0;
+    
+    // Récupération dynamique du tarif de transport sélectionné
+    const shipping = getSelectedShippingCost(); 
     let baseProdHT = 0;
 
     if (mode === 'impression') {
@@ -68,16 +112,15 @@ function update(source) {
     document.getElementById('res_net').innerText = benef.toFixed(2) + "€";
 }
 
-// --- ENREGISTREMENT EN ATTENTE (CORRIGÉ POUR TON EXCEL) ---
+// --- ENREGISTREMENT EN ATTENTE ---
 async function enregistrerEnAttente(numDevis) {
     const mode = document.getElementById('mode_projet').value;
     if (mode !== 'impression') return;
 
     const poidsTotal = (parseFloat(document.getElementById('p_imp').value) || 0) * (parseFloat(document.getElementById('qty').value) || 1);
     
-    // Structure EXACTE de ton Excel "Attentes"
     const data = {
-        id_devis: Date.now(), // ID unique basé sur le timestamp
+        id_devis: Date.now(), 
         numDevis: numDevis,
         mat: document.getElementById('mat_custom').value,
         col: document.getElementById('color_custom').value,
@@ -98,14 +141,12 @@ async function enregistrerEnAttente(numDevis) {
 async function genererPDF() {
     const numDevis = "D-" + Date.now().toString().slice(-6);
     
-    // On lance la liaison Excel
     await enregistrerEnAttente(numDevis);
 
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const clientName = document.getElementById('client_name').value || "Client";
     
-    // Contenu PDF simplifié
     doc.text(`THEINA 3D - DEVIS ${numDevis}`, 20, 20);
     doc.text(`Client : ${clientName}`, 20, 30);
     doc.text(`Poids total : ${(parseFloat(document.getElementById('p_imp').value)*parseFloat(document.getElementById('qty').value))}g`, 20, 40);

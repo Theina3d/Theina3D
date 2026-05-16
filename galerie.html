@@ -35,85 +35,89 @@
     </div>
 </nav>
 
-<header class="page-header">
+<header class="page-header text-center">
     <div class="container">
-        <span class="badge-tag" style="background: var(--violet); color: white;">Portfolio</span>
+        <span class="badge-tag badge-portfolio">Portfolio</span>
         <h1>Galerie de <em>Réalisations</em></h1>
-        <p style="max-width: 600px; margin: 0 auto;">Découvrez nos solutions techniques et créatives, conçues avec précision dans notre atelier.</p>
+        <p class="header-subtitle">Découvrez nos solutions techniques et créatives, conçues avec précision dans notre atelier.</p>
     </div>
 </header>
 
-<section class="section-padding">
+<main class="section-padding gallery-bg">
     <div class="container">
-        <div class="grid-3">
+        <div class="gallery-grid">
 
-            <article class="card">
-                <img src="Apres.jpg" alt="Support CO2" class="card-img">
+            <article class="gallery-card">
+                <div class="card-image-wrapper">
+                    <img src="Apres.jpg" alt="Support Bouteille CO2 Aquarium">
+                    <span class="card-badge badge-aqua">Aquariophilie</span>
+                </div>
                 <div class="card-body">
-                    <span class="badge-tag" style="background: #E3F2FD; color: #1976D2;">Aquariophilie</span>
                     <h3>Support Bouteille CO2</h3>
-                    <p>Sécurisation industrielle pour installations haute pression sans perçage.</p>
-                    <div class="card-specs">
-                        <p>🛡️ <strong>Maintien :</strong> Anti-basculement</p>
-                        <p>✅ <strong>Matériau :</strong> PETG Haute Résistance</p>
-                    </div>
-                    <a href="projet-aquarium.html" class="btn btn-primary">Détails techniques</a>
+                    <p class="card-text">Sécurisation industrielle pour installations haute pression sans perçage.</p>
+                    <ul class="card-specs">
+                        <li>🛡️ <strong>Maintien :</strong> Anti-basculement</li>
+                        <li>✅ <strong>Matériau :</strong> PETG Haute Résistance</li>
+                    </ul>
+                    <a href="projet-aquarium.html" class="btn btn-secondary">Détails techniques</a>
                 </div>
             </article>
 
-            <article class="card">
-                <img src="crochet-douche.jpg" alt="Crochet Douche" class="card-img">
+            <article class="gallery-card">
+                <div class="card-image-wrapper">
+                    <img src="crochet-douche.jpg" alt="Crochet de douche imprimé en 3D">
+                    <span class="card-badge badge-maison">Maison</span>
+                </div>
                 <div class="card-body">
-                    <span class="badge-tag" style="background: #F3E5F5; color: #7B1FA2;">Maison</span>
                     <h3>Crochet de Douche</h3>
-                    <p>Rangement optimisé sur-mesure pour paroi en verre, sans calcaire.</p>
-                    <div class="card-specs">
-                        <p>💧 <strong>Usage :</strong> Milieu humide</p>
-                        <p>✨ <strong>Finition :</strong> Anti-rayures</p>
-                    </div>
-                    <a href="index.html#contact" class="btn btn-primary">Commander</a>
+                    <p class="card-text">Rangement optimisé sur-mesure pour paroi en verre, sans calcaire.</p>
+                    <ul class="card-specs">
+                        <li>💧 <strong>Usage :</strong> Milieu humide</li>
+                        <li>✨ <strong>Finition :</strong> Anti-rayures</li>
+                    </ul>
+                    <a href="projet-douche.html" class="btn btn-primary">Détails techniques</a>
                 </div>
             </article>
 
-            <article class="card">
-                <img src="rack-verres.jpg" alt="Rack Verres" class="card-img">
+            <article class="gallery-card">
+                <div class="card-image-wrapper">
+                    <img src="rack-verres.jpg" alt="Rack suspendu pour verres">
+                    <span class="card-badge badge-cuisine">Cuisine</span>
+                </div>
                 <div class="card-body">
-                    <span class="badge-tag" style="background: #FFF3E0; color: #EF6C00;">Cuisine</span>
                     <h3>Rack à Verres</h3>
-                    <p>Rangement suspendu robuste pour optimiser les placards de cuisine.</p>
-                    <div class="card-specs">
-                        <p>🍷 <strong>Design :</strong> Modulable</p>
-                        <p>🧼 <strong>Hygiène :</strong> Séchage optimisé</p>
-                    </div>
-                    <a href="index.html#contact" class="btn btn-primary">Devis gratuit</a>
+                    <p class="card-text">Rangement suspendu robuste pour optimiser les placards de cuisine.</p>
+                    <ul class="card-specs">
+                        <li>🍷 <strong>Design :</strong> Modulable</li>
+                        <li>🧼 <strong>Hygiène :</strong> Séchage optimisé</li>
+                    </ul>
+                    <a href="projet-verres.html" class="btn btn-primary">Détails techniques</a>
                 </div>
             </article>
 
-            <article class="card card-cta">
-                <div class="card-body">
-                    <h3>Un projet <span style="color: var(--violet);">sur-mesure</span> ?</h3>
+            <article class="gallery-card cta-dark-card">
+                <div class="cta-card-content">
+                    <h3>Un projet <span>sur-mesure</span> ?</h3>
                     <p>Une pièce cassée à reproduire ou une idée à concrétiser ?</p>
-                    <a href="index.html#contact" class="btn btn-primary">Lancer mon projet</a>
+                    <a href="index.html#contact" class="btn btn-orange">Lancer mon projet</a>
                 </div>
             </article>
 
         </div>
     </div>
-</section>
+</main>
 
-<footer style="padding: 60px 0; background: var(--sombre); color: white; text-align: center;">
+<footer>
     <div class="container">
         <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
-        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; margin-top: 10px; display: inline-block;">Mentions Légales</a>
+        <a href="mentionlegal.html" class="footer-link">Mentions Légales</a>
     </div>
 </footer>
 
 <script>
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 </script>
 
 </body>

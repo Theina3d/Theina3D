@@ -10,33 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Styles spécifiques aux métas du blog (non globaux) */
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .date {
-            font-size: 0.85rem;
-            color: #999;
-            font-weight: bold;
-        }
-
-        /* On s'assure que le contenu de la carte prend toute la place */
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card-body p {
-            flex-grow: 1; /* Pousse le bouton vers le bas */
-        }
-    </style>
 </head>
 <body>
 
@@ -62,51 +35,51 @@
     </div>
 </nav>
 
-<header class="page-header">
+<header class="page-header-calculator text-center">
     <div class="container">
-        <span class="badge-tag" style="background: var(--violet); color: white;">Expertise</span>
+        <span class="badge-tag btn-primary">Expertise</span>
         <h1>Conseils & <em>Expertise</em></h1>
-        <p style="max-width: 600px; margin: 0 auto;">Tout ce qu'il faut savoir pour réussir vos projets d'impression 3D, du choix du filament à la conception CAO.</p>
+        <p style="max-width: 600px; margin: 20px auto 0 auto;">Tout ce qu'il faut savoir pour réussir vos projets d'impression 3D, du choix du filament à la conception CAO.</p>
     </div>
 </header>
 
-<section class="section-padding">
+<section class="section-padding" style="background-color: var(--gris-fond);">
     <div class="container">
-        <div class="grid-3">
+        <div class="blog-grid">
             
-            <article class="card">
-                <div class="card-body">
+            <article class="blog-card">
+                <div class="blog-content">
                     <div class="blog-meta">
                         <span class="badge-tag" style="background:#E8EBF5; color: #3F51B5; margin-bottom: 0;">Guide</span>
-                        <span class="date">Avril 2026</span>
+                        <span style="color: #888; font-size: 0.85rem; font-weight: bold;">Avril 2026</span>
                     </div>
                     <h3>Les méthodes d'impression : Quelle technologie ?</h3>
                     <p>Comment choisir entre la solidité du PETG et la finesse de la résine ? Découvrez notre guide complet pour sélectionner le duo idéal.</p>
-                    <a href="article-materiaux.html" class="btn btn-outline" style="text-align: center; margin-top: 20px;">Lire la suite</a>
+                    <a href="article-materiaux.html" class="blog-link" style="margin-top: auto;">Lire la suite →</a>
                 </div>
             </article>
 
-            <article class="card">
-                <div class="card-body">
+            <article class="blog-card">
+                <div class="blog-content">
                     <div class="blog-meta">
                         <span class="badge-tag" style="background: #E8F5E9; color: #2E7D32; margin-bottom: 0;">Tutoriel</span>
-                        <span class="date">Mai 2026</span>
+                        <span style="color: #888; font-size: 0.85rem; font-weight: bold;">Mai 2026</span>
                     </div>
                     <h3>Réussir sa prise de cotes : Le guide parfait</h3>
                     <p>Une modélisation 3D précise commence par une mesure rigoureuse au pied à coulisse. Nos astuces de pro pour ne plus se tromper.</p>
-                    <a href="article-tuto-mesures.html" class="btn btn-outline" style="text-align: center; margin-top: 20px;">Lire le tuto</a>
+                    <a href="article-tuto-mesures.html" class="blog-link" style="margin-top: auto;">Lire le tuto →</a>
                 </div>
             </article>
 
-            <article class="card">
-                <div class="card-body">
+            <article class="blog-card">
+                <div class="blog-content">
                     <div class="blog-meta">
                         <span class="badge-tag" style="background: #FFF3E0; color: #EF6C00; margin-bottom: 0;">Astuce</span>
-                        <!-- <span class="date">Juin 2026</span> -->
+                        <span style="color: #888; font-size: 0.85rem; font-weight: bold;">Mai 2026</span>
                     </div>
                     <h3>Optimiser le remplissage (Infill)</h3>
                     <p>Apprenez à équilibrer légèreté, temps d'impression et solidité mécanique en choisissant le bon motif de remplissage (Gyröid, Honeycomb...).</p>
-                    <a href="" class="btn btn-outline" style="text-align: center; margin-top: 20px;">Article à venir !</a>
+                    <a href="article-infill.html" class="blog-link" style="margin-top: auto;">Lire l'article →</a>
                 </div>
             </article>
 
@@ -124,9 +97,7 @@
 <script>
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 </script>
 
 </body>

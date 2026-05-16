@@ -10,119 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Ajustements spécifiques pour l'interface de calcul */
-        .grid-main { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; align-items: start; }
-        
-        .section-title { 
-            color: var(--violet); 
-            border-bottom: 2px solid var(--violet-clair); 
-            padding-bottom: 8px; 
-            margin: 30px 0 15px 0; 
-            font-size: 1.1rem; 
-            font-family: var(--font-titre); 
-            display: flex;
-            align-items: center;
-        }
-
-        .form-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; color: var(--gris-texte); }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: var(--font-corps);
-            transition: var(--transition);
-        }
-
-        input:focus { border-color: var(--violet); outline: none; background: #fdfbff; }
-
-        .hidden { display: none !important; }
-
-        /* ZONE RESULTATS (DARK MODE) */
-        .result-zone { 
-            background: var(--sombre); 
-            color: white; 
-            padding: 35px; 
-            border-radius: 20px; 
-            position: sticky; 
-            top: 100px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .price-display { 
-            display: flex; 
-            justify-content: center; 
-            align-items: baseline; 
-            margin: 20px 0; 
-        }
-
-        #input_total_ht { 
-            background: transparent; 
-            border: none; 
-            color: var(--orange); 
-            font-size: 4rem; 
-            text-align: center; 
-            font-family: var(--font-titre); 
-            width: 180px; 
-            outline: none; 
-            border-bottom: 2px dashed rgba(255,145,77,0.3); 
-        }
-
-        .cost-breakdown { 
-            font-size: 0.95rem; 
-            padding: 20px; 
-            border: 1px solid rgba(255,255,255,0.1); 
-            border-radius: 12px; 
-            background: rgba(255,255,255,0.03); 
-        }
-
-        .cost-line { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        
-        .revient-line { 
-            display: flex; 
-            justify-content: space-between; 
-            padding: 15px 0; 
-            color: var(--orange); 
-            font-weight: bold; 
-            border-top: 1px solid #444; 
-            margin-top: 15px;
-        }
-
-        .net-box { 
-            background: #2e7d32; 
-            padding: 20px; 
-            border-radius: 12px; 
-            margin-top: 15px; 
-            display: flex; 
-            justify-content: space-between; 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-        }
-
-        .btn-devis { 
-            background: var(--orange); 
-            color: white; 
-            border: none; 
-            width: 100%; 
-            padding: 20px; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            margin-top: 25px; 
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .btn-devis:hover { transform: scale(1.02); filter: brightness(1.1); }
-
-        @media (max-width: 992px) { 
-            .grid-main { grid-template-columns: 1fr; } 
-            .result-zone { position: static; margin-top: 30px; } 
-        }
-    </style>
 </head>
 <body>
 
@@ -132,31 +19,31 @@
             <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
-        <div style="display: flex; gap: 20px; align-items: center;">
-            <a href="stock.html" style="color: var(--sombre); text-decoration: none; font-weight: bold;">📦 Stock</a>
-            <a href="index.html#contact" class="btn btn-primary" style="padding: 8px 20px;">Quitter</a>
+        <div class="nav-actions-right">
+            <a href="stock.html">📦 Stock</a>
+            <a href="index.html#contact" class="btn btn-primary nav-btn-quit">Quitter</a>
         </div>
     </div>
 </nav>
 
-<div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+<div class="container page-header-calculator">
     
-    <header style="margin-bottom: 40px;">
-        <span class="badge-tag" style="background: var(--violet-clair); color: var(--violet);">Outil Professionnel</span>
+    <header>
+        <span class="badge-tag badge-tool">Outil Professionnel</span>
         <h1>Calculateur de <em>Devis</em></h1>
     </header>
 
     <div class="grid-main">
-        <div class="card">
-            <h2 style="font-size: 1.4rem; margin-bottom: 20px;">Configuration de la mission</h2>
+        <div class="card card-body-config">
+            <h2>Configuration de la mission</h2>
 
             <div class="section-title">👤 Client</div>
-            <div style="margin-bottom: 15px;">
+            <div class="margin-top-search">
                 <input list="client_suggestions" id="client_search" placeholder="🔍 Rechercher un client enregistré..." oninput="handleClientSearch(this)" onclick="this.value=''">
                 <datalist id="client_suggestions"></datalist>
             </div>
 
-            <div class="grid-2" style="gap: 15px;">
+            <div class="grid-2 gap-form-row">
                 <div class="form-group">
                     <label>Nom / Société</label>
                     <input type="text" id="client_name" placeholder="Ex: Jean Dupont">
@@ -166,30 +53,30 @@
                     <input type="text" id="client_contact" placeholder="contact@client.fr">
                 </div>
             </div>
-            <div class="form-group" style="margin-top: 15px;">
+            <div class="form-group margin-top-row">
                 <label>Adresse de facturation</label>
-                <textarea id="client_address" placeholder="Rue, Code Postal, Ville" style="height: 80px;"></textarea>
+                <textarea id="client_address" placeholder="Rue, Code Postal, Ville"></textarea>
             </div>
             
-            <button class="btn" style="background: var(--violet-clair); color: var(--violet); width: 100%; font-size: 0.9rem; margin-top: 10px;" onclick="saveClient()">
+            <button class="btn btn-update-client" onclick="saveClient()">
                 💾 Enregistrer / Mettre à jour la fiche client
             </button>
 
             <div class="section-title">⚙️ Paramètres du Projet</div>
             <div class="form-group">
                 <label>Désignation</label>
-                <input type="text" id="designation_custom" placeholder="Ex: Prototype Engrenage V2" style="margin-bottom: 15px;">
+                <input type="text" id="designation_custom" placeholder="Ex: Prototype Engrenage V2">
             </div>
 
             <div class="form-group">
                 <label>Type de prestation</label>
-                <select id="mode_projet" onchange="toggleFormMode()" style="margin-bottom: 15px; background-color: var(--gris-fond);">
+                <select id="mode_projet" onchange="toggleFormMode()">
                     <option value="impression">🖨️ IMPRESSION 3D</option>
                     <option value="conception">🛠️ CONCEPTION / DESIGN</option>
                 </select>
             </div>
 
-            <div id="row_mat_color" class="grid-2" style="gap: 15px; margin-bottom: 15px;">
+            <div id="row_mat_color" class="grid-2 gap-form-row margin-top-row">
                 <div class="form-group">
                     <label>Matière</label>
                     <select id="mat_custom"></select>
@@ -200,8 +87,8 @@
                 </div>
             </div>
 
-            <div id="form_impression">
-                <div class="grid-2" style="gap: 15px;">
+            <div id="form_impression" class="margin-top-row">
+                <div class="grid-2 gap-form-row">
                     <div class="form-group">
                         <label>Temps d'impression (HH:mm)</label>
                         <input type="text" id="h_imp" value="01:00" placeholder="ex: 01:30" oninput="update('params')">
@@ -213,8 +100,8 @@
                 </div>
             </div>
 
-            <div id="form_conception" class="hidden">
-                <div class="grid-2" style="gap: 15px;">
+            <div id="form_conception" class="hidden margin-top-row">
+                <div class="grid-2 gap-form-row">
                     <div class="form-group">
                         <label>Complexité Design</label>
                         <select id="concep_complex" onchange="update('params')">
@@ -230,29 +117,41 @@
                 </div>
             </div>
 
-            <div class="grid-2" style="gap: 15px; margin-top: 15px;">
+            <div class="grid-2 gap-form-row margin-top-row">
                 <div class="form-group">
                     <label>Quantité d'objets</label>
                     <input type="number" id="qty" value="1" oninput="update('params')">
                 </div>
                 <div class="form-group">
-                    <label>Frais de port HT (€)</label>
-                    <input type="number" id="shipping_cost" value="0" step="0.1" oninput="update('params')" placeholder="0.00">
+                    <label>Mode de livraison</label>
+                    <select id="shipping_provider" onchange="updateShippingFormats(); update('params');">
+                        <option value="standard">📦 Colissimo (Domicile)</option>
+                        <option value="relay">🏪 Mondial Relay (Point Relais)</option>
+                        <option value="express">⚡ Chronopost (Express)</option>
+                    </select>
                 </div>
+            </div>
+
+            <div class="grid-2 gap-form-row margin-top-row">
+                <div class="form-group">
+                    <label>Format du colis</label>
+                    <select id="shipping_format" onchange="update('params')"></select>
+                </div>
+                <div class="form-group"></div>
             </div>
         </div>
 
         <div class="result-zone">
-            <h3 style="text-align: center; font-weight: normal; color: #aaa; margin: 0;">PRIX DE VENTE CONSEILLÉ (HT)</h3>
+            <h3>PRIX DE VENTE CONSEILLÉ (HT)</h3>
             <div class="price-display">
                 <input type="number" id="input_total_ht" step="0.01" oninput="update('price')">
-                <span style="font-size: 3rem; color: var(--orange); font-family: var(--font-titre);">€</span>
+                <span class="price-currency">€</span>
             </div>
             
             <div class="cost-breakdown">
                 <div class="cost-line"><span>⚡ Coût Production</span> <span id="res_base">0.00€</span></div>
-                <div class="cost-line" style="color: #6fbaff;"><span>📦 Expédition</span> <span id="res_shipping">0.00€</span></div>
-                <div class="cost-line" style="color: #ffb7b7;"><span>📉 Cotisations (21.2%)</span> <span id="res_charges">0.00€</span></div>
+                <div class="cost-line blue-line"><span>📦 Expédition</span> <span id="res_shipping">0.00€</span></div>
+                <div class="cost-line red-line"><span>📉 Cotisations (21.2%)</span> <span id="res_charges">0.00€</span></div>
             </div>
 
             <div class="revient-line">
@@ -268,7 +167,7 @@
             <button class="btn-devis" onclick="genererPDF()">
                 📥 Générer le Devis PDF
             </button>
-            <p style="text-align: center; font-size: 0.75rem; color: #888; margin-top: 15px;">
+            <p class="legal-notice">
                 TVA non applicable, art. 293 B du CGI
             </p>
         </div>
