@@ -193,6 +193,95 @@ nav {
     border-radius: 4px;
 }
 
+/* --- AJOUTS POUR LA GALERIE --- */
+
+/* Force les cartes de la grille à avoir la même hauteur */
+.grid-3 {
+    align-items: stretch;
+}
+
+/* Permet au contenu de la carte de pousser le bouton vers le bas */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0; /* On gère le padding dans card-body pour l'image full-width */
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Remplit l'espace vide */
+}
+
+/* Pousse le bouton au bord inférieur */
+.card-body .btn {
+    margin-top: auto;
+    text-align: center;
+}
+
+/* Style spécifique pour la carte "Projet sur-mesure" */
+.card-cta {
+    border: 2px dashed var(--violet) !important;
+    background: var(--violet-clair) !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- SECTION EXPERTISE --- */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.expertise-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--blanc);
+    border-radius: var(--radius);
+    transition: var(--transition);
+    border: 1px solid #eee;
+}
+
+.expertise-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--violet);
+    box-shadow: 0 15px 40px rgba(144, 57, 205, 0.1);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--violet-clair);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+    font-size: 2rem;
+}
+
+.expertise-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.expertise-card p {
+    font-size: 0.95rem;
+    color: var(--gris-texte);
+}
 /* ==========================================================================
    6. BLOG & ARTICLES
    ========================================================================== */
