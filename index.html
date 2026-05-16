@@ -13,10 +13,15 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Styles spécifiques au carrousel (non globaux) */
+        /* Styles spécifiques au carrousel */
         .carousel-container { position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: var(--ombre); background: var(--blanc); margin-top: 30px;}
-        .carousel-slide { display: none; padding: 40px; animation: fadeIn 0.8s ease; }
+        .carousel-slide { display: none; padding: 0; animation: fadeIn 0.8s ease; }
         .carousel-slide.active { display: block; }
+        
+        /* Layout interne du carrousel */
+        .project-carousel-flex { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+        .carousel-content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        
         @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
         
         .dots-container { text-align: center; margin-top: 20px; }
@@ -27,10 +32,20 @@
         .social-btn { display: flex; align-items: center; gap: 12px; color: var(--sombre); transition: var(--transition); text-decoration: none; font-weight: bold;}
         .social-btn:hover { color: var(--violet); transform: translateX(5px); }
 
-        /* Ajustement Hero spécifique index */
-        .hero { padding: 100px 0; background: linear-gradient(135deg, var(--blanc) 0%, var(--violet-clair) 100%); }
+        /* Ajustement Hero spécifique */
+        .hero { padding: 100px 0; background: linear-gradient(135deg, var(--blanc) 0%, var(--violet-clair) 100%); overflow: hidden; }
         .hero-image img { max-width: 80%; height: auto; animation: float 6s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* Correction Contact pour le côte à côte */
+        .contact-flex-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: start; }
+
+        @media (max-width: 768px) {
+            .project-carousel-flex, .contact-flex-container { grid-template-columns: 1fr; }
+            .hero-text { text-align: center; }
+            .hero-image img { max-width: 60%; margin-top: 30px; }
+            .carousel-content { padding: 20px; }
+        }
     </style>
 </head>
 
@@ -52,7 +67,7 @@
         <ul class="nav-menu">
             <li><a href="#solutions" class="nav-active">Solutions</a></li>
             <li><a href="#materiaux">Matériaux</a></li>
-            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#apropos">Expertise</a></li>
             <li><a href="galerie.html">Galerie</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="#contact" class="btn btn-primary">Devis</a></li>
@@ -84,10 +99,10 @@
             <h2>Réalisations & <em>Applications</em></h2>
         </div>
 
-        <div class="carousel-container">
+        <div class="carousel-container"> 
             <div class="carousel-slide active">
-                <div class="project-layout">
-                    <img src="avant-apres.jpg" alt="Support CO2 Aquarium" style="height: 400px; width:100%; object-fit: cover;">
+                <div class="project-carousel-flex">
+                    <img src="avant-apres.jpg" alt="Support CO2 Aquarium" style="width:100%; height: 100%; min-height: 350px; object-fit: cover;">
                     <div class="carousel-content">
                         <span class="badge-tag" style="background: #E3F2FD; color: #1976D2;">Aquariophilie</span>
                         <h3>Support Bouteille CO2</h3>
@@ -102,14 +117,14 @@
             </div>
 
             <div class="carousel-slide">
-                <div class="project-layout">
-                    <img src="reparation.jpg" alt="Réparation mécanique" style="height: 400px; width:100%; object-fit: cover;">
+                <div class="project-carousel-flex">
+                    <img src="reparation.jpg" alt="Réparation mécanique" style="width:100%; height: 100%; min-height: 350px; object-fit: cover;">
                     <div class="carousel-content">
                         <span class="badge-tag" style="background: #E8F5E9; color: #2E7D32;">Industrie</span>
                         <h3>Réparation de Pièces Usées</h3>
                         <p>Nous redonnons vie à vos machines en recréant des pièces détachées introuvables avec des matériaux renforcés.</p>
                         <ul style="margin: 20px 0; list-style: none; padding: 0;">
-                            <li>✅ <strong>Analyse :</strong> Relevé de côtes au pied à coulisse</li>
+                            <li>✅ <strong>Analyse :</strong> Relevé de côtes précis</li>
                             <li>✅ <strong>Solidité :</strong> Filaments chargés Carbone</li>
                         </ul>
                         <a href="#contact" class="btn btn-primary">Réparer mon objet</a>
@@ -124,17 +139,16 @@
         </div>
     </div>
 </section>
-
-<section id="materiaux" class="section-padding" style="background: var(--gris-fond);">
+<section id="materiaux" class="section-padding">
     <div class="container">
-        <div class="text-center" style="max-width: 800px; margin: 0 auto 50px auto;">
-            <span class="badge-tag" style="background: var(--violet); color: white;">Technique</span>
+        <div class="text-center">
+            <span class="badge-tag">Technique</span>
             <h2>Matériaux <em>Haute Performance</em></h2>
             <p>Nous travaillons avec une large gamme de polymères pour répondre à vos besoins mécaniques.</p>
         </div>
-        
-        <div class="card" style="padding: 10px; border: none;">
-            <table>
+
+        <div class="table-container card">
+            <table class="materiaux-table">
                 <thead>
                     <tr>
                         <th>Matériau</th>
@@ -143,16 +157,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Hyper PLA</strong></td><td>Rigidité, précision</td><td>Prototypes, maquettes</td></tr>
-                    <tr><td><strong>PETG</strong></td><td>Résistant UV, étanche</td><td>Extérieur, technique</td></tr>
-                    <tr><td><strong>TPU</strong></td><td>Flexible, élastique</td><td>Joints, protections</td></tr>
-                    <tr><td><strong>ASA / ABS</strong></td><td>Thermorésistant</td><td>Automobile, industrie</td></tr>
+                    <tr>
+                        <td><strong>Hyper PLA</strong></td>
+                        <td>Rigidité, précision</td>
+                        <td>Prototypes, maquettes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PETG</strong></td>
+                        <td>Résistant UV, étanche</td>
+                        <td>Extérieur, technique</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TPU</strong></td>
+                        <td>Flexible, élastique</td>
+                        <td>Joints, protections</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ASA / ABS</strong></td>
+                        <td>Thermorésistant</td>
+                        <td>Automobile, industrie</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </section>
 
+<<<<<<< HEAD
 <section id="expertise" class="section-padding" style="background: linear-gradient(to bottom, #ffffff, #fcfaff);">
     <div class="container">
         <div class="text-center">
@@ -194,13 +225,40 @@
                 <h4 style="color: var(--violet); font-size: 1.8rem;">100%</h4>
                 <p style="font-size: 0.8rem; opacity: 0.8;">Sur-mesure</p>
             </div>
+=======
+<section id="apropos" class="section-padding">
+    <div class="container grid-2">
+        <div class="text-center">
+            <div style="overflow: hidden; border-radius: 20px; box-shadow: var(--ombre);">
+                <img src="equipe.jpg" alt="L'équipe Theina3D" style="width: 100%; height: auto; display: block; object-fit: cover;">
+            </div>
+        </div>
+        <div>
+            <span class="badge-tag" style="background: #f3e5f5; color: var(--violet);">Notre Expertise</span>
+            <h2 style="margin: 15px 0;">Pourquoi nous faire confiance ?</h2>
+            <p><strong>Theina3D</strong> est né d'une conviction simple : l'impression 3D ne doit pas être un gadget, mais une solution industrielle accessible.</p>
+            <p>Mon parcours en <strong>Génie Mécanique et Productique (GMP)</strong> me permet d'analyser les contraintes physiques pour concevoir des pièces qui durent.</p>
+            
+            <div style="margin: 20px 0; border-left: 4px solid var(--orange); padding-left: 20px; font-style: italic;">
+                "Chaque problème technique trouve sa pièce sur-mesure dans notre atelier."
+            </div>
+
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px;">✅ <strong>Légitimité :</strong> Expertise en conception mécanique (CAO).</li>
+                <li style="margin-bottom: 10px;">✅ <strong>Précision :</strong> Impression haute vitesse sur Creality K1C.</li>
+            </ul>
+>>>>>>> be74ca0dd2ce79f41cd9be1aa331561612efb9a2
         </div>
     </div>
 </section>
 
+<<<<<<< HEAD
 <section id="contact" class="section-padding">
+=======
+<section id="contact" class="section-padding" style="background: var(--gris-fond);">
+>>>>>>> be74ca0dd2ce79f41cd9be1aa331561612efb9a2
     <div class="container">
-        <div class="project-layout">
+        <div class="contact-flex-container">
             <div class="contact-info">
                 <h2>Un projet <em>en tête ?</em></h2>
                 <p style="margin-bottom: 30px;">Réponse et devis gratuit sous 24h.</p>
@@ -215,12 +273,17 @@
                     <a href="https://www.tiktok.com/@theina3d" target="_blank" class="social-btn">
                         <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="24"> TikTok
                     </a>
+<<<<<<< HEAD
                     <a href="https://www.instagram.com/Theina3d" target="_blank" class="social-btn">
+=======
+                    <a href="https://www.Instagram.com/theina3d" target="_blank" class="social-btn">
+>>>>>>> be74ca0dd2ce79f41cd9be1aa331561612efb9a2
                         <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" width="24"> Instagram
                     </a>
                 </div>
             </div>
 
+<<<<<<< HEAD
             <form id="sheetdb-form" action="https://sheetdb.io/api/v1/4kexbmu4y8qtc?sheet=forms" method="POST" class="card" style="padding: 30px; border: none; box-shadow: var(--ombre); max-width: 600px; margin: 0 auto;">
             <div style="display: flex; align-items: center; margin-bottom: 20px;">
                 <label style="width: 140px; flex-shrink: 0; font-weight: bold;">Votre Nom</label>
@@ -254,6 +317,35 @@
                 ✅ Demande envoyée avec succès !
             </div>
         </form>
+=======
+            <form id="sheetdb-form" action="https://sheetdb.io/api/v1/4kexbmu4y8qtc?sheet=forms" method="POST" class="card" style="padding: 30px; border: none;">
+                <div class="form-group-custom">
+                    <label>Votre Nom</label>
+                    <input type="text" name="data[nom]" placeholder="Jean Dupont" required style="width:100%; padding:12px; margin-top:5px; border-radius:8px; border:1fr solid #ddd;">
+                </div>
+                <div class="form-group-custom" style="margin-top: 15px;">
+                    <label>Votre Email</label>
+                    <input type="email" name="data[mail]" placeholder="jean@email.com" required style="width:100%; padding:12px; margin-top:5px; border-radius:8px; border:1fr solid #ddd;">
+                </div>
+                <div class="form-group-custom" style="margin-top: 15px;">
+                    <label>Type de demande</label>
+                    <select name="data[type]" style="width:100%; padding:12px; margin-top:5px; border-radius:8px; border:1fr solid #ddd;">
+                        <option>Impression (Fichier STL prêt)</option>
+                        <option>Modélisation + Impression</option>
+                        <option>Réparation de pièce cassée</option>
+                    </select>
+                </div>
+                <div class="form-group-custom" style="margin-top: 15px;">
+                    <label>Description</label>
+                    <textarea name="data[description]" rows="4" placeholder="Dimensions, usage..." style="width:100%; padding:12px; margin-top:5px; border-radius:8px; border:1fr solid #ddd;"></textarea>
+                </div>
+                <input type="hidden" name="data[traité]" value="NON">
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Envoyer ma demande</button>
+                <div id="success-msg" style="display:none; margin-top:15px; color: #2e7d32; font-weight:bold; text-align:center;">
+                    ✅ Demande envoyée avec succès !
+                </div>
+            </form>
+>>>>>>> be74ca0dd2ce79f41cd9be1aa331561612efb9a2
         </div>
     </div>
 </section>
@@ -296,6 +388,7 @@
     form.addEventListener("submit", e => {
         e.preventDefault();
         const btn = document.getElementById('submit-btn');
+        const originalText = btn.innerHTML;
         btn.innerHTML = "Envoi en cours...";
         btn.disabled = true;
         fetch(form.action, { method : "POST", body: new FormData(form) })
@@ -304,10 +397,14 @@
                 form.reset();
                 btn.style.display = "none";
                 document.getElementById('success-msg').style.display = "block";
+            } else {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                alert("Erreur lors de l'envoi.");
             }
         });
     });
 </script>
-
+<script src="script.js"></script>
 </body>
 </html>

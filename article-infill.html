@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optimiser le remplissage (Infill) | Blog Theina3D</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -15,129 +19,144 @@
             <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
             <span class="logo-nom">Theina<span>3D</span></span>
         </a>
+        
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
+
         <ul class="nav-menu">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="blog.html"style="color: var(--violet); font-weight: bold;">Blog</a></li>
+            <li><a href="blog.html" class="nav-active">Blog</a></li>
             <li><a href="index.html#contact" class="btn btn-primary">Devis</a></li>
         </ul>
     </div>
 </nav>
 
-
-
-<header class="section-padding" style="margin-top: 80px; background: var(--gris-fond); text-align: center;">
+<header class="page-header">
     <div class="container">
-        <a href="blog.html" style="color: var(--violet); font-weight: bold;"> ←Retour au blog</a><br>
-        <span class="badge" style="background: var(--orange-pale); color: var(--orange);">Astuces Technique</span>
-        <p style="color: #999; font-size: 0.9rem;">Publié le 6 Mai 2026</p>
-        <h1>Optimiser le remplissage : <em>Équilibrer légèreté et solidité</em></h1>
+        <a href="blog.html" style="text-decoration: none; color: var(--violet); font-weight: bold;"> ← Retour au blog</a>
+        <div style="margin-top: 25px;">
+            <span class="badge-tag" style="background: var(--orange); color: white;">Astuces Techniques</span>
+            <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">Publié le 6 Mai 2026 • 4 min de lecture</p>
+            <h1>Optimiser le remplissage : <em>Équilibrer légèreté et solidité</em></h1>
+        </div>
     </div>
 </header>
 
 <main class="section-padding">
     <div class="container">
-        <article class="article-content clearfix">
+        <article class="article-body clearfix">
             
-            <img src="article-infill.html" alt="Exemple de remplissage Gyroïde" class="img-article-float">
+            <img src="Articles-Infill.jpg" alt="Exemple de remplissage Gyroïde" class="img-article-wrap">
 
-            <p>
+            <p class="lettrine">
                 L'un des avantages majeurs de l'impression 3D FDM est de pouvoir décider de ce qu'il se passe à <strong>l'intérieur</strong> de l'objet. Contrairement au moulage traditionnel, une pièce 3D n'a pas besoin d'être pleine pour être extrêmement robuste.
             </p>
-
+            
             <p>
-                Le remplissage (ou <em>Infill</em>) est cette structure interne qui soutient les parois de votre pièce. Bien le choisir, c'est économiser du temps et de la matière tout en garantissant que votre pièce ne cassera pas au premier effort.
+                Le remplissage (ou <em>Infill</em>) est cette structure interne qui soutient les parois de votre pièce. Bien le choisir, c'est économiser du temps et de la matière tout en garantissant que votre pièce ne cassera pas au premier effort. C'est ici que l'ingénierie rencontre l'économie de ressources.
             </p>
+
+            <div style="clear: both;"></div>
 
             <h2>I. La Densité : Quel pourcentage choisir ?</h2>
             <p>Le taux de remplissage définit la quantité de plastique à l'intérieur. Voici nos recommandations selon l'usage :</p>
-            <ul>
-                <li><strong>5% à 15% :</strong> Usage visuel (figurines, maquettes). Gain de temps maximum.</li>
-                <li><strong>20% à 40% :</strong> Usage standard. C'est le meilleur compromis poids/résistance.</li>
-                <li><strong>50% et plus :</strong> Usage intensif. Réservé aux pièces subissant de fortes contraintes mécaniques.</li>
-            </ul>
+            
+            <div class="grid-2" style="gap: 25px; margin: 30px 0; align-items: start;">
+                <div class="card" style="border-top: 4px solid var(--orange);">
+                    <h3>Usage Visuel (5% - 15%)</h3>
+                    <p style="font-size: 0.95rem;">Idéal pour les figurines, maquettes et objets de décoration. Gain de temps et d'argent maximum.</p>
+                </div>
+                <div class="card" style="border-top: 4px solid var(--violet);">
+                    <h3>Usage Technique (20% - 40%)</h3>
+                    <p style="font-size: 0.95rem;">Le standard industriel. Offre le meilleur compromis entre légèreté et résistance mécanique.</p>
+                </div>
+            </div>
 
             <h2>II. Les Motifs : La géométrie au service de la force</h2>
-            <p>Tous les motifs de remplissage ne se valent pas. Selon la direction des forces appliquées sur votre pièce, certains motifs sont bien plus performants :</p>
+            <p>Tous les motifs de remplissage ne se valent pas. Selon la direction des forces appliquées, la structure interne doit s'adapter :</p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Motif</th>
-                        <th>Propriété principale</th>
-                        <th>Idéal pour...</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Grille / Rectiligne</strong></td>
-                        <td>Vitesse d'impression</td>
-                        <td>Objets simples et rapides</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Gyroïde</strong></td>
-                        <td>Force multidirectionnelle</td>
-                        <td>Pièces techniques complexes</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Nid d'abeille</strong></td>
-                        <td>Résistance à la compression</td>
-                        <td>Supports lourds</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Foudres (Lightning)</strong></td>
-                        <td>Économie de matière</td>
-                        <td>Grandes pièces décoratives</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div style="overflow-x: auto; margin: 20px 0;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Motif</th>
+                            <th>Propriété principale</th>
+                            <th>Idéal pour...</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Grille</strong></td>
+                            <td>Vitesse d'impression</td>
+                            <td>Objets simples et rapides</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gyroïde</strong></td>
+                            <td>Force multidirectionnelle</td>
+                            <td>Pièces techniques complexes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nid d'abeille</strong></td>
+                            <td>Compression verticale</td>
+                            <td>Supports lourds</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lightning</strong></td>
+                            <td>Économie de matière</td>
+                            <td>Grandes pièces décoratives</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <h2>III. La règle d'or : Parois vs Remplissage</h2>
             <p>
-                C'est l'erreur la plus commune : penser qu'une pièce à 100% de remplissage est forcément la plus solide. En réalité, <strong>ajouter des parois (murs)</strong> est souvent plus efficace. 
+                C'est l'erreur la plus commune : penser qu'une pièce à 100% de remplissage est forcément la plus solide. En réalité, <strong>ajouter des parois (murs)</strong> est souvent bien plus efficace. 
             </p>
-            <p>
-                Une pièce avec 4 parois et 20% de remplissage sera souvent plus résistante à la flexion qu'une pièce avec 2 parois et 50% de remplissage. C'est le principe des structures tubulaires !
-            </p><br>
+            
+            <div class="project-note">
+                <strong>Le conseil de l'expert :</strong> Une pièce avec 4 parois et 20% de remplissage sera souvent plus résistante à la flexion qu'une pièce avec 2 parois et 50% de remplissage. C'est le principe des structures tubulaires utilisé en aéronautique !
+            </div>
 
-            <div class="card card-conseil" style="background-color: var(--violet-clair);">
-                <h3>L'astuce de Theina3D</h3>
+            <div class="card" style="background: var(--violet-clair); border: none; margin: 40px 0;">
+                <h3 style="color: var(--violet); margin-bottom: 10px;">L'astuce de Theina3D</h3>
                 <p>
-                    Pour vos pièces mécaniques, nous privilégions le motif <strong>Gyroïde</strong>. Pourquoi ? Parce qu'il est "non-isotherme", ce qui signifie qu'il offre une résistance égale dans toutes les directions (X, Y et Z) et qu'il permet une meilleure circulation de l'air ou des fluides à l'intérieur de la pièce.
+                    Pour vos pièces mécaniques, nous privilégions le motif <strong>Gyroïde</strong>. Pourquoi ? Parce qu'il offre une résistance égale dans toutes les directions (X, Y et Z) et qu'il évite les vibrations de la machine à haute vitesse.
                 </p>
             </div>
 
-            <div class="text-center" style="margin-top: 60px;">
-                <h3>Un besoin de haute performance ?</h3>
-                <p>Nos experts paramètrent chaque fichier pour maximiser la durabilité de vos projets.</p>
-                <br>
-                <a href="index.html#contact" class="btn btn-primary">Lancer un projet technique</a>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 60px 0;">
+
+            <div class="text-center">
+                <span class="badge-tag" style="background: var(--orange); color: white;">Devis Gratuit</span>
+                <h2 style="border: none; margin-top: 10px;">Un besoin de haute performance ?</h2>
+                <p>Nos experts paramètrent chaque fichier pour maximiser la durabilité de vos projets techniques.</p>
+                <div style="margin-top: 30px;">
+                    <a href="index.html#contact" class="btn btn-primary">Lancer un projet technique</a>
+                </div>
             </div>
 
         </article>
     </div>
 </main>
 
-<footer>
+<footer style="padding: 60px 0; background: var(--sombre); color: white; text-align: center;">
     <div class="container">
-        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
-        <br>
-        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.5);">Mentions Légales</a>
+        <p>&copy; 2026 Theina3D - Conception & Impression 3D</p>
+        <a href="mentionlegal.html" style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-decoration: none; margin-top: 15px; display: inline-block;">Mentions Légales</a>
     </div>
 </footer>
 
 <script>
-    const menuToggle = document.getElementById('mobile-menu');
+    // Menu Mobile
+    const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('is-active');
     });
 </script>
 

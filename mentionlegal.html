@@ -2,71 +2,110 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mentions Légales | Theina3D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales & CGV | Theina3D</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Questrial&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <div class="container nav-content">
-        <a href="index.html" class="logo-zone">
-            <img src="LogoSimple.png" class="logo-img" alt="Theina3D">
-            <span class="logo-nom">Theina<span>3D</span></span>
-        </a>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#contact" class="btn btn-primary" style="padding: 8px 20px; color:white;">Devis</a></li>
-        </ul>
-    </div>
-</nav>
-
-<section class="section-padding" style="margin-top: 80px; background: var(--gris-fond);">
-    <div class="container">
-        <!-- On utilise la classe .card pour l'homogénéité -->
-        <div class="card" style="max-width: 900px; margin: 0 auto; line-height: 1.8;">
-            <h1 style="margin-bottom: 30px; color: var(--sombre);">Mentions Légales & CGV</h1>
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo-zone">
+                <img src="LogoSimple.png" class="logo-img" alt="Theina3D Logo">
+                <span class="logo-nom">Theina<span>3D</span></span>
+            </a>
             
-            <div style="margin-bottom: 30px;">
-                <h3 style="color: var(--violet); margin-bottom: 10px;">1. Présentation du site</h3>
-                <p>Le site <strong>Theina3D</strong> est un projet de services de conception et d'impressions 3D.</p>
-                <p><strong>Responsable du projet :</strong> [Ton Nom / Nom de l'entreprise]</p>
-            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact" class="btn btn-primary" style="color:white;">Devis</a></li>
+            </ul>
 
-            <div style="margin-bottom: 30px;">
-                <h3 style="color: var(--violet); margin-bottom: 10px;">2. Phase de test et devis</h3>
-                <p>Le site est actuellement en phase de lancement. Toute demande effectuée via le formulaire de contact donne lieu à une étude de faisabilité technique et une estimation tarifaire. Le contrat n'est formé qu'après validation technique, validation du client et réception du paiement.</p>
-            </div>
-
-            <div style="margin-bottom: 30px;">
-                <h3 style="color: var(--violet); margin-bottom: 10px;">3. Propriété intellectuelle</h3>
-                <p>Les modèles conçus par <strong>Theina3D</strong> restent la propriété intellectuelle de leurs auteurs, sauf mention contraire dans le contrat de prestation. Les photos et vidéos présentes sur le site sont la propriété exclusive de <strong>Theina3D</strong>.</p>
-            </div>
-
-            <div style="margin-bottom: 30px;">
-                <h3 style="color: var(--violet); margin-bottom: 10px;">4. Droit de rétractation</h3>
-                <p>Conformément à l'article <strong>L221-28</strong> du Code de la consommation, le droit de rétractation ne peut être exercé pour les contrats de fournitures de biens confectionnés selon les spécifications du consommateur ou nettement personnalisés (Impressions 3D sur-mesure).</p>
-            </div>
-
-            <div style="margin-bottom: 10px;">
-                <h3 style="color: var(--violet); margin-bottom: 10px;">5. Hébergement</h3>
-                <p>Le site est hébergé sur : [Nom de l'hébergeur, Adresse, Téléphone]</p>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<footer class="text-center">
-    <div class="container">
-        <p>&copy; 2026 Theina3D - Impression 3D Haute Performance</p>
-        <div style="margin-top: 10px;">
-            <a href="mentionlegal.html" style="margin-right: 15px;">Mentions Légales</a>
-            <a href="calculpvu.html">Calcul</a>
+    <header class="page-header">
+        <div class="container">
+            <span class="badge-tag">Cadre Légal</span>
+            <h1>Mentions Légales & <em>CGV</em></h1>
+            <p>Conditions d'utilisation du site et règlementation des services de fabrication additive.</p>
         </div>
-    </div>
-</footer>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="card legal-content">
+                <div class="card-body">
+                    
+                    <div class="legal-section">
+                        <h3>1. Éditeur et Propriété</h3>
+                        <p>Le site <strong>Theina3D</strong> est la propriété de [Ton Nom / Nom de l'entreprise], titulaire de tous les droits de propriété intellectuelle. Ce site constitue une œuvre protégée : la structure, le graphisme, les textes et les photographies ne peuvent être copiés ou reproduits sans autorisation écrite préalable.</p>
+                        <p>
+                            <strong>Responsable de publication :</strong> [Ton Nom]<br>
+                            <strong>SIRET :</strong> [Ton SIRET]<br>
+                            <strong>Siège :</strong> [Ton Adresse]<br>
+                            <strong>Hébergeur :</strong> GitHub Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, USA.
+                        </p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h3>2. Contenu et Responsabilité Technique</h3>
+                        <p><strong>Theina3D</strong> garantit les caractéristiques essentielles des produits fabriqués. Toutefois, l'entreprise ne peut être tenue responsable de l'interprétation des informations présentes sur le site, ni de l'utilisation finale faite des pièces imprimées (notamment en cas de contraintes mécaniques extrêmes non prévues lors du devis).</p>
+                        <p>Le site ne peut être tenu responsable d'éventuels virus ou dommages informatiques suite à l'accès au site ou au téléchargement de documents provenant de celui-ci.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h3>3. Processus de Commande</h3>
+                        <p>Toute commande passée via le formulaire de devis est soumise à une validation technique. Theina3D se réserve le droit de modifier le contenu de ses offres commerciales à tout moment. Toutefois, toute commande validée avant une modification sera honorée selon les conditions initiales.</p>
+                        <p><strong>Délai :</strong> Les délais de fabrication sont donnés à titre indicatif et dépendent de la complexité de la modélisation et du volume d'impression.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h3>4. Droits d'auteur et Fichiers Clients</h3>
+                        <p>Dans le cas d'une re-fabrication de pièces à partir d'un scan ou d'un fichier fourni par le client, ce dernier garantit posséder les droits nécessaires à la reproduction. <strong>Theina3D</strong> agit en tant qu'exécutant technique et décline toute responsabilité en cas de litige relatif à la propriété industrielle d'un modèle fourni par le client.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h3>5. Droit de rétractation</h3>
+                        <p>Conformément au Code de la Consommation (art. L. 221-28), le droit de rétractation est exclu pour les contrats de fourniture de biens confectionnés selon les spécifications du consommateur ou nettement personnalisés. Les impressions 3D sur-mesure ne peuvent donc faire l'objet d'aucun retour ou remboursement une fois la production lancée.</p>
+                    </div>
+
+                    <div class="legal-section">
+                        <h3>6. Confidentialité (RGPD)</h3>
+                        <p>Les informations collectées via le formulaire (Nom, Email, Fichiers) sont strictement confidentielles et traitées pour la gestion de la relation client. Vous disposez d'un droit d'accès et de suppression sur simple demande par email.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center section-padding" style="background: var(--gris-fond);">
+        <div class="container">
+            <p>&copy; 2026 Theina3D - Haute Performance & Précision</p>
+            <div style="margin-top: 15px;">
+                <a href="mentionlegal.html" style="margin-right: 15px; text-decoration: none; color: var(--sombre); font-weight: bold;">Mentions Légales</a>
+                <a href="index.html#contact" style="text-decoration: none; color: var(--gris-texte);">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
