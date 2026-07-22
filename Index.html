@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Theina3D | Conception, Impression 3D & Boutique</title>
+    <meta name="description" content="Impression 3D, modélisation CAO sur-mesure et boutique en ligne pour vos projets du quotidien.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://app.snipcart.com">
+    <link rel="preconnect" href="https://cdn.snipcart.com">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.2/default/snipcart.css" />
+</head>
+
+<body>
+
+<nav>
+    <div class="container nav-content">
+        <a href="index.html" class="logo-zone">
+            <img src="CG/Logo_initial.png" class="logo-img" alt="Logo Theina 3 D">
+        </a>
+        
+        <div class="menu-toggle" id="mobile-menu" aria-label="Menu principal">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-active">Accueil</a></li>
+            <li><a href="boutique.html">Boutique</a></li>
+            <li><a href="projets.html">Sur-Mesure</a></li>
+            <li><a href="asso.html">Projet Associatif</a></li>
+            <li><a href="#contact" class="btn btn-primary">Devis & Contact</a></li>
+            <li>
+                <button class="snipcart-checkout btn btn-outline" style="cursor:pointer; padding: 8px 18px;">
+                    🛒 <span class="snipcart-items-count">0</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container grid-2"> 
+        <div class="hero-text">
+            <span class="badge-tag">Ingénierie & Impression 3D Facile</span>
+            <h1>Vos idées prennent forme avec <em>Theina3D</em> </h1>
+            <p>Du petit équipement pour la maison aux pièces de rechange sur-mesure, nous concrétisons vos projets avec précision, passion et le sourire !</p>
+            <div style="display: flex; gap:15px; flex-wrap: wrap; margin-top: 25px;">
+                <a href="boutique.html" class="btn btn-primary">Découvrir la boutique</a>
+                <a href="#contact" class="btn btn-outline">Demander un devis</a>
+            </div>
+        </div>
+        <div class="hero-image text-center">
+            <img src="CG/Logo_complet_initial.png" alt="Illustration Theina3D">
+        </div>
+    </div>
+</header>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 50px;">
+            <span class="badge-tag">Que souhaitez-vous faire ?</span>
+            <h2>Explorez l'univers <em>Theina3D</em></h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            
+            <article class="card text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🛠️</div>
+                    <h3 style="margin-bottom: 15px;">Projets &amp; Sur-Mesure</h3>
+                    <p style="margin-bottom: 20px;">Une pièce cassée à remplacer ou une idée d'équipement spécifique pour votre intérieur ? Confiez-nous votre besoin.</p>
+                </div>
+                <a href="projets.html" class="btn btn-outline" style="width: 100%;">Lancer mon projet</a>
+            </article>
+
+            <article class="card text-center" style="display: flex; flex-direction: column; justify-content: space-between; border: 2px solid var(--violet-clair);">
+                <div>
+                    <span class="badge-tag" style="background: var(--orange-peps); color: white;">Populaire</span>
+                    <div style="font-size: 3rem; margin: 10px 0 15px 0;">🛍️</div>
+                    <h3 style="margin-bottom: 15px;">La Boutique en Ligne</h3>
+                    <p style="margin-bottom: 20px;">Découvrez nos objets du quotidien prêts à l'emploi : supports, accessoires pratiques, déco et créations utiles.</p>
+                </div>
+                <a href="boutique.html" class="btn btn-primary" style="width: 100%;">Accéder à la boutique</a>
+            </article>
+
+            <article class="card text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🐾</div>
+                    <h3 style="margin-bottom: 15px;">Le Projet Associatif</h3>
+                    <p style="margin-bottom: 20px;">Découvrez notre engagement pour la cause animale. Une partie de nos bénéfices soutient des associations de protection animale.</p>
+                </div>
+                <a href="asso.html" class="btn btn-outline" style="width: 100%;">Découvrir l'initiative</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-padding" style="background: var(--violet-pastel);">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: start;">
+            
+            <div>
+                <span class="badge-tag" style="background: white;">Contact &amp; Devis</span>
+                <h2 style="margin: 15px 0;">Discutons de <em>votre projet !</em></h2>
+                <p style="margin-bottom: 25px;">Une question sur un produit, besoin d'un devis ou d'un conseil ? N'hésitez pas à nous écrire, nous répondons très rapidement.</p>
+                
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--violet-fonce);">📍 Theina3D</h3>
+                    <p style="margin-bottom: 10px;">📧 <strong>Email :</strong> contact@theina3d.fr</p>
+                    <p style="margin-bottom: 10px;">📦 <strong>Livraison :</strong> France métropolitaine &amp; Europe</p>
+                    <p>⏱️ <strong>Délai de réponse :</strong> Sous 24 heures</p>
+                </div>
+
+                <div class="card" style="background: white;">
+                    <h4 style="margin-bottom: 10px; color: var(--violet-fonce);">Suivez-nous !</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Découvrez nos coulisses d'impression et nos nouveaux projets sur nos réseaux :</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="https://www.instagram.com/theina3d" target="_blank" style="color: var(--violet-principal); font-weight: bold;">Instagram</a>
+                        <a href="https://www.tiktok.com/@theina3d" target="_blank" style="color: var(--violet-principal); font-weight: bold;">TikTok</a>
+                        <a href="https://www.youtube.com/@Theina3d" target="_blank" style="color: var(--violet-principal); font-weight: bold;">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contact-form" action="https://script.google.com/macros/s/AKfycbyvB3nTyqQ2ay2AVOZBWZHp_i8bD6SsP8IuZbKfSkulWwZc4G1pggBvbs_ZHvfWrhDW/exec" method="POST">
+                <h3 style="margin-bottom: 20px; text-align: center;">Envoyez-nous un message</h3>
+                
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Votre Nom &amp; Prénom</label>
+                    <input type="text" name="nom" placeholder="Camille Dupont" required>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Votre Adresse Email</label>
+                    <input type="email" name="mail" placeholder="camille@exemple.fr" required>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Sujet de votre demande</label>
+                    <select name="type">
+                        <option>Demande de projet sur-mesure</option>
+                        <option>Question sur la boutique</option>
+                        <option>Information sur le projet associatif</option>
+                        <option>Autre question</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Votre Fichier 3D (Facultatif - .STL, .STEP)</label>
+                    <input type="file" name="fichier_3d" accept=".stl,.step,.stp,.obj">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label>Votre Message / Description du projet</label>
+                    <textarea name="description" rows="4" placeholder="Expliquez-nous votre idée ou posez votre question..."></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
+                
+                <div id="success-msg" style="display:none; margin-top: 15px; color: #2e7d32; font-weight: bold; text-align: center;">
+                    ✅ Message envoyé avec succès ! Nous vous répondrons très vite.
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<footer style="background: var(--texte-sombre); color: white; padding: 50px 0 20px 0;">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 40px;">
+            
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Theina3D</h4>
+                <p style="color: #a0aec0; font-size: 0.9rem;">Impression 3D conviviale, conception mécanique douce et boutique d'objets utiles pour le quotidien.</p>
+            </div>
+
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Navigation</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li><a href="index.html" style="color: #a0aec0;">Accueil</a></li>
+                    <li><a href="boutique.html" style="color: #a0aec0;">Boutique</a></li>
+                    <li><a href="projets.html" style="color: #a0aec0;">Sur-Mesure</a></li>
+                    <li><a href="asso.html" style="color: #a0aec0;">Projet Associatif</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Informations Légales</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li><a href="cgv.html" style="color: #a0aec0;">Conditions Générales de Vente (CGV)</a></li>
+                    <li><a href="mentionlegal.html" style="color: #a0aec0;">Mentions Légales</a></li>
+                    <li><a href="confidentialite.html" style="color: #a0aec0;">Politique de Confidentialité</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; color: #a0aec0; font-size: 0.85rem;">
+            <p>&copy; 2026 Theina3D. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+
+<script async src="https://cdn.snipcart.com/themes/v3.2.2/default/snipcart.js"></script>
+<div id="snipcart" data-api-key="VOTRE_CLE_PUBLIQUE_SNIPCART" hidden></div>
+
+</body>
+</html>

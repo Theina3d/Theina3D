@@ -1,0 +1,56 @@
+[
+  {
+    "id": "E-001",
+    "nom": "Support Casque Skadis",
+    "prix": 5.00,
+    "poids_g": 15.75,
+    "categorie": "Bureau",
+    "image_base": "images/E-001.png",
+    "description": "Support ergonomique pour casque audio, compatible avec panneau perforé Skadis."
+  },
+  {
+    "id": "M-002",
+    "nom": "Support Bouteille CO2",
+    "prix": 15.00,
+    "poids_g": 144.35,
+    "categorie": "Maison",
+    "image_base": "images/M-002.png",
+    "description": "Support robuste pour bouteille CO2 (aquarium ou autre), idéal pour la stabilité."
+  },
+  {
+    "id": "E-003",
+    "nom": "Marque-page Chat Plat",
+    "prix": 2.00,
+    "poids_g": 1.17,
+    "categorie": "Accessoires",
+    "image_base": "images/E-003.png",
+    "description": "Marque-page fin et original en forme de chat plat pour vos lectures."
+  },
+  {
+    "id": "E-004",
+    "nom": "Enrouleur Mètre Ruban",
+    "prix": 5.00,
+    "poids_g": 18.44,
+    "categorie": "Accessoires",
+    "image_base": "images/E-004.png",
+    "description": "Accessoire pratique pour ranger votre mètre ruban sans emmêlement."
+  },
+  {
+    "id": "E-005",
+    "nom": "Bougeoir Bas",
+    "prix": 4.00,
+    "poids_g": 18.40,
+    "categorie": "Maison",
+    "image_base": "images/E-005.png",
+    "description": "Bougeoir bas aux lignes modernes pour créer une ambiance chaleureuse."
+  },
+  {
+    "id": "E-006",
+    "nom": "Bougeoir Haut",
+    "prix": 4.00,
+    "poids_g": 18.86,
+    "categorie": "Maison",
+    "image_base": "images/E-006.png",
+    "description": "Bougeoir haut élégant, idéal à associer avec le modèle bas."
+  }
+]
