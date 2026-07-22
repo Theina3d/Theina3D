@@ -1,110 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Boutique en Ligne | Theina3D</title>
-    <meta name="description" content="Découvrez nos objets du quotidien, accessoires et créations pratiques imprimés en 3D.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://app.snipcart.com">
-    <link rel="preconnect" href="https://cdn.snipcart.com">
-    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.2/default/snipcart.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique - Theina3D</title>
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="main.js" defer></script>
 </head>
-
 <body>
 
-<nav>
-    <div class="container nav-content">
-        <a href="index.html" class="logo-zone">
-            <img src="Logo_complet_initial.png" class="logo-img" alt="Logo Theina3D">
-        </a>
-        
-        <div class="menu-toggle" id="mobile-menu" aria-label="Menu principal">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-        <ul class="nav-menu">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="boutique.html" class="nav-active">Boutique</a></li>
-            <li><a href="projets.html">Sur-Mesure</a></li>
-            <li><a href="asso.html">Projet Associatif</a></li>
-            <li><a href="index.html#contact" class="btn btn-primary">Devis & Contact</a></li>
-            <li>
-                <button class="snipcart-checkout btn btn-outline" style="cursor:pointer; padding: 8px 18px;">
-                    🛒 <span class="snipcart-items-count">0</span>
-                </button>
-            </li>
+  <header>
+    <div class="conteneur-header">
+      <a href="index.html" class="logo">
+        <img src="CG/Logo.svg" alt="Logo Theina3D">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="boutique.html" class="actif">Boutique</a></li>
+          <li><a href="projets.html">Sur-Mesure</a></li>
         </ul>
+      </nav>
     </div>
-</nav>
+  </header>
 
-<header class="hero" style="padding: 50px 0 30px 0;">
-    <div class="container text-center">
-        <span class="badge-tag">Objets & Créations Utiles</span>
-        <h1>La Boutique <em>Theina3D</em> 🛍️</h1>
-        <p style="max-width: 600px; margin: 0 auto;">Choisissez votre modèle, personnalisez la couleur et recevez votre création directement chez vous.</p>
+  <main class="conteneur-principal">
+    <section class="en-tete-boutique">
+      <h1>Nos Créations 3D</h1>
+      <p>Découvrez nos impressions 3D faites avec précision.</p>
+    </section>
+
+    <section id="liste-produits" class="grille-produits">
+      </section>
+  </main>
+
+  <footer>
+    <div class="conteneur-footer">
+      <p>&copy; 2026 Theina3D. Tous droits réservés.</p>
     </div>
-</header>
-
-<section class="section-padding">
-    <div class="container">
-        
-        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;" id="filtres-categories">
-            <button class="btn btn-primary btn-filtre" data-cat="tous">Tous les articles</button>
-            <button class="btn btn-outline btn-filtre" data-cat="Bureau">Bureau & Organisation</button>
-            <button class="btn btn-outline btn-filtre" data-cat="Maison">Maison & Déco</button>
-            <button class="btn btn-outline btn-filtre" data-cat="Accessoires">Accessoires Utiles</button>
-        </div>
-
-        <div id="grille-produits" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
-            <p class="text-center" style="grid-column: 1 / -1;">Chargement du catalogue...</p>
-        </div>
-
-    </div>
-</section>
-
-<footer style="background: var(--texte-sombre); color: white; padding: 50px 0 20px 0;">
-    <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 40px;">
-            <div>
-                <h4 style="color: white; margin-bottom: 15px;">Theina3D</h4>
-                <p style="color: #a0aec0; font-size: 0.9rem;">Impression 3D conviviale, conception mécanique douce et boutique d'objets utiles pour le quotidien.</p>
-            </div>
-            <div>
-                <h4 style="color: white; margin-bottom: 15px;">Navigation</h4>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li><a href="index.html" style="color: #a0aec0;">Accueil</a></li>
-                    <li><a href="boutique.html" style="color: #a0aec0;">Boutique</a></li>
-                    <li><a href="projets.html" style="color: #a0aec0;">Sur-Mesure</a></li>
-                    <li><a href="asso.html" style="color: #a0aec0;">Projet Associatif</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="color: white; margin-bottom: 15px;">Informations Légales</h4>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li><a href="cgv.html" style="color: #a0aec0;">CGV</a></li>
-                    <li><a href="mentionlegal.html" style="color: #a0aec0;">Mentions Légales</a></li>
-                    <li><a href="confidentialite.html" style="color: #a0aec0;">Politique de Confidentialité</a></li>
-                </ul>
-            </div>
-        </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; color: #a0aec0; font-size: 0.85rem;">
-            <p>&copy; 2026 Theina3D. Tous droits réservés.</p>
-        </div>
-    </div>
-</footer>
-
-<script src="main.js"></script>
-<script async src="https://cdn.snipcart.com/themes/v3.2.2/default/snipcart.js"></script>
-<div id="snipcart" data-api-key="VOTRE_CLE_PUBLIQUE_SNIPCART" hidden></div>
+  </footer>
 
 </body>
 </html>
