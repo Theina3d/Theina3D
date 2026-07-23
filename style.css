@@ -2,9 +2,8 @@
    THEINA3D - CHARTE DOUCE & CHALEUREUSE
    ========================================== */
 
-/* 1. VARIABLES GLOBALES (Couleurs & Thème) */
+/* 1. VARIABLES GLOBALES */
 :root {
-    /* Vos Couleurs Exactes */
     --violet-principal: #692CDB;
     --violet-fonce: #6314A1;
     --violet-doux: #9A7FE0;
@@ -13,13 +12,11 @@
     --orange-peps: #FB7837;
     --orange-hover: #E05F1E;
 
-    /* Neutres Doux */
     --bg-page: #FAF8FF;
     --bg-card: #FFFFFF;
     --texte-sombre: #2D253A;
     --texte-doux: #6B5E7D;
     
-    /* Formes & Ombres */
     --radius-grand: 20px;
     --radius-moyen: 12px;
     --radius-pilule: 50px;
@@ -35,12 +32,23 @@
     padding: 0;
 }
 
+html, body {
+    width: 100%;
+    min-height: 100vh;
+}
+
 body {
     font-family: 'Plus Jakarta Sans', 'Questrial', sans-serif;
     background-color: var(--bg-page);
     color: var(--texte-sombre);
     line-height: 1.6;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 h1, h2, h3, h4 {
@@ -61,6 +69,12 @@ p {
 a {
     text-decoration: none;
     transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .container {
@@ -92,6 +106,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo-zone {
@@ -132,7 +149,7 @@ nav {
     color: var(--violet-principal);
 }
 
-/* 4. BOUTONS ARRONDIS ET CHALEUREUX */
+/* 4. BOUTONS */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -169,7 +186,7 @@ nav {
     transform: translateY(-2px);
 }
 
-/* 5. HERO SECTION (En-tête) */
+/* 5. HERO SECTION */
 .hero {
     padding: 90px 0 60px 0;
     background: radial-gradient(circle at top right, #F9F3FF, var(--bg-page));
@@ -180,6 +197,12 @@ nav {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .badge-tag {
@@ -199,115 +222,95 @@ nav {
     margin-bottom: 20px;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
 .hero-image img {
     max-width: 85%;
     filter: drop-shadow(0 15px 25px rgba(105, 44, 219, 0.12));
 }
 
-/* 6. CARTES & CARROUSEL */
-.card {
+/* 6. CARTES & BOUTIQUE (Intégration propre) */
+.en-tete-page {
+    padding: 40px 0 10px 0;
+}
+
+.card, .carte-produit {
     background: var(--bg-card);
     border-radius: var(--radius-grand);
     box-shadow: var(--ombre-douce);
     padding: 30px;
     transition: var(--transition);
     border: 1px solid rgba(154, 127, 224, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.card:hover {
+.card:hover, .carte-produit:hover {
     box-shadow: var(--ombre-hover);
     transform: translateY(-4px);
 }
 
-.carousel-container {
-    border-radius: var(--radius-grand);
-    background: white;
-    box-shadow: var(--ombre-douce);
-    overflow: hidden;
-    margin-top: 30px;
+.grille-produits, #liste-produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 30px 0 60px 0;
+    min-height: 400px;
 }
 
-.dot {
-    height: 12px;
-    width: 12px;
-    background-color: #E2D9F3;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.dot.active {
-    background-color: var(--orange-peps);
-    transform: scale(1.3);
-}
-
-/* 7. TABLEAU DES MATÉRIAUX ACCUEILLANT */
-.materiaux-table {
+.carte-produit .image-wrapper img, .carte-produit img {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: white;
+    height: 220px;
+    object-fit: cover;
     border-radius: var(--radius-moyen);
-    overflow: hidden;
 }
 
-.materiaux-table th {
-    background: var(--violet-pastel);
-    color: var(--violet-fonce);
-    padding: 16px;
+.infos-produit {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.bas-carte {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--violet-pastel);
+}
+
+.prix {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--violet-principal);
     font-family: 'Bree Serif', serif;
-    font-size: 1.05rem;
 }
 
-.materiaux-table td {
-    padding: 16px;
-    border-bottom: 1px solid #F0EBFA;
+/* 7. FOOTER */
+footer {
+    background: white;
+    padding: 30px 0;
+    border-top: 1px solid var(--violet-pastel);
+    margin-top: auto;
+}
+
+.conteneur-footer {
+    text-align: center;
     color: var(--texte-doux);
+    font-size: 0.9rem;
 }
 
-.materiaux-table tr:last-child td {
-    border-bottom: none;
-}
-
-/* 8. FORMULAIRE DE CONTACT */
-form {
-    background: white;
-    padding: 35px;
-    border-radius: var(--radius-grand);
-    box-shadow: var(--ombre-douce);
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--violet-fonce);
-    margin-bottom: 8px;
-    display: block;
-}
-
-.form-group input, 
-.form-group select, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #EEE9F7;
-    border-radius: var(--radius-moyen);
-    font-family: inherit;
-    transition: var(--transition);
-    background: #FAF8FF;
-}
-
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--violet-doux);
-    background: white;
-}
-
-/* 9. RESPONSIVE MOBILE */
+/* 8. RESPONSIVE MOBILE */
 @media (max-width: 768px) {
-    .grid-2 {
+    .grid-2, .grid-3 {
         grid-template-columns: 1fr;
         text-align: center;
     }
@@ -315,18 +318,8 @@ form {
     .hero-text h1 {
         font-size: 2.3rem;
     }
-    
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-    }
 
-    .menu-toggle .bar {
-        width: 25px;
-        height: 3px;
-        background-color: var(--violet-fonce);
-        border-radius: 3px;
+    .hero-buttons {
+        justify-content: center;
     }
 }
