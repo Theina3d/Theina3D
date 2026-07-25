@@ -57,7 +57,7 @@ h1, h2, h3, h4 {
     font-weight: 400;
 }
 
-h1 em, h2 em {
+h1 em, h2 em, span.orange {
     font-style: normal;
     color: var(--orange-peps);
 }
@@ -93,7 +93,7 @@ img {
 
 /* 3. NAVIGATION */
 nav {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
@@ -136,7 +136,7 @@ nav {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-menu a {
@@ -186,9 +186,14 @@ nav {
     transform: translateY(-2px);
 }
 
+.btn-sm {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+}
+
 /* 5. HERO SECTION */
 .hero {
-    padding: 90px 0 60px 0;
+    padding: 80px 0 60px 0;
     background: radial-gradient(circle at top right, #F9F3FF, var(--bg-page));
 }
 
@@ -226,19 +231,21 @@ nav {
     display: flex;
     gap: 15px;
     margin-top: 25px;
+    flex-wrap: wrap;
 }
 
 .hero-image img {
     max-width: 85%;
+    margin: 0 auto;
     filter: drop-shadow(0 15px 25px rgba(105, 44, 219, 0.12));
 }
 
-/* 6. CARTES & BOUTIQUE (Intégration propre) */
+/* 6. CARTES */
 .en-tete-page {
     padding: 40px 0 10px 0;
 }
 
-.card, .carte-produit {
+.card {
     background: var(--bg-card);
     border-radius: var(--radius-grand);
     box-shadow: var(--ombre-douce);
@@ -250,51 +257,67 @@ nav {
     justify-content: space-between;
 }
 
-.card:hover, .carte-produit:hover {
+.card:hover {
     box-shadow: var(--ombre-hover);
     transform: translateY(-4px);
 }
 
-.grille-produits, #liste-produits {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 30px;
-    padding: 30px 0 60px 0;
-    min-height: 400px;
+.card h3 {
+    margin-bottom: 12px;
 }
 
-.carte-produit .image-wrapper img, .carte-produit img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: var(--radius-moyen);
-}
-
-.infos-produit {
+.card-footer {
+    margin-top: 20px;
     padding-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex-grow: 1;
-}
-
-.bas-carte {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 15px;
-    padding-top: 10px;
     border-top: 1px solid var(--violet-pastel);
 }
 
-.prix {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--violet-principal);
-    font-family: 'Bree Serif', serif;
+/* 7. FORMULAIRES DESIGN */
+form, .form-container {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: var(--radius-grand);
+    box-shadow: var(--ombre-douce);
+    border: 1px solid rgba(154, 127, 224, 0.12);
 }
 
-/* 7. FOOTER */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--violet-fonce);
+    font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid #EEE9F7;
+    border-radius: var(--radius-moyen);
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: #FAF8FF;
+    color: var(--texte-sombre);
+    transition: var(--transition);
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--violet-principal);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(105, 44, 219, 0.1);
+}
+
+/* 8. FOOTER */
 footer {
     background: white;
     padding: 30px 0;
@@ -308,18 +331,22 @@ footer {
     font-size: 0.9rem;
 }
 
-/* 8. RESPONSIVE MOBILE */
-@media (max-width: 768px) {
+/* 9. RESPONSIVE MOBILE */
+@media (max-width: 900px) {
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
-        text-align: center;
     }
     
-    .hero-text h1 {
-        font-size: 2.3rem;
+    .hero-text {
+        text-align: center;
     }
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
     }
 }

@@ -2,22 +2,31 @@
   {
     "id": 1,
     "nom": "Support Figurine 3D",
-    "description": "Socle de présentation sur-mesure pour vos figurines de collection.",
+    "categorie": "Accessoires",
+    "description_courte": "Socle de présentation sur-mesure pour vos figurines.",
+    "description_longue": "Ce support élégant mettra en valeur vos plus belles figurines de collection. Conçu avec une base stable et une finition soignée pour s'intégrer dans tous les intérieurs.",
     "prix": "14.99",
+    "materiau": "PLA Biodégradable",
     "image": "Produit/support.png"
   },
   {
     "id": 2,
     "nom": "Vase Géométrique",
-    "description": "Vase au design moderne imprimé en plastique éco-responsable PLA.",
+    "categorie": "Décoration",
+    "description_courte": "Vase au design moderne imprimé en plastique éco-responsable.",
+    "description_longue": "Apportez une touche contemporaine à votre table ou étagère avec ce vase aux motifs géométriques uniques. Idéal pour les fleurs séchées.",
     "prix": "24.90",
+    "materiau": "PLA Recyclé",
     "image": "Produit/vase.png"
   },
   {
     "id": 3,
     "nom": "Organiseur de Bureau",
-    "description": "Rangement articulé pour stylos, cartes et petits accessoires.",
+    "categorie": "Rangement",
+    "description_courte": "Rangement articulé pour stylos et petits accessoires.",
+    "description_longue": "Gardez un espace de travail propre et ordonné grâce à cet organiseur compact comportant plusieurs compartiments modulables.",
     "prix": "19.50",
+    "materiau": "PETG Résistant",
     "image": "Produit/organiseur.png"
   }
 ]

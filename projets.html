@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sur-Mesure - Theina3D</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="logo-zone">
+        <img src="CG/Logo.svg" alt="Logo Theina3D" class="logo-img">
+        <span class="logo-nom">Theina<span>3D</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="projets.html" class="nav-active">Sur-Mesure</a></li>
+        <li><a href="associatif.html">Projet Associatif</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="en-tete-page text-center">
+      <h1>Vos Projets <em>Sur-Mesure</em></h1>
+      <p>Une pièce cassée à remplacer ou une idée originale ? Parlez-nous en !</p>
+    </section>
+
+    <div class="grid-2 section-padding" style="padding-top: 20px;">
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>1. Modélisation 3D</h3>
+          <p>Conception sur ordinateur à partir de vos mesures, schémas ou photos.</p>
+        </div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>2. Choix du matériau</h3>
+          <p>Résistant, flexible, écoresponsable... adapté à vos besoins.</p>
+        </div>
+        <div class="card">
+          <h3>3. Impression & Expédition</h3>
+          <p>Fabrication soignée et envoi rapide chez vous.</p>
+        </div>
+      </div>
+
+      <form action="#" method="POST">
+        <h3 style="margin-bottom: 20px;">Demander un devis gratuit</h3>
+        
+        <div class="form-group">
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="type">Type de projet</label>
+          <select id="type" name="type">
+            <option value="reparation">Remplacement d'une pièce cassée</option>
+            <option value="creation">Création d'un objet original</option>
+            <option value="autre">Autre demande</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Description de votre projet</label>
+          <textarea id="message" name="message" rows="4" placeholder="Précisez les dimensions, l'usage voulu, etc." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Envoyer ma demande</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container conteneur-footer">
+      <p>&copy; 2026 Theina3D. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
