@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Theina3D - Conception & Impression 3D</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
 </head>
@@ -37,45 +42,66 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="CG/logo_complet.svg" alt="Theina3D Visuel">
+          <img src="CG/logo_complet.svg" alt="Theina3D Depuis 2026">
         </div>
       </div>
     </section>
 
     <section class="section-padding container">
       <h2 class="text-center">Explorez l'univers <em>Theina3D</em></h2>
-      <p class="text-center" style="max-width: 600px; margin: 10px auto 40px auto;">Des solutions sur-mesure pour vos besoins du quotidien et un engagement solidaire fort.</p>
       
-      <div class="grid-3">
+      <div class="grid-3" style="margin-top: 40px;">
         <div class="card text-center">
-          <div>
-            <h3>Projets & Sur-Mesure</h3>
-            <p>Une pièce cassée à remplacer ou une idée d'équipement spécifique pour votre intérieur ? Nous modélisons et imprimons selon vos mesures.</p>
-          </div>
-          <div class="card-footer">
-            <a href="projets.html" class="btn btn-outline btn-sm">Demander une pièce</a>
+          <div style="font-size: 2.2rem; margin-bottom: 15px;">🛠️</div>
+          <h3>Projets & Sur-Mesure</h3>
+          <p>Une pièce cassée à remplacer ou une idée d'équipement spécifique pour votre intérieur.</p>
+          <div style="margin-top: auto; padding-top: 20px;">
+            <a href="projets.html" class="btn btn-outline" style="width: 100%;">Créer mon projet</a>
           </div>
         </div>
 
         <div class="card text-center">
-          <div>
-            <span class="badge-tag">Populaire</span>
-            <h3>La Boutique en Ligne</h3>
-            <p>Découvrez nos objets de décoration, supports pratiques et créations prêtes à l'emploi, imprimés avec soin en France.</p>
-          </div>
-          <div class="card-footer">
-            <a href="boutique.html" class="btn btn-primary btn-sm">Voir les produits</a>
+          <span class="badge-tag" style="align-self: center;">Populaire</span>
+          <div style="font-size: 2.2rem; margin-bottom: 15px;">🛒</div>
+          <h3>La Boutique en Ligne</h3>
+          <p>Découvrez nos créations prêtes à l'emploi imprimées en France avec soin.</p>
+          <div style="margin-top: auto; padding-top: 20px;">
+            <a href="boutique.html" class="btn btn-primary" style="width: 100%;">Voir les produits</a>
           </div>
         </div>
 
         <div class="card text-center">
-          <div>
-            <span class="badge-tag" style="background: #E8F8F0; color: #2E7D32;">Solidarité</span>
-            <h3>Le Projet Associatif</h3>
-            <p>Découvrez notre engagement pour la cause animale. Une partie des bénéfices de nos ventes est directement reversée aux refuges.</p>
+          <div style="font-size: 2.2rem; margin-bottom: 15px;">🐾</div>
+          <h3>Le Projet Associatif</h3>
+          <p>Découvrez notre engagement pour la cause animale. Une partie de nos bénéfices y est reversée.</p>
+          <div style="margin-top: auto; padding-top: 20px;">
+            <a href="associatif.html" class="btn btn-outline" style="width: 100%;">En savoir plus</a>
           </div>
-          <div class="card-footer">
-            <a href="associatif.html" class="btn btn-outline btn-sm">Découvrir le projet</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding" style="background: var(--violet-pastel);">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: 40px;">Pourquoi nous faire <em>confiance</em> ?</h2>
+        
+        <div class="grid-3">
+          <div class="card text-center">
+            <div style="font-size: 2.2rem; margin-bottom: 15px;">🔍</div>
+            <h3>Analyse & Précision</h3>
+            <p>Chaque demande est étudiée avec attention pour garantir un modèle fonctionnel et durable.</p>
+          </div>
+
+          <div class="card text-center">
+            <div style="font-size: 2.2rem; margin-bottom: 15px;">🌱</div>
+            <h3>Éco-responsable</h3>
+            <p>Utilisation prioritaire de filaments PLA biosourcés à base d'amidon de maïs.</p>
+          </div>
+
+          <div class="card text-center">
+            <div style="font-size: 2.2rem; margin-bottom: 15px;">📦</div>
+            <h3>Fabrication Française</h3>
+            <p>Toutes nos impressions sont réalisées et contrôlées à la main dans notre atelier.</p>
           </div>
         </div>
       </div>
@@ -83,7 +109,47 @@
   </main>
 
   <footer>
-    <div class="container conteneur-footer">
+    <div class="container site-footer">
+      <div class="footer-col">
+        <div class="logo-zone" style="margin-bottom: 15px;">
+          <img src="CG/Logo.svg" alt="Logo Theina3D" class="logo-img">
+          <span class="logo-nom">Theina<span>3D</span></span>
+        </div>
+        <p>Spécialiste de la modélisation et de l'impression 3D sur-mesure. Nous donnons vie à vos idées avec passion.</p>
+        <div class="footer-contact">
+          <p>📍 Nouvelle-Aquitaine, France</p>
+          <p>✉️ <a href="mailto:theina3d@gmail.com">theina3d@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="boutique.html">Boutique</a></li>
+          <li><a href="projets.html">Projets Sur-Mesure</a></li>
+          <li><a href="associatif.html">Projet Associatif</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <p>Retrouvez nos coulisses et créations en vidéo sur nos réseaux sociaux !</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="social-btn tiktok">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.32 1.56-1.25 2.56.07.98.71 1.87 1.64 2.22 1.05.41 2.29.17 3.09-.58.62-.58.98-1.41.98-2.27V.02z"/></svg>
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-btn youtube">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="conteneur-footer">
       <p>&copy; 2026 Theina3D. Tous droits réservés.</p>
     </div>
   </footer>
