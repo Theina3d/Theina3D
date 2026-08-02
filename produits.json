@@ -1,32 +1,68 @@
 [
   {
     "id": 1,
-    "nom": "Support Figurine 3D",
+    "sku": "SKADIS-001",
+    "nom": "Support Casque Skadis",
     "categorie": "Accessoires",
-    "description_courte": "Socle de présentation sur-mesure pour vos figurines.",
-    "description_longue": "Ce support élégant mettra en valeur vos plus belles figurines de collection. Conçu avec une base stable et une finition soignée pour s'intégrer dans tous les intérieurs.",
-    "prix": "14.99",
+    "description_courte": "Support ergonomique compatible avec les panneaux perforés IKEA Skadis.",
+    "description_longue": "Conçu sur-mesure pour s'adapter parfaitement aux panneaux perforés IKEA Skadis, ce support permet de ranger votre casque audio ou de jeu en toute sécurité tout en libérant de l'espace sur votre bureau.",
+    "prix": "5.00",
     "materiau": "PLA Biodégradable",
-    "image": "Produit/support.png"
+    "image": "CG/Casque_violet.png"
   },
   {
     "id": 2,
-    "nom": "Vase Géométrique",
-    "categorie": "Décoration",
-    "description_courte": "Vase au design moderne imprimé en plastique éco-responsable.",
-    "description_longue": "Apportez une touche contemporaine à votre table ou étagère avec ce vase aux motifs géométriques uniques. Idéal pour les fleurs séchées.",
-    "prix": "24.90",
-    "materiau": "PLA Recyclé",
-    "image": "Produit/vase.png"
+    "sku": "PROD-002",
+    "nom": "Support Bouteille CO2",
+    "categorie": "Accessoires",
+    "description_courte": "Support ultra-résistant conçu pour maintenir votre bouteille de CO2.",
+    "description_longue": "Un support robuste et stable pensé pour maintenir fermement votre bouteille de CO2 en place. Sa structure renforcée garantit une excellente sécurité au quotidien.",
+    "prix": "15.00",
+    "materiau": "PETG Résistant",
+    "image": "CG/support_co2.png"
   },
   {
     "id": 3,
-    "nom": "Organiseur de Bureau",
+    "sku": "PROD-004",
+    "nom": "Marque-page Chat Plat",
+    "categorie": "Décoration",
+    "description_courte": "Marque-page amusant et très fin en forme de chat plat.",
+    "description_longue": "Apportez une touche d'humour à vos lectures avec ce marque-page chat plat ultra-fin. Conçu pour ne pas abîmer vos livres tout en restant bien en place.",
+    "prix": "2.00",
+    "materiau": "PLA Recyclé",
+    "image": "CG/marque_page_chat.png"
+  },
+  {
+    "id": 4,
+    "sku": "PROD-005",
+    "nom": "Enrouleur Mètre Ruban",
     "categorie": "Rangement",
-    "description_courte": "Rangement articulé pour stylos et petits accessoires.",
-    "description_longue": "Gardez un espace de travail propre et ordonné grâce à cet organiseur compact comportant plusieurs compartiments modulables.",
-    "prix": "19.50",
-    "materiau": "PETG Résistant",
-    "image": "Produit/organiseur.png"
+    "description_courte": "Enrouleur compact et pratique pour mètre ruban.",
+    "description_longue": "Gardez votre mètre ruban toujours bien rangé et accessible grâce à cet enrouleur compact imprimé en bicolor pour un design soigné.",
+    "prix": "5.00",
+    "materiau": "PLA Bicolor",
+    "image": "CG/enrouleur_ruban.png"
+  },
+  {
+    "id": 5,
+    "sku": "PROD-006",
+    "nom": "Bougeoir Bas",
+    "categorie": "Décoration",
+    "description_courte": "Bougeoir moderne au design épuré.",
+    "description_longue": "Un bougeoir bas aux lignes modernes et épurées. Idéal pour habiller une table à manger ou une étagère avec une touche déco contemporaine.",
+    "prix": "4.00",
+    "materiau": "PLA Biodégradable",
+    "image": "CG/bougeoir_bas.png"
+  },
+  {
+    "id": 6,
+    "sku": "PROD-007",
+    "nom": "Bougeoir Haut",
+    "categorie": "Décoration",
+    "description_courte": "Bougeoir haut élégant pour vos bougies.",
+    "description_longue": "Version haute du bougeoir décoratif, parfaite pour créer du relief dans votre décoration intérieure ou à combiner avec le modèle bas.",
+    "prix": "4.00",
+    "materiau": "PLA Biodégradable",
+    "image": "CG/bougeoir_haut.png"
   }
 ]
