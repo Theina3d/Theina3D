@@ -30,13 +30,10 @@
 
   <main class="container" style="padding: 40px 20px; max-width: 900px; margin: 0 auto;">
     <h1>Votre Panier</h1>
-
-    <div id="contenu-panier">
-      </div>
+    <div id="contenu-panier"></div>
   </main>
 
   <script>
-    // Fonction spécifique pour afficher la liste dans panier.html
     function afficherPanier() {
       const zone = document.getElementById('contenu-panier');
       if (!zone) return;
@@ -44,57 +41,102 @@
       if (panier.length === 0) {
         zone.innerHTML = `
           <div style="text-align:center; padding: 40px;">
-            <p>Votre panier est vide pour le moment.</p>
-            <a href="boutique.html" class="btn btn-primary" style="margin-top:15px; display:inline-block;">Découvrir la boutique</a>
+            <p>Votre panier est vide.</p>
+            <a href="boutique.html" class="btn btn-primary" style="margin-top:15px; display:inline-block;">Retour à la boutique</a>
           </div>
         `;
         return;
       }
 
-      let totalGlobal = 0;
+      let totalArticles = 0;
 
       let html = `<table style="width:100%; border-collapse:collapse; margin-bottom:20px;">
         <thead>
           <tr style="border-bottom: 2px solid #ddd; text-align:left;">
             <th style="padding:10px;">Produit</th>
+            <th>Couleur</th>
             <th>Prix</th>
-            <th>Quantité</th>
-            <th>Sous-total</th>
+            <th>Qté</th>
+            <th>Total</th>
           </tr>
         </thead>
         <tbody>`;
 
       panier.forEach(item => {
         const sousTotal = item.prix * item.quantite;
-        totalGlobal += sousTotal;
+        totalArticles += sousTotal;
 
         html += `
           <tr style="border-bottom: 1px solid #eee;">
             <td style="padding:10px; display:flex; align-items:center; gap:10px;">
-              <img src="${item.image}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;" onerror="this.src='CG/Logo.svg'">
+              <img src="${item.image}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='CG/Logo.svg'">
               <strong>${item.nom}</strong>
             </td>
+            <td><span style="background:#f0f0f0; padding:3px 8px; border-radius:4px; font-size:0.85rem;">${item.couleur}</span></td>
             <td>${item.prix.toFixed(2)} €</td>
             <td>
-              <button onclick="modifierQuantite(${item.id}, -1)" style="padding:2px 8px;">-</button>
-              <span style="margin:0 8px; font-weight:bold;">${item.quantite}</span>
-              <button onclick="modifierQuantite(${item.id}, 1)" style="padding:2px 8px;">+</button>
+              <button onclick="modifierQuantite(${item.id}, '${item.couleur}', -1)" style="padding:2px 6px;">-</button>
+              <span style="margin:0 6px; font-weight:bold;">${item.quantite}</span>
+              <button onclick="modifierQuantite(${item.id}, '${item.couleur}', 1)" style="padding:2px 6px;">+</button>
             </td>
             <td style="font-weight:bold;">${sousTotal.toFixed(2)} €</td>
           </tr>
         `;
       });
 
-      html += `</tbody></table>
-        <div style="text-align:right; background:#f9f9f9; padding:20px; border-radius:8px;">
-          <h3>Total : <span style="color:#4a148c; font-size:1.5rem;">${totalGlobal.toFixed(2)} €</span></h3>
-          <p style="color:#666; font-size:0.9rem; margin-bottom:15px;">Paiement Stripe (prochainement)</p>
-          <a href="projets.html" class="btn btn-primary">Valider la commande</a>
+      html += `</tbody></table>`;
+
+      // BLOC LIVRAISON ET TOTAL
+      html += `
+        <div style="background:#f9f9f9; padding:20px; border-radius:8px; margin-top:20px;">
+          <h3>Mode de livraison</h3>
+          
+          <div style="margin: 15px 0;">
+            <label style="display:block; margin-bottom:8px; cursor:pointer;">
+              <input type="radio" name="livraison" value="3.90" checked onclick="calculerTotalPanier(${totalArticles})"> 
+              📦 Point Relais (Mondial Relay) — <strong>3.90 €</strong>
+            </label>
+            <label style="display:block; margin-bottom:8px; cursor:pointer;">
+              <input type="radio" name="livraison" value="6.50" onclick="calculerTotalPanier(${totalArticles})"> 
+              🏠 Colissimo à domicile — <strong>6.50 €</strong>
+            </label>
+            <label style="display:block; cursor:pointer;">
+              <input type="radio" name="livraison" value="0.00" onclick="calculerTotalPanier(${totalArticles})"> 
+              🤝 Retrait en main propre — <strong>Gratuit (0.00 €)</strong>
+            </label>
+          </div>
+
+          <hr style="border:0; border-top:1px solid #ddd; margin:15px 0;">
+
+          <div style="text-align:right;">
+            <p>Sous-total articles : <strong>${totalArticles.toFixed(2)} €</strong></p>
+            <p>Frais de port : <strong id="frais-port-affichage">3.90 €</strong></p>
+            <h2 style="color:#4a148c; margin-top:10px;">Total à payer : <span id="total-final">${(totalArticles + 3.90).toFixed(2)} €</span></h2>
+            
+            <a href="projets.html" class="btn btn-primary" style="margin-top:10px; display:inline-block;">Passer la commande</a>
+          </div>
         </div>
       `;
 
       zone.innerHTML = html;
     }
+
+    // Fonction de calcul dynamique du total avec livraison
+    function calculerTotalPanier(totalSousTotal) {
+      const optionLivraison = document.querySelector('input[name="livraison"]:checked');
+      const fraisLivraison = parseFloat(optionLivraison ? optionLivraison.value : 0);
+
+      // Si le total dépasse 50€, on offre la livraison Point Relais par exemple !
+      let fraisAppliques = fraisLivraison;
+      if (totalSousTotal >= 50 && fraisLivraison === 3.90) {
+        fraisAppliques = 0;
+      }
+
+      document.getElementById('frais-port-affichage').textContent = fraisAppliques === 0 ? "Offerts !" : `${fraisAppliques.toFixed(2)} €`;
+      document.getElementById('total-final').textContent = `${(totalSousTotal + fraisAppliques).toFixed(2)} €`;
+    }
+
+    document.addEventListener('DOMContentLoaded', afficherPanier);
   </script>
 
 </body>
