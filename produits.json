@@ -1,68 +1,96 @@
-[
-  {
-    "id": 1,
-    "sku": "SKADIS-001",
-    "nom": "Support Casque Skadis",
-    "categorie": "Accessoires",
-    "description_courte": "Support ergonomique compatible avec les panneaux perforés IKEA Skadis.",
-    "description_longue": "Conçu sur-mesure pour s'adapter parfaitement aux panneaux perforés IKEA Skadis, ce support permet de ranger votre casque audio ou de jeu en toute sécurité tout en libérant de l'espace sur votre bureau.",
-    "prix": "5.00",
-    "materiau": "PLA Biodégradable",
-    "image": "CG/Casque_violet.png"
-  },
-  {
-    "id": 2,
-    "sku": "PROD-002",
-    "nom": "Support Bouteille CO2",
-    "categorie": "Accessoires",
-    "description_courte": "Support ultra-résistant conçu pour maintenir votre bouteille de CO2.",
-    "description_longue": "Un support robuste et stable pensé pour maintenir fermement votre bouteille de CO2 en place. Sa structure renforcée garantit une excellente sécurité au quotidien.",
-    "prix": "15.00",
-    "materiau": "PETG Résistant",
-    "image": "CG/support_co2.png"
-  },
-  {
-    "id": 3,
-    "sku": "PROD-004",
-    "nom": "Marque-page Chat Plat",
-    "categorie": "Décoration",
-    "description_courte": "Marque-page amusant et très fin en forme de chat plat.",
-    "description_longue": "Apportez une touche d'humour à vos lectures avec ce marque-page chat plat ultra-fin. Conçu pour ne pas abîmer vos livres tout en restant bien en place.",
-    "prix": "2.00",
-    "materiau": "PLA Recyclé",
-    "image": "CG/marque_page_chat.png"
-  },
-  {
-    "id": 4,
-    "sku": "PROD-005",
-    "nom": "Enrouleur Mètre Ruban",
-    "categorie": "Rangement",
-    "description_courte": "Enrouleur compact et pratique pour mètre ruban.",
-    "description_longue": "Gardez votre mètre ruban toujours bien rangé et accessible grâce à cet enrouleur compact imprimé en bicolor pour un design soigné.",
-    "prix": "5.00",
-    "materiau": "PLA Bicolor",
-    "image": "CG/enrouleur_ruban.png"
-  },
-  {
-    "id": 5,
-    "sku": "PROD-006",
-    "nom": "Bougeoir Bas",
-    "categorie": "Décoration",
-    "description_courte": "Bougeoir moderne au design épuré.",
-    "description_longue": "Un bougeoir bas aux lignes modernes et épurées. Idéal pour habiller une table à manger ou une étagère avec une touche déco contemporaine.",
-    "prix": "4.00",
-    "materiau": "PLA Biodégradable",
-    "image": "CG/bougeoir_bas.png"
-  },
-  {
-    "id": 6,
-    "sku": "PROD-007",
-    "nom": "Bougeoir Haut",
-    "categorie": "Décoration",
-    "description_courte": "Bougeoir haut élégant pour vos bougies.",
-    "description_longue": "Version haute du bougeoir décoratif, parfaite pour créer du relief dans votre décoration intérieure ou à combiner avec le modèle bas.",
-    "prix": "4.00",
-    "materiau": "PLA Biodégradable",
-    "image": "CG/bougeoir_haut.png"
-  }
-]
+{
+  "filaments_disponibles": [
+    {
+      "id": 1,
+      "nom": "Violet Pasteur",
+      "matiere": "PLA",
+      "en_stock": true
+    },
+    {
+      "id": 2,
+      "nom": "Noir Profond",
+      "matiere": "PLA",
+      "en_stock": true
+    },
+    {
+      "id": 3,
+      "nom": "Blanc Pur",
+      "matiere": "PLA",
+      "en_stock": true
+    },
+    {
+      "id": 4,
+      "nom": "Orange Pastel",
+      "matiere": "PLA",
+      "en_stock": true
+    }
+  ],
+  "produits": [
+    {
+      "id": 1,
+      "sku": "Skadis_Casque_Support - Part 1",
+      "nom": "Support Casque Skadis",
+      "prix": 5.0,
+      "description_courte": "Objet imprimé en 3D avec précision.",
+      "description_longue": "Fabriqué à la commande avec du filament de haute qualité.",
+      "image": "CG/Casque_violet.png",
+      "bicolor": false,
+      "don_asso": false
+    },
+    {
+      "id": 2,
+      "sku": "PROD-002",
+      "nom": "Support Bouteille CO2",
+      "prix": 15.0,
+      "description_courte": "Objet imprimé en 3D avec précision.",
+      "description_longue": "Fabriqué à la commande avec du filament de haute qualité.",
+      "image": "CG/Logo.svg",
+      "bicolor": false,
+      "don_asso": false
+    },
+    {
+      "id": 3,
+      "sku": "PROD-004",
+      "nom": "marque pages chat Plat",
+      "prix": 2.0,
+      "description_courte": "Objet imprimé en 3D avec précision.",
+      "description_longue": "Fabriqué à la commande avec du filament de haute qualité.",
+      "image": "CG/Logo.svg",
+      "bicolor": false,
+      "don_asso": true
+    },
+    {
+      "id": 4,
+      "sku": "PROD-005",
+      "nom": "Enrouleur mètre ruban",
+      "prix": 5.0,
+      "description_courte": "Objet imprimé en 3D avec précision.",
+      "description_longue": "Fabriqué à la commande avec du filament de haute qualité.",
+      "image": "CG/Logo.svg",
+      "bicolor": true,
+      "don_asso": false
+    },
+    {
+      "id": 5,
+      "sku": "PROD-006",
+      "nom": "Bouegoir Bas",
+      "prix": 4.0,
+      "description_courte": "Objet imprimé en 3D avec précision.",
+      "description_longue": "Fabriqué à la commande avec du filament de haute qualité.",
+      "image": "CG/Logo.svg",
+      "bicolor": false,
+      "don_asso": false
+    },
+    {
+      "id": 6,
+      "sku": "PROD-007",
+      "nom": "Bouegoir Haut",
+      "prix": 4.0,
+      "description_courte": "Objet imprimé en 3D avec précision.",
+      "description_longue": "Fabriqué à la commande avec du filament de haute qualité.",
+      "image": "CG/Logo.svg",
+      "bicolor": false,
+      "don_asso": false
+    }
+  ]
+}
