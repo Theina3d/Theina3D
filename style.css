@@ -92,23 +92,17 @@ img {
 }
 
 /* 3. NAVIGATION */
-nav {
+nav, .barre-nav {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    padding: 15px 0;
-}
-
-.nav-content {
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .logo-zone {
@@ -132,21 +126,41 @@ nav {
     color: var(--orange-peps);
 }
 
-.nav-menu {
+.nav-menu, .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
     gap: 25px;
 }
 
-.nav-menu a {
+.nav-menu a, .nav-links a {
     color: var(--texte-sombre);
     font-weight: 600;
     font-size: 0.95rem;
 }
 
-.nav-menu a:hover, .nav-menu a.nav-active {
+.nav-menu a:hover, .nav-menu a.nav-active,
+.nav-links a:hover, .nav-links a.active {
     color: var(--violet-principal);
+}
+
+.btn-panier-header {
+    background: var(--violet-principal);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-pilule);
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-panier-header:hover {
+    background: var(--violet-fonce);
+    transform: translateY(-2px);
 }
 
 /* 4. BOUTONS */
@@ -163,25 +177,36 @@ nav {
     font-size: 0.95rem;
 }
 
-.btn-primary {
+.btn-primary, .btn-primaire, .btn-primaire-large {
     background: var(--orange-peps);
     color: white !important;
     box-shadow: 0 6px 18px rgba(251, 120, 55, 0.3);
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primaire:hover, .btn-primaire-large:hover {
     background: var(--orange-hover);
     transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(251, 120, 55, 0.4);
 }
 
-.btn-outline {
+.btn-primaire-large {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+}
+
+.btn-outline, .btn-secondaire {
     background: transparent;
     border: 2px solid var(--violet-principal);
     color: var(--violet-principal) !important;
+    border-radius: var(--radius-pilule);
+    padding: 8px 18px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
-.btn-outline:hover {
+.btn-outline:hover, .btn-secondaire:hover {
     background: var(--violet-pastel);
     transform: translateY(-2px);
 }
@@ -234,15 +259,27 @@ nav {
 }
 
 /* 6. CARTES & BOUTIQUE */
-.en-tete-page {
-    padding: 40px 0 10px 0;
+.conteneur, .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.titre-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titre-section h1 {
+    font-size: 2.5rem;
 }
 
 .card, .carte-produit {
     background: var(--bg-card);
     border-radius: var(--radius-grand);
     box-shadow: var(--ombre-douce);
-    padding: 30px;
+    padding: 20px;
     transition: var(--transition);
     border: 1px solid rgba(154, 127, 224, 0.12);
     display: flex;
@@ -259,8 +296,15 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 30px;
-    padding: 30px 0 60px 0;
+    padding: 20px 0 60px 0;
     min-height: 400px;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: var(--radius-moyen);
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .carte-produit .image-wrapper img, .carte-produit img {
@@ -268,6 +312,29 @@ nav {
     height: 220px;
     object-fit: cover;
     border-radius: var(--radius-moyen);
+}
+
+/* Badges */
+.badge-asso {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: #2e7d32;
+    color: white;
+    padding: 4px 10px;
+    border-radius: var(--radius-pilule);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.badge-bicolor {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: var(--orange-peps);
+    color: white;
+    padding: 4px 10px;
+    border-radius: var(--radius-pilule);
+    font-size: 0.75rem;
+    font-weight: bold;
 }
 
 .infos-produit {
@@ -294,7 +361,114 @@ nav {
     font-family: 'Bree Serif', serif;
 }
 
-/* 7. FOOTER */
+/* 7. MODALE & TIROIR PANIER */
+.modale-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(45, 37, 58, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000; padding: 20px;
+}
+
+.modale-contenu {
+    background: white;
+    border-radius: var(--radius-grand);
+    max-width: 600px; width: 100%;
+    padding: 30px; position: relative;
+    box-shadow: var(--ombre-hover);
+}
+
+.btn-fermer {
+    position: absolute; top: 15px; right: 15px;
+    background: none; border: none; font-size: 1.3rem;
+    cursor: pointer; color: var(--texte-doux);
+}
+
+.modale-grille {
+    display: flex; gap: 20px; flex-wrap: wrap;
+}
+
+.modale-col-image img {
+    width: 100%; height: 220px;
+    object-fit: cover; border-radius: var(--radius-moyen);
+}
+
+.prix-modale {
+    font-size: 1.5rem; font-weight: bold;
+    color: var(--violet-principal); font-family: 'Bree Serif', serif;
+}
+
+.tiroir-overlay {
+    position: fixed; top: 0; right: -100%;
+    width: 100%; height: 100%;
+    background: rgba(45, 37, 58, 0.4);
+    transition: right 0.3s ease; z-index: 2000;
+}
+
+.tiroir-overlay.actif { right: 0; }
+
+.tiroir-contenu {
+    position: absolute; top: 0; right: 0;
+    width: 100%; max-width: 400px; height: 100%;background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.tiroir-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--violet-pastel);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tiroir-corps {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.ligne-panier {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--violet-pastel);
+}
+
+.ligne-panier img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: var(--radius-moyen);
+}
+
+.tiroir-footer {
+    padding: 20px;
+    background: var(--bg-page);
+    border-top: 1px solid var(--violet-pastel);
+}
+
+.choix-livraison label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    cursor: pointer;
+    color: var(--texte-sombre);
+}
+
+.ligne-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 15px 0;
+    color: var(--violet-fonce);
+    font-family: 'Bree Serif', serif;
+}
+
+/* 8. FOOTER */
 footer {
     background: white;
     padding: 50px 0 20px 0;
@@ -400,7 +574,7 @@ footer {
     padding-top: 20px;
 }
 
-/* 8. RESPONSIVE MOBILE */
+/* 9. RESPONSIVE MOBILE */
 @media (max-width: 768px) {
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
@@ -415,7 +589,7 @@ footer {
         justify-content: center;
     }
 
-    .nav-content {
+    .nav-content, .barre-nav {
         flex-direction: column;
         gap: 15px;
     }
