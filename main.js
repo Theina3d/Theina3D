@@ -1,76 +1,116 @@
-// Variable globale pour le panier
+// ÉTAT GLOBAL DE LA BOUTIQUE
+let donneesBoutique = { filaments_disponibles: [], produits: [] };
 let panier = JSON.parse(localStorage.getItem('panierTheina3D')) || [];
-let tousLesProduits = [];
 
-// 1. CHARGEMENT ET AFFICHAGE DES PRODUITS
+// INITIALISATION
+document.addEventListener('DOMContentLoaded', () => {
+  chargerBoutique();
+  rafraichirPanierUI();
+});
+
+// 1. CHARGEMENT DE PRODUITS.JSON
 async function chargerBoutique() {
   const conteneur = document.getElementById('liste-produits');
   if (!conteneur) return;
 
   try {
     const reponse = await fetch('produits.json');
-    tousLesProduits = await reponse.json();
-
-    conteneur.innerHTML = tousLesProduits.map(p => {
-      const prixFormate = Number(p.prix).toFixed(2);
-      return `
-        <div class="card carte-produit">
-          <div class="image-wrapper" style="position: relative; cursor: pointer;" onclick="ouvrirModale(${p.id})">
-            <img src="${p.image}" alt="${p.nom}" onerror="this.src='CG/Logo.svg'" style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
-          </div>
-          <div class="infos-produit" style="padding: 15px 0;">
-            <h3 style="margin: 5px 0; cursor: pointer;" onclick="ouvrirModale(${p.id})">${p.nom}</h3>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">${p.description_courte || ''}</p>
-            
-            <div class="bas-carte" style="display:flex; justify-content:space-between; align-items:center; margin-top:15px;">
-              <span class="prix" style="font-size:1.2rem; font-weight:bold; color:#4a148c;">${prixFormate} €</span>
-              <button class="btn btn-secondary" onclick="ouvrirModale(${p.id})" style="padding:6px 12px; margin-right:5px;">👁️ Aperçu</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }).join('');
-
+    donneesBoutique = await reponse.json();
+    afficherProduits(donneesBoutique.produits);
   } catch (erreur) {
-    console.error("Erreur de chargement des produits :", erreur);
-    conteneur.innerHTML = "<p>Impossible de charger la boutique pour le moment.</p>";
+    console.error("Erreur de chargement des données :", erreur);
+    conteneur.innerHTML = `<p style="text-align:center; color:#c62828;">Impossible de charger le catalogue. Pense à lancer 'python export_excel.py'.</p>`;
   }
 }
 
-// 2. MODALE DÉTAILS PRODUIT
-function ouvrirModale(id) {
-  const p = tousLesProduits.find(item => item.id === id);
+// 2. AFFICHAGE DE LA GRILLE DES PRODUITS
+function afficherProduits(produits) {
+  const conteneur = document.getElementById('liste-produits');
+  if (!conteneur) return;
+
+  conteneur.innerHTML = produits.map(p => {
+    const prixFormate = Number(p.prix).toFixed(2);
+    
+    const badgeAsso = p.don_asso 
+      ? `<span class="badge-asso">🎗️ 50% pour l'asso</span>` 
+      : '';
+
+    const badgeBicolor = p.bicolor 
+      ? `<span class="badge-bicolor">🧩 Multi-pièces</span>` 
+      : '';
+
+    return `
+      <div class="carte-produit">
+        <div class="image-wrapper" onclick="ouvrirModale(${p.id})">
+          ${badgeAsso}
+          ${badgeBicolor}
+          <img src="${p.image}" alt="${p.nom}" onerror="this.src='CG/Logo.svg'">
+        </div>
+        <div class="infos-produit">
+          <h3 onclick="ouvrirModale(${p.id})">${p.nom}</h3>
+          <p class="description-courte">${p.description_courte || ''}</p>
+          <div class="bas-carte">
+            <span class="prix">${prixFormate} €</span>
+            <button class="btn btn-secondaire" onclick="ouvrirModale(${p.id})">👁️ Aperçu</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// 3. MODALE VISUALISATION ET PERSONNALISATION
+function ouvrirModale(idProduit) {
+  const p = donneesBoutique.produits.find(item => item.id === idProduit);
   if (!p) return;
 
-  // Création dynamique des options de couleur
-  const couleurs = p.couleurs_disponibles || ['Violet', 'Noir', 'Blanc', 'Gris'];
-  const optionsCouleurs = couleurs.map(c => `<option value="${c}">${c}</option>`).join('');
+  // Options de couleur depuis le stock global de filaments
+  const optionsCouleurs = (donneesBoutique.filaments_disponibles || []).map(f => {
+    if (f.en_stock) {
+      return `<option value="${f.nom}">${f.nom} (${f.matiere})</option>`;
+    } else {
+      return `<option value="${f.nom}" disabled>${f.nom} — Rupture</option>`;
+    }
+  }).join('');
 
-  // Injection du HTML de la modale
+  const blocAsso = p.don_asso ? `
+    <div class="encadre-asso">
+      <span>🎗️</span>
+      <p><strong>Produit Solidaire :</strong> 50% des bénéfices générés par cet article sont reversés à notre association partenaire.</p>
+    </div>
+  ` : '';
+
+  const blocBicolor = p.bicolor ? `
+    <p class="note-bicolor">🧩 Cet objet est un assemblage de plusieurs pièces imprimées séparément.</p>
+  ` : '';
+
   const modaleHTML = `
-    <div id="modale-produit" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:1000; padding:20px;">
-      <div style="background:white; border-radius:12px; max-width:600px; width:100%; max-height:90vh; overflow-y:auto; padding:25px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+    <div id="modale-produit" class="modale-overlay">
+      <div class="modale-contenu">
+        <button class="btn-fermer" onclick="fermerModale()">✖</button>
         
-        <button onclick="fermerModale()" style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:1.5rem; cursor:pointer;">✖</button>
-        
-        <div style="display:flex; gap:20px; flex-wrap:wrap;">
-          <div style="flex:1; min-width:200px;">
-            <img id="image-principale-modale" src="${p.image}" alt="${p.nom}" style="width:100%; height:220px; object-fit:cover; border-radius:8px;" onerror="this.src='CG/Logo.svg'">
+        <div class="modale-grille">
+          <div class="modale-col-image">
+            <img src="${p.image}" alt="${p.nom}" onerror="this.src='CG/Logo.svg'">
+            ${blocBicolor}
           </div>
           
-          <div style="flex:1.2; min-width:220px;">
-            <h2 style="margin-top:0;">${p.nom}</h2>
-            <p style="font-size:1.3rem; font-weight:bold; color:#4a148c; margin:10px 0;">${Number(p.prix).toFixed(2)} €</p>
-            <p style="color:#555; font-size:0.9rem; line-height:1.4;">${p.description_longue || p.description_courte || ''}</p>
+          <div class="modale-col-infos">
+            <h2>${p.nom}</h2>
+            <p class="prix-modale">${Number(p.prix).toFixed(2)} €</p>
             
-            <div style="margin: 15px 0;">
-              <label for="choix-couleur" style="font-weight:bold; display:block; margin-bottom:5px;">Couleur :</label>
+            ${blocAsso}
+
+            <p class="description-longue">${p.description_longue || p.description_courte || ''}</p>
+            
+            <div class="champ-choix" style="margin: 15px 0;">
+              <label for="choix-couleur" style="font-weight:bold; display:block; margin-bottom:5px;">Couleur du filament :</label>
               <select id="choix-couleur" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
                 ${optionsCouleurs}
               </select>
             </div>
 
-            <button class="btn btn-primary" style="width:100%; padding:10px; margin-top:10px;" onclick="ajouterAuPanierDepuisModale(${p.id}, '${p.nom.replace(/'/g, "\\'")}', ${p.prix}, '${p.image}')">
+            <button class="btn btn-primaire" style="width:100%; padding:10px;" onclick="ajouterAuPanierDepuisModale(${p.id})">
               Ajouter au panier 🛒
             </button>
           </div>
@@ -83,58 +123,105 @@ function ouvrirModale(id) {
 }
 
 function fermerModale() {
-  const modale = document.getElementById('modale-produit');
-  if (modale) modale.remove();
+  const m = document.getElementById('modale-produit');
+  if (m) m.remove();
 }
 
-function ajouterAuPanierDepuisModale(id, nom, prix, image) {
-  const couleurChoisie = document.getElementById('choix-couleur')?.value || 'Défaut';
-  ajouterAuPanier(id, nom, prix, image, couleurChoisie);
-  fermerModale();
-}
+function ajouterAuPanierDepuisModale(idProduit) {
+  const p = donneesBoutique.produits.find(item => item.id === idProduit);
+  if (!p) return;
 
-// 3. GESTION DU PANIER
-function ajouterAuPanier(id, nom, prix, image, couleur = 'Défaut') {
-  // On différencie les articles par ID ET par Couleur
-  const articleExistant = panier.find(item => item.id === id && item.couleur === couleur);
+  const couleurSelect = document.getElementById('choix-couleur').value;
+  const indexExistant = panier.findIndex(item => item.id === idProduit && item.couleur === couleurSelect);
 
-  if (articleExistant) {
-    articleExistant.quantite += 1;
+  if (indexExistant > -1) {
+    panier[indexExistant].quantite += 1;
   } else {
-    panier.push({ id, nom, prix: Number(prix), image, couleur, quantite: 1 });
+    panier.push({
+      id: p.id,
+      sku: p.sku,
+      nom: p.nom,
+      prix: Number(p.prix),
+      image: p.image,
+      couleur: couleurSelect,
+      quantite: 1
+    });
   }
 
-  enregistrerEtMettreAJour();
-  alert(`"${nom}" (${couleur}) ajouté au panier !`);
+  sauvegarderPanier();
+  fermerModale();
+  ouvrirTiroirPanier();
 }
 
-function modifierQuantite(id, couleur, delta) {
-  const article = panier.find(item => item.id === id && item.couleur === couleur);
-  if (!article) return;
-
-  article.quantite += delta;
-  if (article.quantite <= 0) {
-    panier = panier.filter(item => !(item.id === id && item.couleur === couleur));
+// 4. GESTION ET MISE À JOUR DU PANIER
+function modifierQuantite(index, changement) {
+  panier[index].quantite += changement;
+  if (panier[index].quantite <= 0) {
+    panier.splice(index, 1);
   }
-
-  enregistrerEtMettreAJour();
-  if (typeof afficherPanier === 'function') afficherPanier();
+  sauvegarderPanier();
 }
 
-function enregistrerEtMettreAJour() {
+function supprimerArticle(index) {
+  panier.splice(index, 1);
+  sauvegarderPanier();
+}
+
+function sauvegarderPanier() {
   localStorage.setItem('panierTheina3D', JSON.stringify(panier));
-  mettreAJourBullePanier();
+  rafraichirPanierUI();
 }
 
-function mettreAJourBullePanier() {
-  const compteur = document.getElementById('compteur-panier');
-  if (compteur) {
-    const totalArticles = panier.reduce((sum, item) => sum + item.quantite, 0);
-    compteur.textContent = totalArticles;
+function rafraichirPanierUI() {
+  const compteurs = document.querySelectorAll('.compteur-panier');
+  const totalArticles = panier.reduce((sum, item) => sum + item.quantite, 0);
+  compteurs.forEach(c => c.textContent = totalArticles);
+
+  const conteneurArticles = document.getElementById('panier-liste-articles');
+  if (conteneurArticles) {
+    if (panier.length === 0) {
+      conteneurArticles.innerHTML = `<p style="text-align:center; padding:20px; color:#888;">Votre panier est vide 🛒</p>`;
+    } else {
+      conteneurArticles.innerHTML = panier.map((item, index) => `
+        <div class="ligne-panier">
+          <img src="${item.image}" alt="${item.nom}" onerror="this.src='CG/Logo.svg'">
+          <div class="details-ligne" style="flex:1;">
+            <h4 style="margin:0 0 3px 0;">${item.nom}</h4>
+            <p style="margin:0; font-size:0.8rem; color:#666;">Couleur: <strong>${item.couleur}</strong></p>
+            <p style="margin:2px 0 0 0; font-weight:bold; color:#4a148c;">${item.prix.toFixed(2)} €</p>
+          </div>
+          <div class="qte-controle" style="display:flex; align-items:center; gap:5px;">
+            <button onclick="modifierQuantite(${index}, -1)">-</button>
+            <span>${item.quantite}</span>
+            <button onclick="modifierQuantite(${index}, 1)">+</button>
+          </div>
+          <button class="btn-supprimer" onclick="supprimerArticle(${index})" style="background:none; border:none; cursor:pointer; font-size:1.1rem; margin-left:10px;">🗑️</button>
+        </div>
+      `).join('');
+    }
   }
+
+  calculerEtAfficherTotalPanier();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  chargerBoutique();
-  mettreAJourBullePanier();
-});
+function calculerEtAfficherTotalPanier() {
+  const affichageTotal = document.getElementById('panier-total-prix');
+  if (!affichageTotal) return;
+
+  const totalSousTotal = panier.reduce((sum, item) => sum + (item.prix * item.quantite), 0);
+  const optionLivraison = document.querySelector('input[name="livraison"]:checked');
+  const fraisLivraison = parseFloat(optionLivraison ? optionLivraison.value : 3.90);
+
+  const totalFinal = totalSousTotal + (panier.length > 0 ? fraisLivraison : 0);
+  affichageTotal.textContent = `${totalFinal.toFixed(2)} €`;
+}
+
+function ouvrirTiroirPanier() {
+  const tiroir = document.getElementById('tiroir-panier');
+  if (tiroir) tiroir.classList.add('actif');
+}
+
+function fermerTiroirPanier() {
+  const tiroir = document.getElementById('tiroir-panier');
+  if (tiroir) tiroir.classList.remove('actif');
+}

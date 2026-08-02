@@ -4,45 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boutique - Theina3D</title>
-  
   <link rel="stylesheet" href="style.css">
-  
   <script src="main.js" defer></script>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-content">
-      <a href="index.html" class="logo-zone">
-        <img src="CG/Logo.svg" alt="Logo Theina3D" class="logo-img">
-        <span class="logo-nom">Theina<span>3D</span></span>
-      </a>
-      <ul class="nav-menu">
+  <header class="barre-nav">
+    <a href="index.html" class="logo-zone">
+      <img src="CG/Logo.svg" alt="Logo Theina3D" class="logo-img">
+      <span class="logo-nom">Theina<span>3D</span></span>
+    </a>
+    <nav>
+      <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="boutique.html" class="nav-active">Boutique</a></li>
+        <li><a href="boutique.html" class="active">Boutique</a></li>
         <li><a href="projets.html">Sur-Mesure</a></li>
-        <li> <a href="panier.html" class="lien-panier">🛒 Panier <span id="compteur-panier" style="background:#e65100; color:white; border-radius:50%; padding:2px 7px; font-size:0.8rem;">0</span> </a></li>
-
       </ul>
-    </div>
-    
-  </nav>
+    </nav>
+    <button class="btn-panier-header" onclick="ouvrirTiroirPanier()">
+      🛒 Panier (<span class="compteur-panier">0</span>)
+    </button>
+  </header>
 
-  <main class="container">
-    <section class="en-tete-page text-center">
-      <h1>Nos Créations <em>3D</em></h1>
+  <main class="conteneur">
+    <div class="titre-section">
+      <h1>Nos Créations <span>3D</span></h1>
       <p>Découvrez nos impressions 3D faites avec précision.</p>
-    </section>
+    </div>
 
-    <section id="liste-produits" class="grille-produits">
-      </section>
+    <div id="liste-produits" class="grille-produits"></div>
   </main>
 
-  <footer>
-    <div class="container conteneur-footer">
-      <p>&copy; 2026 Theina3D. Tous droits réservés.</p>
+  <div id="tiroir-panier" class="tiroir-overlay">
+    <div class="tiroir-contenu">
+      <div class="tiroir-header">
+        <h3>Votre Panier 🛒</h3>
+        <button onclick="fermerTiroirPanier()" class="btn-fermer">✖</button>
+      </div>
+
+      <div id="panier-liste-articles" class="tiroir-corps">
+        </div>
+
+      <div class="tiroir-footer">
+        <div class="choix-livraison">
+          <h4>Mode de livraison</h4>
+          <label><input type="radio" name="livraison" value="3.90" checked onchange="calculerEtAfficherTotalPanier()"> 📦 Mondial Relay (3.90 €)</label>
+          <label><input type="radio" name="livraison" value="6.50" onchange="calculerEtAfficherTotalPanier()"> 🏠 Colissimo (6.50 €)</label>
+          <label><input type="radio" name="livraison" value="0.00" onchange="calculerEtAfficherTotalPanier()"> 🤝 Retrait sur place (Gratuit)</label>
+        </div>
+
+        <div class="ligne-total">
+          <span>Total à payer :</span>
+          <strong id="panier-total-prix">0.00 €</strong>
+        </div>
+
+        <button class="btn btn-primaire-large" onclick="alert('Commande validée !')">
+          Passer la commande
+        </button>
+      </div>
     </div>
-  </footer>
+  </div>
 
 </body>
 </html>
